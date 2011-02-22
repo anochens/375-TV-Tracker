@@ -1,4 +1,6 @@
 TvTracker::Application.routes.draw do
+  resources :channels
+
   resources :series_items
 
   # The priority is based upon order of creation:

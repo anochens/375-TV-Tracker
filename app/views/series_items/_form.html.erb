@@ -2,7 +2,7 @@
   <%= f.error_messages %>
   <p>
     <%= f.label :channel_id %><br />
-    <%= f.text_field :channel_id %>
+    <%= f.collection_select :channel_id,Channel.all, :id, :name,:include_blank=>true %>
   </p>
   <p>
     <%= f.label :name %><br />

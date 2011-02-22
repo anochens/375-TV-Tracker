@@ -1,0 +1,25 @@
+<% title "Channel" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @channel.name %>
+</p>
+ 
+<p>
+  <strong>Series:</strong>
+  <% if @channel.series_items.size > 0 %>
+     <ul>
+        <% @channel.series_items.each do |s| %>
+           <li><%= s %></li>
+        <% end %>
+     </ul>  
+  <% else %> 
+     This channel has no series
+  <% end %>   
+</p>
+
+<p>
+  <%= link_to "Edit", edit_channel_path(@channel) %> |
+  <%= link_to "Destroy", @channel, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", channels_path %>
+</p>

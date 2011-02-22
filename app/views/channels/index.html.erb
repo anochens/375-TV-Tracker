@@ -1,0 +1,29 @@
+<% title "Channels" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Series</th>
+  </tr>
+  <% for channel in @channels %>
+    <tr>
+      <td><%= channel.name %></td>
+      <td>  
+        <% if channel.series_items.size > 0 %>
+           <ul>
+              <% channel.series_items.each do |s| %>
+                 <li><%= s %></li>
+              <% end %>
+           </ul>  
+        <% else %> 
+           This channel has no series
+        <% end %>   
+      </td>
+      <td><%= link_to "Show", channel %></td>
+      <td><%= link_to "Edit", edit_channel_path(channel) %></td>
+      <td><%= link_to "Destroy", channel, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Channel", new_channel_path %></p>
