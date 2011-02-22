@@ -1,0 +1,20 @@
+<% title "Series Item" %>
+
+<p>
+  <strong>Channel:</strong>
+  <%= @series_item.channel_id %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @series_item.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @series_item.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_series_item_path(@series_item) %> |
+  <%= link_to "Destroy", @series_item, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", series_items_path %>
+</p>
