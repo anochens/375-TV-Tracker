@@ -2,7 +2,7 @@
   <%= f.error_messages %>
   <p>
     <%= f.label "Series" %>
-    <%= f.collection_select :series_item_id,SeriesItem.all, :id,:to_s,:include_blank => true %>
+    <%= f.collection_select :series_item_id,SeriesItem.all, :id,:to_s %>
   </p>
   <p>
     <%= f.label :season_number %>
