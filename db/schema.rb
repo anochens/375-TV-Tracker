@@ -10,10 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110223015314) do
+ActiveRecord::Schema.define(:version => 20110223030951) do
 
   create_table "channels", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "episodes", :force => true do |t|
+    t.integer  "season_id"
+    t.integer  "episode_number"
+    t.integer  "duration"
+    t.date     "air_date"
+    t.integer  "start_est"
+    t.integer  "start_cst"
+    t.integer  "start_pst"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
