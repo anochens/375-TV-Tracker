@@ -3,6 +3,7 @@ class SeriesItem < ActiveRecord::Base
 
   validates_presence_of :name
   belongs_to :channel
+  has_many :seasons, :dependent => :delete_all
 
   def to_s
     name

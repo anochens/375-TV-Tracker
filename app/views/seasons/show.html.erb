@@ -1,0 +1,28 @@
+<% title "Season" %>
+
+<p>
+  <strong>Series Item:</strong>
+  <%= @season.series_item %>
+</p>
+<p>
+  <strong>Season Number:</strong>
+  <%= @season.season_number %>
+</p>
+<p>
+  <strong>Start Date:</strong>
+  <%= @season.start_date %>
+</p>
+<p>
+  <strong>End Date:</strong>
+  <%= @season.end_date %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @season.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_season_path(@season) %> |
+  <%= link_to "Destroy", @season, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", seasons_path %>
+</p>

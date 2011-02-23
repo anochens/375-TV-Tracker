@@ -1,4 +1,6 @@
 TvTracker::Application.routes.draw do
+  resources :seasons
+
   resources :channels
 
   resources :series_items
