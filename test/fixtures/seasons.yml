@@ -1,0 +1,13 @@
+one:
+  series_item_id: 1
+  season_number: 1
+  start_date: 2011-02-22
+  end_date: 2011-02-22
+  description: MyText
+
+two:
+  series_item_id: 1
+  season_number: 1
+  start_date: 2011-02-22
+  end_date: 2011-02-22
+  description: MyText

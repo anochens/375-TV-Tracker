@@ -1,0 +1,21 @@
+<% title "Series" %>
+
+<table>
+  <tr>
+    <th>Channel</th>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <% for series_item in @series_items %>
+    <tr>
+      <td><%= series_item.channel %></td>
+      <td><%= series_item.name %></td>
+      <td><%= series_item.description %></td>
+      <td><%= link_to "Show", series_item %></td>
+      <td><%= link_to "Edit", edit_series_item_path(series_item) %></td>
+      <td><%= link_to "Destroy", series_item, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Series", new_series_item_path %></p>

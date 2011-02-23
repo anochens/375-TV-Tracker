@@ -1,0 +1,17 @@
+<% title "Channel" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @channel.name %>
+</p>
+ 
+<p>
+  <strong>Series:</strong>
+  <%= raw(listify(@channel.series_items)) %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_channel_path(@channel) %> |
+  <%= link_to "Destroy", @channel, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", channels_path %>
+</p>
