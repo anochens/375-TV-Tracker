@@ -7,15 +7,7 @@
  
 <p>
   <strong>Series:</strong>
-  <% if @channel.series_items.size > 0 %>
-     <ul>
-        <% @channel.series_items.each do |s| %>
-           <li><%= s %></li>
-        <% end %>
-     </ul>  
-  <% else %> 
-     This channel has no series
-  <% end %>   
+  <%= raw(listify(@channel.series_items)) %>
 </p>
 
 <p>

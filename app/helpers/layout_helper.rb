@@ -19,4 +19,13 @@ module LayoutHelper
   def javascript(*args)
     content_for(:head) { javascript_include_tag(*args) }
   end
+
+  def listify(arr = [])
+    result = ""
+    arr.each{ |e| result << "<li>#{e}</li>"}
+
+    return "<ul> #{result} </ul>" if result != ""
+
+    "None"
+  end
 end
