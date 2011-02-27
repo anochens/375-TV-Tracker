@@ -1,0 +1,24 @@
+<% title "Role" %>
+
+<p>
+  <strong>Series Item:</strong>
+  <%= @role.series_item %>
+</p>
+<p>
+  <strong>Actor:</strong>
+  <%= @role.actor %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @role.description %>
+</p>
+<p>
+  <strong>Character Name:</strong>
+  <%= @role.character_name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_role_path(@role) %> |
+  <%= link_to "Destroy", @role, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", roles_path %>
+</p>
