@@ -2,19 +2,11 @@
 
 <table>
   <tr>
-    <th>User</th>
     <th>Series Item</th>
     <th>Watched</th>
   </tr>
   <% for list_item in @list_items %>
-    <tr>
-      <td><%= list_item.user.username %></td>
-      <td><%= list_item.series_item %></td>
-      <td><%= list_item.watched %></td>
-      <td><%= link_to "Show", list_item %></td>
-      <td><%= link_to "Edit", edit_list_item_path(list_item) %></td>
-      <td><%= link_to "Destroy", list_item, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
+     <%= render :partial => "field", :locals => {:list_item => list_item} %>
   <% end %>
 </table>
 

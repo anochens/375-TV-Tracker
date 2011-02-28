@@ -1,6 +1,6 @@
 class ListItemsController < ApplicationController
   def index
-    @list_items = ListItem.all
+    @list_items = current_user.list_items
   end
 
   def show
