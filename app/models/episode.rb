@@ -1,5 +1,5 @@
 class Episode < ActiveRecord::Base
-  attr_accessible :season_id, :episode_number, :duration, :air_date, :start_est, :start_cst, :start_pst, :description
+  attr_accessible :season_id, :episode_number, :duration, :air_date, :start_est, :start_cst, :start_pst, :description, :name, :imdb_id
 
   validates :season_id, :presence => true, :numericality => true
   validates :episode_number, :presence => true, :numericality => true

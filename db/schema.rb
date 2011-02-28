@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110228015346) do
+ActiveRecord::Schema.define(:version => 20110228034951) do
 
   create_table "actors", :force => true do |t|
     t.string   "last_name"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(:version => 20110228015346) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "imdb_id"
   end
 
   create_table "list_items", :force => true do |t|
@@ -78,6 +80,13 @@ ActiveRecord::Schema.define(:version => 20110228015346) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "watched_episodes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "episode_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
