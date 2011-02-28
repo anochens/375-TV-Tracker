@@ -1,13 +1,9 @@
-<% title "List Items" %>
+<% title "Shows I Follow" %>
 
 <table>
-  <tr>
-    <th>Series Item</th>
-    <th>Watched</th>
-  </tr>
   <% for list_item in @list_items %>
      <%= render :partial => "field", :locals => {:list_item => list_item} %>
   <% end %>
 </table>
 
-<p><%= link_to "New List Item", new_list_item_path %></p>
+<p><%= link_to "Follow another show?", new_list_item_path %></p>

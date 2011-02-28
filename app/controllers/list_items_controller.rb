@@ -17,7 +17,7 @@ class ListItemsController < ApplicationController
     @list_item = ListItem.new(params[:list_item])
     if @list_item.save
       flash[:notice] = "Successfully created list item."
-      redirect_to @list_item
+      redirect_to list_items_url
     else
       render :action => 'new'
     end
@@ -31,7 +31,7 @@ class ListItemsController < ApplicationController
     @list_item = ListItem.find(params[:id])
     if @list_item.update_attributes(params[:list_item])
       flash[:notice] = "Successfully updated list item."
-      redirect_to @list_item
+      redirect_to list_items_url
     else
       render :action => 'edit'
     end

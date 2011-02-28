@@ -4,9 +4,5 @@
     <%= f.label :series %>
     <%= f.collection_select :series_item_id,SeriesItem.all, :id, :to_s %>
   </p>
-  <p>
-    <%= f.label :watched %>
-    <%= f.check_box :watched %>
-  </p>
   <p><%= f.submit %></p>
 <% end %>

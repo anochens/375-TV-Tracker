@@ -1,5 +1,5 @@
 class ListItem < ActiveRecord::Base
-  attr_accessible :user_id, :series_item_id, :watched
+  attr_accessible :user_id, :series_item_id
   
   belongs_to :series_item
   belongs_to :user
