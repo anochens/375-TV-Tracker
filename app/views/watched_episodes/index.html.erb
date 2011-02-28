@@ -1,0 +1,15 @@
+<% title "Watched Episodes" %>
+
+<table>
+  <tr>
+    <th>Episode</th>
+  </tr>
+  <% for watched_episode in @watched_episodes %>
+    <tr>
+      <td><%= watched_episode.episode %></td>
+      <td><%= link_to "Remove", watched_episode, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Watched Episode", new_watched_episode_path %></p>

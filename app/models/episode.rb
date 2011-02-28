@@ -12,4 +12,8 @@ class Episode < ActiveRecord::Base
   def series
      series_item
   end
+
+  def to_s
+     "#{series}: Episode #{episode_number}"
+  end
 end

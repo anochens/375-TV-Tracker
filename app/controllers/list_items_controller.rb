@@ -29,6 +29,7 @@ class ListItemsController < ApplicationController
 
   def update
     @list_item = ListItem.find(params[:id])
+    params[:list_item][:user_id] = current_user.id
     if @list_item.update_attributes(params[:list_item])
       flash[:notice] = "Successfully updated list item."
       redirect_to list_items_url

@@ -1,6 +1,8 @@
 TvTracker::Application.routes.draw do
   
   
+  resources :watched_episodes
+
   resources :list_items
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user

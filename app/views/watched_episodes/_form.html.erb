@@ -1,0 +1,8 @@
+<%= form_for @watched_episode do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :episode_id %>
+    <%= f.collection_select :episode_id,Episode.all, :id,:to_s %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
