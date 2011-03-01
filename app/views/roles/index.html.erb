@@ -1,0 +1,23 @@
+<% title "Roles" %>
+
+<table>
+  <tr>
+    <th>Series Item</th>
+    <th>Actor</th>
+    <th>Description</th>
+    <th>Character Name</th>
+  </tr>
+  <% for role in @roles %>
+    <tr>
+      <td><%= role.series_item %></td>
+      <td><%= role.actor %></td>
+      <td><%= role.description %></td>
+      <td><%= role.character_name %></td>
+      <td><%= link_to "Show", role %></td>
+      <td><%= link_to "Edit", edit_role_path(role) %></td>
+      <td><%= link_to "Destroy", role, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Role", new_role_path %></p>

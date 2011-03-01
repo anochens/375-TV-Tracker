@@ -12,7 +12,6 @@
         <%= raw(listify(channel.series_items)) %>
       </td>
       <td><%= link_to "Show", channel %></td>
-      <td><%= link_to "Edit", edit_channel_path(channel) %></td>
       <td><%= link_to "Destroy", channel, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>

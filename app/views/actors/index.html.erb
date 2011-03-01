@@ -1,0 +1,21 @@
+<% title "Actors" %>
+
+<table>
+  <tr>
+    <th>Last Name</th>
+    <th>First Name</th>
+    <th>Description</th>
+  </tr>
+  <% for actor in @actors %>
+    <tr>
+      <td><%= actor.last_name %></td>
+      <td><%= actor.first_name %></td>
+      <td><%= actor.description %></td>
+      <td><%= link_to "Show", actor %></td>
+      <td><%= link_to "Edit", edit_actor_path(actor) %></td>
+      <td><%= link_to "Destroy", actor, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Actor", new_actor_path %></p>

@@ -1,5 +1,5 @@
 class Episode < ActiveRecord::Base
-  attr_accessible :season_id, :episode_number, :duration, :air_date, :start_est, :start_cst, :start_pst, :description
+  attr_accessible :season_id, :episode_number, :duration, :air_date, :start_est, :start_cst, :start_pst, :description, :name, :imdb_id
 
   validates :season_id, :presence => true, :numericality => true
   validates :episode_number, :presence => true, :numericality => true
@@ -11,5 +11,9 @@ class Episode < ActiveRecord::Base
 
   def series
      series_item
+  end
+
+  def to_s
+     "#{series}: Episode #{episode_number}"
   end
 end
