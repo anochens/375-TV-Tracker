@@ -16,8 +16,8 @@
       <td><%= episode.start_pst %></td>
 <% end %>      
       <td><%= episode.description_small %></td>
+      <td><%= link_to "More", episode %></td>
 <% unless min %>      
-      <td><%= link_to "Show", episode %></td>
       <td><%= link_to "Edit", edit_episode_path(episode) %></td>
       <td><%= link_to "Destroy", episode, :confirm => 'Are you sure?', :method => :delete %></td> 
 <% end %>      
