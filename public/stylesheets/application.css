@@ -1,5 +1,5 @@
 body {
-  background-color: #ffffff;
+  background-color: #042d6b;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
 }
@@ -9,7 +9,7 @@ a img {
 }
 
 a {
-  color: #0000FF;
+  color: #FFFFFF;
 }
 
 .clear {
@@ -23,7 +23,7 @@ a {
   margin: 0 auto;
   background-color: #042d6b;
   padding: 10px;
-  border: solid 1px black;
+  border: none
   margin-top: 20px;
 }
 
