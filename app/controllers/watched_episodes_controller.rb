@@ -17,8 +17,8 @@ class WatchedEpisodesController < ApplicationController
     params[:watched_episode][:user_id] = current_user.id
     @watched_episode = WatchedEpisode.new(params[:watched_episode])
     if @watched_episode.save
-      flash[:notice] = "Successfully created watched episode."
-      redirect_to watched_episodes_url
+#     flash[:notice] = "Successfully created watched episode."
+      redirect_to :back
     else
       render :action => 'new'
     end
@@ -43,6 +43,6 @@ class WatchedEpisodesController < ApplicationController
     @watched_episode = WatchedEpisode.find(params[:id])
     @watched_episode.destroy
     flash[:notice] = "Successfully destroyed watched episode."
-    redirect_to watched_episodes_url
+    redirect_to :back
   end
 end
