@@ -1,5 +1,5 @@
 body {
-  background-color: #4B7399;
+  background-color: #ffffff;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
 }
@@ -19,12 +19,19 @@ a {
 }
 
 #container {
-  width: 75%;
+  width: 60%;
   margin: 0 auto;
-  background-color: #FFF;
-  padding: 20px 40px;
+  background-color: #042d6b;
+  padding: 10px;
   border: solid 1px black;
   margin-top: 20px;
+}
+
+#mainmenubar{
+  background-image: url(../images/mainmenubar.gif);
+  height: 57px;
+  width: 100%;
+  
 }
 
 #flash_notice, #flash_error, #flash_alert {
