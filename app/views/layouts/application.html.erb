@@ -22,6 +22,16 @@
    bad_controllers = ["sessions","application","users","home"];
                       
    %>                  
+   <div style="float:right">
+      <% if logged_in? %>
+         Welcome <%= current_user.username %>! 
+         <%= link_to "Log out", logout_path %>
+         <br/><br/>
+      <% else %>
+         <%= link_to "Sign up", signup_path %> or
+         <%= link_to "Log in", login_path %>.
+      <% end %>    
+   </div>
      <table><tr><td style="border:1px solid black;padding:3px"><%
    controllers.sort{|a,b| a.to_s.upcase <=> b.to_s.upcase}.each do |control|
       if control =~ /_controller/ && 

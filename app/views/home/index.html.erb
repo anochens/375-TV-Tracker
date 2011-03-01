@@ -1,9 +1,6 @@
 <% title "Welcome to TVTracker" %>
 
 <% if logged_in? %>
-   Welcome <%= current_user.username %>! 
-   <%= link_to "Log out", logout_path %>
-   <br/><br/>
    <% if current_user.list_items.size == 0 %>
       You do not follow any shows, yet.
    <% else %>  
