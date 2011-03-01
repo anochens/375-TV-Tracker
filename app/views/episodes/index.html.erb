@@ -17,6 +17,7 @@
   <% for episode in @episodes %>
     <tr>
        <%= render :partial => "episode_row", :locals => {:episode => episode} %>
+       <td><%= link_to "I've seen this", {:controller => "watched_episodes", :action => "create","watched_episode[episode_id]"=>episode.id}, :method=>:post  %></td>
     </tr>
   <% end %>
 </table>

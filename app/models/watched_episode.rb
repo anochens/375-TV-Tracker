@@ -3,4 +3,7 @@ class WatchedEpisode < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :episode
+
+  validates :episode_id, :presence => true, :uniqueness => true
+  validates_presence_of :user_id
 end

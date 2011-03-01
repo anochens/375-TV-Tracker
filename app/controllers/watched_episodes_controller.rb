@@ -13,6 +13,7 @@ class WatchedEpisodesController < ApplicationController
   end
 
   def create
+    params[:watched_episode] ||= {}
     params[:watched_episode][:user_id] = current_user.id
     @watched_episode = WatchedEpisode.new(params[:watched_episode])
     if @watched_episode.save
