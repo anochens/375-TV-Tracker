@@ -8,9 +8,18 @@ class Episode < ActiveRecord::Base
 
   belongs_to :season
   has_one :series_item, :through => :season
+  has_many :watched_episodes
 
   def series
      series_item
+  end
+
+  def seen(current_id)
+     watched_episodes.all.select{|we| we.user_id == current_id}.size > 0
+  end
+
+  def description_small
+     "#{description[0..20]}..."
   end
 
   def to_s

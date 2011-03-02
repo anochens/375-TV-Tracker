@@ -8,20 +8,14 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <div id="container">
-		<div id="mainmenubar">
-			<img src="../images/homeicon.gif"/> &nbsp;&nbsp;
-			<img src="../images/searchicon.gif"/>&nbsp;&nbsp;
-			<img src="../images/calendaricon.gif"/><br><br>
-			</div>
-			<br>
 	<style>a{text-decoration:none;padding:3px}</style>
 <%
    controllers = Dir.new("#{RAILS_ROOT}/app/controllers").entries
    last = ""
-   bad_controllers = ["sessions","application","users"];
+   bad_controllers = ["sessions","application","users","home"];
                       
    %>                  
+
      <table><tr><td style="border:1px solid black;padding:3px"><%
    controllers.sort{|a,b| a.to_s.upcase <=> b.to_s.upcase}.each do |control|
       if control =~ /_controller/ && 
@@ -37,18 +31,38 @@
             end   
          end
 
-   %><%= link_to control.camelize, :controller => control, :action => "index"
+   show = control.clone
+   show.gsub!("_items","")
+
+
+   %><%= link_to show.camelize, :controller => control, :action => "index"
    %> <%
 
          last = control[0..3]
       end 
    end 
-%></tr></table>    
+%></tr></table>   
+<br/> 
+		<div id="mainmenubar">
+			<a href="/"><img src="/images/homeicon.gif"/></a> &nbsp;&nbsp;
+			<img src="/images/searchicon.gif"/>&nbsp;&nbsp;
+			<img src="/images/calendaricon.gif"/><br><br>
+			</div>
+			<br>
+   <div style="float:right">
+      <% if logged_in? %>
+         Welcome <%= current_user.username %>! 
+         <%= link_to "Log out", logout_path %>
+         <br/><br/>
+      <% else %>
+         <%= link_to "Sign up", signup_path %> or
+         <%= link_to "Log in", login_path %>.
+      <% end %>    
+   </div>      
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
       <%= content_tag :h1, yield(:title) if show_title? %>
       <%= yield %>
-    </div>
   </body>
 </html>
