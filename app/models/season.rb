@@ -6,7 +6,6 @@ class Season < ActiveRecord::Base
   
   validates :season_number, :presence => true,:numericality => true
   validates :series_item_id, :presence => true,:numericality => true
-  validates_presence_of :start_date
 
   def series
      series_item
