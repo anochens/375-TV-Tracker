@@ -1,8 +1,6 @@
 <% title "Welcome to TVTracker" %>
 
 
-<% Thetvdb.apikey="4C55DAD24064440B" %> 
-<%= Thetvdb.search("how i met your mother") %>
 
 <% if logged_in? %>
    <% if current_user.list_items.size == 0 %>

@@ -1,5 +1,5 @@
 class SeriesItem < ActiveRecord::Base
-  attr_accessible :channel_id, :name, :description
+  attr_accessible :channel_id, :name, :description, :remote_id
 
   validates_presence_of :name
   belongs_to :channel
