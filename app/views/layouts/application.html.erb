@@ -32,7 +32,7 @@
          end
 
    show = control.clone
-   show.gsub!("_items","")
+	show.gsub!("_items","")
 
 
    %><%= link_to show.camelize, :controller => control, :action => "index"
@@ -43,13 +43,19 @@
    end 
 %></tr></table>   
 <br/> 
-		<div id="mainmenubar">
-			<a href="/"><img src="/images/homeicon.gif"/></a> &nbsp;&nbsp;
-			<img src="/images/searchicon.gif"/>&nbsp;&nbsp;
-			<img src="/images/calendaricon.gif"/><br><br>
-			</div>
-			<br>
-   <div style="float:right">
+	<div id="header">
+	</div>
+
+	<div id= "menu_left_edge">
+	</div>
+	<div id="mainmenubar_center">
+		<a href="/"><img src="/images/homeicon.gif"/></a> &nbsp;&nbsp;
+		<img src="/images/searchicon.gif"/>&nbsp;&nbsp;
+		<img src="/images/calendaricon.gif"/><br><br>
+	</div>
+		
+   <div id ="login_menu" >
+   <br>
       <% if logged_in? %>
          Welcome <%= current_user.username %>! 
          <%= link_to "Log out", logout_path %>
@@ -59,6 +65,11 @@
          <%= link_to "Log in", login_path %>.
       <% end %>    
    </div>      
+   
+   <div id = "menu_right_edge">
+   </div>
+   
+   <div style="clear:both;"></div>
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
