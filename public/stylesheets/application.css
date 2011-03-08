@@ -61,7 +61,6 @@ a {
 }
 
 
-
 #title_bar_left{
 	float:left;
 	background-image: url(../images/title_bar_left.gif );
@@ -74,20 +73,40 @@ a {
 	float:left;
 	background-image: url(../images/title_bar_right.gif);
 	background-repeat: no-repeat;
-	width: 2%;
+	width: 1%;
 	height:56px;
 }
 
 #title_bar_center{
 	float:left;
-	width: 96%;
+	width: 97%;
 	background-image: url(../images/title_bar_center.gif);
 	height:56px;
 	font-style: vertical-align=bottom;
 }
 
+#main_separator_left{
+	float:left;
+	background-image:url(../images/separator_left.gif);
+	background-repeat: no-repeat;
+	width: 1%;
+	height: 49px;
+}
 
+#main_separator_right{
+	float:left;
+	background-image:url(../images/separator_right.gif);
+	background-repeat: no-repeat;
+	width: 1.5%;
+	height: 49px;
+}
 
+#main_separator_center{
+	float:left;
+	background-image:url(../images/separator_center.gif);
+	width: 97.5%;
+	height: 49px;
+}
 
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
