@@ -9,7 +9,7 @@
 Thetvdb.apikey = "4C55DAD24064440B" 
 all_ids = Thetvdb.getAllSeriesIds
 
-all_ids[0..100].each{|id|
+all_ids[0..1].each{|id|
 	full_record = Thetvdb.getFullSeriesRecord(id)
 	series = full_record["Series"]
 	
