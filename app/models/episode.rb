@@ -3,8 +3,6 @@ class Episode < ActiveRecord::Base
 
   validates :season_id, :presence => true, :numericality => true
   validates :episode_number, :presence => true, :numericality => true
-  validates :duration, :numericality => true
-  validates :air_date, :presence => true
 
   belongs_to :season
   has_one :series_item, :through => :season
@@ -19,7 +17,11 @@ class Episode < ActiveRecord::Base
   end
 
   def description_small
-     "#{description[0..20]}..."
+	  if description.length>20
+		  "#{description[0..20]}..."
+	  else
+	  	  description
+	  end      
   end
 
   def to_s

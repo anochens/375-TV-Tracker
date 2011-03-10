@@ -5,49 +5,51 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
 Thetvdb.apikey = "4C55DAD24064440B" 
 all_ids = Thetvdb.getAllSeriesIds
 
-all_ids[0..500].each{|id|
-  	info = Thetvdb.infoForSeriesId(id)
+all_ids[0..100].each{|id|
+	full_record = Thetvdb.getFullSeriesRecord(id)
+	series = full_record["Series"]
 	
 	#need to put in logo eventually...	
-	channel = Channel.find_or_create_by_name(info["Network"])	
+	channel = Channel.find_or_create_by_name(series["Network"])	
 
-	s = SeriesItem.create!(:remote_id => id, :name=> info["SeriesName"], :description => info["Overview"], :channel_id => channel.id);
+	series_overview = series["Overview"] || "No overview provided"
+
+	series_obj = SeriesItem.create!(:remote_id => id, :name=> series["SeriesName"], :description => series_overview, :channel_id => channel.id);
 	
-   episodes = Thetvdb.getAllEpisodes(id)
+   episodes = full_record["Episode"]
 
 	episodes.each{|episode|
-   	season = Season.find_or_create_by_series_item_id_and_season_number(s.id,episode["SeasonNumber"])
+		season_no = episode["SeasonNumber"] || "-1"
+
+   	season = Season.find_or_create_by_series_item_id_and_season_number(series_obj.id,season_no)
 			
-			
-	  	e = Episode.find_or_create_by_season_id_and_episode_number(season.id,episode["episode_number"]) 	
-		e.name = episode["name"]
-		e.imdb_id = episode["imdb_id"]
-		e.imdb_id = nil if e.imdb_id == {}
-#  	e.duration = something from the info hash
-#  	e.start_XXX = something from the info hash
-		e.description = episode["description"]
-		e.air_date = episode["air_date"]
-		e.air_date = Time.now if e.air_date.nil? || e.air_date == "" || e.air_date == {}
-		e.duration = 1 #need to change this later
+	  	e = Episode.find_or_create_by_season_id_and_episode_number(season.id,episode["EpisodeNumber"]) 	
+		e.name = episode["EpisodeName"]
+		e.imdb_id = episode["IMDB_ID"]
+   	e.duration = series["Runtime"]
+   	e.start_est = series["Airs_Time"]
+		e.description = episode["Overview"] || "No description provided"
+		e.air_date = episode["FirstAired"]
+		e.air_date = Time.now if e.air_date.nil? || e.air_date == ""
 		e.save!
 	}	
 
-
 	#create all the actors and roles for this series
-	actors = info["Actors"].split("|")
+	actors = series["Actors"]
+	
 	actors.each{|actor|
-		next if actor.nil?
    	parts = actor.split(" ")
 		first = parts[0]
 		rest_a = parts[1..-1] || []   #avoid trying to join nil
 	   rest  = rest_a.join(" ")
 
-		a = Actor.find_or_create_by_first_name_and_last_name(first,rest)
+		actor_obj = Actor.find_or_create_by_first_name_and_last_name(first,rest)
 
 		#since we don't have role info, just create generic role
-		Role.find_or_create_by_series_item_id_and_actor_id_and_character_name(s.id, a.id, "role")
+		Role.find_or_create_by_series_item_id_and_actor_id_and_character_name(series_obj.id, actor_obj.id, "role")
 	}
 }
