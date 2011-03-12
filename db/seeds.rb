@@ -6,40 +6,42 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
+Thetvdb.pretty_format = false #default option, but good to be explicit
 Thetvdb.apikey = "4C55DAD24064440B" 
 all_ids = Thetvdb.getAllSeriesIds
 
-all_ids[0..1].each{|id|
+all_ids[0..100].each{|id|
 	full_record = Thetvdb.getFullSeriesRecord(id)
-	series = full_record["Series"]
+	series = full_record["Series"][0]
 	
 	#need to put in logo eventually...	
-	channel = Channel.find_or_create_by_name(series["Network"])	
+	channel = Channel.find_or_create_by_name(series["Network"][0])	
 
-	series_overview = series["Overview"] || "No overview provided"
+	series_overview = series["Overview"][0] || "No overview provided"
 
-	series_obj = SeriesItem.create!(:remote_id => id, :name=> series["SeriesName"], :description => series_overview, :channel_id => channel.id);
+	series_obj = SeriesItem.create!(:remote_id => id, :name=> series["SeriesName"][0], :description => series_overview, :channel_id => channel.id);
 	
-   episodes = full_record["Episode"]
+   episodes = Thetvdb.break_array(full_record["Episode"])
 
 	episodes.each{|episode|
-		season_no = episode["SeasonNumber"] || "-1"
+		season_no = episode["SeasonNumber"][0] || "-1"
 
    	season = Season.find_or_create_by_series_item_id_and_season_number(series_obj.id,season_no)
 			
-	  	e = Episode.find_or_create_by_season_id_and_episode_number(season.id,episode["EpisodeNumber"]) 	
-		e.name = episode["EpisodeName"]
-		e.imdb_id = episode["IMDB_ID"]
-   	e.duration = series["Runtime"]
-   	e.start_est = series["Airs_Time"]
-		e.description = episode["Overview"] || "No description provided"
-		e.air_date = episode["FirstAired"]
-		e.air_date = Time.now if e.air_date.nil? || e.air_date == ""
+	  	e = Episode.find_or_create_by_season_id_and_episode_number(season.id,episode["EpisodeNumber"][0]) 	
+		e.name = episode["EpisodeName"][0]
+		e.imdb_id = episode["IMDB_ID"][0]
+   	e.duration = series["Runtime"][0]
+   	e.start_est = series["Airs_Time"][0]
+		e.description = episode["Overview"][0] || "No description provided"
+		e.air_date = episode["FirstAired"][0]
 		e.save!
+
+      #something with guest stars could go here...
 	}	
 
 	#create all the actors and roles for this series
-	actors = series["Actors"]
+	actors = Thetvdb.break_array(series["Actors"])
 	
 	actors.each{|actor|
    	parts = actor.split(" ")
@@ -50,6 +52,6 @@ all_ids[0..1].each{|id|
 		actor_obj = Actor.find_or_create_by_first_name_and_last_name(first,rest)
 
 		#since we don't have role info, just create generic role
-		Role.find_or_create_by_series_item_id_and_actor_id_and_character_name(series_obj.id, actor_obj.id, "role")
+		Role.find_or_create_by_series_item_id_and_actor_id_and_character_name(series_obj.id, actor_obj.id, "Main character")
 	}
 }
