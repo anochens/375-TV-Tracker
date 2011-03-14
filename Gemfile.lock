@@ -1,8 +1,8 @@
 GIT
   remote: git@github.com:cmu-is-projects/libthetvdb.git
-  revision: 5b36fbabf8afb55df6b1c60e5ee7ed1a4070a5fe
+  revision: b3a09d716d07b38f8f81e4339b2ccd3be818ff38
   specs:
-    libthetvdb (0.6.4)
+    libthetvdb (0.6.7)
       bundler (~> 1.0.0)
       chronic
       jeweler (~> 1.5.2)
@@ -74,7 +74,7 @@ GEM
       activerecord
       activesupport
     polyglot (0.3.1)
-    rack (1.2.1)
+    rack (1.2.2)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
     rack-test (0.5.7)
