@@ -17,7 +17,8 @@ class Episode < ActiveRecord::Base
   end
 
   def description_small
-	  if description.length>20
+	  
+	  if !description.nil? || description.length>20
 		  "#{description[0..20]}..."
 	  else
 	  	  description
