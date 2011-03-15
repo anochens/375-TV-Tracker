@@ -14,7 +14,8 @@ all_ids = Thetvdb.getAllSeriesIds
 
 p "This will take a while, please be patient..."
 
-all_ids.each{|id|
+# only put in 25 shows for now
+all_ids[0..25].each{|id|
 	full_record = Thetvdb.getFullSeriesRecord(id)
 	series = full_record["Series"][0]
 	
