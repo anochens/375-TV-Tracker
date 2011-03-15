@@ -8,6 +8,8 @@ class Episode < ActiveRecord::Base
   has_one :series_item, :through => :season
   has_many :watched_episodes
 
+  scope :all, joins(:season).order("season_number DESC, episode_number DESC")
+  
   def series
      series_item
   end
@@ -17,8 +19,7 @@ class Episode < ActiveRecord::Base
   end
 
   def description_small
-	  
-	  if !description.nil? || description.length>20
+	  if !description.nil? && description.length>20
 		  "#{description[0..20]}..."
 	  else
 	  	  description

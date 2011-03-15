@@ -9,7 +9,7 @@
       <h3>Your Shows:</h3>
       <table>
       
-      <% for list_item in current_user.list_items %>
+      <% for list_item in (ListItem.all & current_user.list_items) %>
          <%= render :partial => "/list_items/field", :locals => {:list_item => list_item} %>
         <table>
         <% for episode in list_item.series_item.unseen_episodes(current_user.id) %>
