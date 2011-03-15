@@ -7,6 +7,8 @@ class Season < ActiveRecord::Base
   validates :season_number, :presence => true,:numericality => true
   validates :series_item_id, :presence => true,:numericality => true
 
+  scope :all, joins(:series_item).order("series_items.name ASC, season_number ASC")
+
   def series
      series_item
   end
