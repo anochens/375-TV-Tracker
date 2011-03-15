@@ -58,6 +58,7 @@ a {
 #menu_right_edge{
 	background-image: url(/images/menu_bar_right.gif);
 	float:left;
+	height: 60px;
 }
 
 
