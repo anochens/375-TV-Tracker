@@ -49,8 +49,9 @@ all_ids[0..25].each{|id|
 	}
 
 	#create all the actors and roles for this series
-	actors = Thetvdb.break_array(series["Actors"])
 	
+	actors = Thetvdb.break_array(series["Actors"][0])
+
 	actors.each{|actor|
 		parts = actor.split(" ")
 		first = parts[0]
