@@ -22,8 +22,9 @@ all_ids[15..145].each{|id|
 	#need to put in logo eventually...
 	channel = Channel.find_or_create_by_name(series["Network"][0])
 
-	series_overview = series["Overview"][0] || "No overview provided"
-
+	series_overview = series["Overview"][0]
+	series_overview = "No overview provided" if series_overview.nil? || series_overview == "" || series_overview == {}
+	
 	series_obj = SeriesItem.create!(:remote_id => id, :name=> series["SeriesName"][0], :description => series_overview, :channel_id => channel.id);
 	
 	episodes = Thetvdb.break_array(full_record["Episode"])
@@ -41,7 +42,8 @@ all_ids[15..145].each{|id|
 		e.imdb_id     = episode["IMDB_ID"][0]
 		e.duration    = series["Runtime"][0]
 		e.start_est   = series["Airs_Time"][0]
-		e.description = episode["Overview"][0] || "No description provided"
+		e.description = episode["Overview"][0]  
+      e.description = "No description provided" if e.description.nil? || e.description == "" || e.description == {}
 		e.air_date    = episode["FirstAired"][0]
 		e.air_date = nil if e.air_date == "" #stupid postgres error
 		e.picture_url = episode["filename"]
