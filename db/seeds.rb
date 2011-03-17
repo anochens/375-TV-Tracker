@@ -15,7 +15,7 @@ all_ids = Thetvdb.getAllSeriesIds
 p 'This will take a while, please be patient...'
 
 # only put in 25 shows for now
-all_ids[15..215].each{|id|
+all_ids[15].each{|id|
 	full_record = Thetvdb.getFullSeriesRecord(id)
 	series = full_record["Series"][0]
 	
@@ -58,17 +58,17 @@ all_ids[15..215].each{|id|
 
 	#create all the actors and roles for this series
 	
-	actors = Thetvdb.break_array(series["Actors"][0])
+#	actors = Thetvdb.break_array(series["Actors"][0])
 
-	actors.each{|actor|
-		parts = actor.split(" ")
-		first = parts[0]
-		rest_a = parts[1..-1] || []	#avoid trying to join nil
-		rest   = rest_a.join(" ")
-
-		actor_obj = Actor.find_or_create_by_first_name_and_last_name(first,rest)
-
-		#since we don't have role info, just create generic role
-		Role.find_or_create_by_series_item_id_and_actor_id_and_character_name(series_obj.id, actor_obj.id, "Main character")
-	}
+#	actors.each{|actor|
+#		parts = actor.split(" ")
+#		first = parts[0]
+#		rest_a = parts[1..-1] || []	#avoid trying to join nil
+#		rest   = rest_a.join(" ")
+#
+#		actor_obj = Actor.find_or_create_by_first_name_and_last_name(first,rest)
+#
+#		#since we don't have role info, just create generic role
+#		Role.find_or_create_by_series_item_id_and_actor_id_and_character_name(series_obj.id, actor_obj.id, "Main character")
+#	}
 }
