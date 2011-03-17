@@ -12,7 +12,7 @@ Thetvdb.apikey = "4C55DAD24064440B"
 #each series has an ID, which is stored in a text file with the gem, for now
 all_ids = Thetvdb.getAllSeriesIds
 
-p "This will take a while, please be patient..."
+p 'This will take a while, please be patient...'
 
 # only put in 25 shows for now
 all_ids[15..145].each{|id|
@@ -45,8 +45,6 @@ all_ids[15..145].each{|id|
 		e.air_date    = episode["FirstAired"][0]
 		e.air_date = nil if e.air_date == "" #stupid postgres error
 		e.picture_url = episode["filename"]
-		pp episode
-		p "--------#{e.picture_url}"
 		e.picture_url = "http://thetvdb.com/banners/#{e.picture_url}" if !e.picture_url.nil? && e.picture_url != ""
 		e.air_date    = episode["FirstAired"][0]
 		e.save!

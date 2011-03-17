@@ -7,8 +7,8 @@
   </tr>
   <% for series_item in @series_items %>
     <tr>
-      <td><%= series_item.name %></td>
-      <td><%= series_item.description %><%= link_to "More", series_item %></td>
+      <td><%= link_to series_item.name,series_item %></td>
+      <td><%= series_item.description %></td>
 		<% list_item = current_user.list_items.select{|li| li.series_item_id == series_item.id}.first %> 
 		<% if list_item.nil? %>
 			<td><%= link_to "Follow!", {:controller => "list_items", :action => "create","list_item[series_item_id]"=>series_item.id}, :method=>:post  %></td>
