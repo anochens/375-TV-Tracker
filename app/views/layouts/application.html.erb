@@ -1,27 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-    <%= stylesheet_link_tag "application" %>
+    <title><%= content_for?(:title) ? yield(:title) : "TV Tracker" %></title>
+    <%= stylesheet_link_tag "application", "formtastic", "formtastic-changes" %>
     <%= javascript_include_tag :defaults %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
   <body>
+	<script language="javascript">
+	
+	$('#divtemp').css("background-image", "url(/images/sort_button.gif)"
+	
+	$('#divtemp').click(function()
+	{
+		$('#divtemp').css("background-image", "url(/images/showtitlebutton.gif)"
+	});
+	
+	</script>
+	
 	<style>a{text-decoration:none;padding:3px}</style>
-<%
+	<%
    controllers = Dir.new("#{RAILS_ROOT}/app/controllers").entries
    last = ""
    bad_controllers = ["sessions","application","users","home"];
                       
-   %>                  
-
+   %>      
+   
+   
+   
+   
+   
+ 
      <table><tr><td style="border:1px solid black;padding:3px"><%
    controllers.sort{|a,b| a.to_s.upcase <=> b.to_s.upcase}.each do |control|
       if control =~ /_controller/ && 
          !bad_controllers.map{|c| "#{c}_controller.rb"}.include?(control)
          control.gsub!(".rb","")
          control.gsub!("_controller","")
+		 
+		 
 
          if last != ""
             if control[0..3] != last
@@ -32,7 +50,7 @@
          end
 
    show = control.clone
-   show.gsub!("_items","")
+	show.gsub!("_items","")
 
 
    %><%= link_to show.camelize, :controller => control, :action => "index"
@@ -43,22 +61,49 @@
    end 
 %></tr></table>   
 <br/> 
-		<div id="mainmenubar">
-			<a href="/"><img src="/images/homeicon.gif"/></a> &nbsp;&nbsp;
-			<img src="/images/searchicon.gif"/>&nbsp;&nbsp;
-			<img src="/images/calendaricon.gif"/><br><br>
-			</div>
-			<br>
-   <div style="float:right">
-      <% if logged_in? %>
-         Welcome <%= current_user.username %>! 
-         <%= link_to "Log out", logout_path %>
-         <br/><br/>
-      <% else %>
-         <%= link_to "Sign up", signup_path %> or
-         <%= link_to "Log in", login_path %>.
-      <% end %>    
-   </div>      
+	<div id="header">
+		
+	</div>
+
+	<div id="menu_left_edge">
+	</div>
+	<div id="mainmenubar_center">
+	&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="/"><img src="/images/home2.gif" height="53px"/></a> &nbsp;&nbsp;&nbsp;
+		<a href="#"><img src="/images/Find.gif" height="50px"/></a>&nbsp;&nbsp;&nbsp;
+		<a href="#"><img src="/images/Calendar.png" height="50px"/></a><br><br>
+	</div>
+		
+   <div id="login_menu" >
+		<div id="sign_in_wrapper">
+					<table id="sign_in">
+						<tr>
+							<td id="sign_in_left"></td>
+							<td id="sign_in_middle">					
+								<% if logged_in? -%>
+								Welcome <%= current_user.username %>  | 
+								<%= link_to "Log out", logout_path%>
+							    <% else -%>
+									<% form_tag sessions_path do -%>
+							        <%= label_tag :login, "Username"  %>
+							        <%= text_field_tag :login, params[:login] %>
+							        <%= label_tag :password %>
+									<%= password_field_tag :password %>
+									<%= submit_tag "Log in" %>
+							        <%= link_to 'Register', signup_path %>
+									<% end -%>
+								<% end -%>
+							</td>
+							<td id="sign_in_right"></td>
+						</tr>
+					</table>
+			</div>	
+		</div>      
+   
+   <div id="menu_right_edge">
+   </div>
+   
+   <div style="clear:both;"></div>
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
