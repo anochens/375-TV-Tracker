@@ -9,7 +9,11 @@ a img {
 }
 
 a {
-  color: #000000;
+	color: #cccc;
+}
+
+a:hover{
+	color: #ccc;
 }
 
 .clear {

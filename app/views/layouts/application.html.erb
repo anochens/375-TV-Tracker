@@ -7,19 +7,25 @@
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
-  <body>
-	<script language="javascript">
-	
-	$('#divtemp').css("background-image", "url(/images/sort_button.gif)"
-	
-	$('#divtemp').click(function()
-	{
-		$('#divtemp').css("background-image", "url(/images/showtitlebutton.gif)"
-	});
-	
-	</script>
-	
+  <body>	
 	<style>a{text-decoration:none;padding:3px}</style>
+<<<<<<< HEAD
+	<%
+   controllers = Dir.new("#{RAILS_ROOT}/app/controllers").entries
+   last = ""
+   bad_controllers = ["sessions","application","users","home"];
+                      
+   %>      
+
+     <table><tr><td style="border:1px solid black;padding:3px"><%
+   controllers.sort{|a,b| a.to_s.upcase <=> b.to_s.upcase}.each do |control|
+      if control =~ /_controller/ && 
+         !bad_controllers.map{|c| "#{c}_controller.rb"}.include?(control)
+         control.gsub!(".rb","")
+         control.gsub!("_controller","")
+		 
+		 
+=======
 	<% if !production? %>
 		<%
 		controllers = Dir.new("#{RAILS_ROOT}/app/controllers").entries
@@ -41,6 +47,7 @@
 				control.gsub!("_controller","")
 			 
 			 
+>>>>>>> 8877acfe22e4a5db4ad1cab6d49022d0c95c3930
 
 				if last != ""
 					if control[0..3] != last
