@@ -36,6 +36,8 @@ all_ids[15..215].each{|id|
 		season_no ||= "-1"  # if -1, there's a problem, but silence is fine
 
 		season = Season.find_or_create_by_series_item_id_and_season_number(series_obj.id,season_no)
+		season.start_date = nil
+		season.end_date = nil
 
 		e = Episode.find_or_create_by_season_id_and_episode_number(season.id,episode["EpisodeNumber"][0]) 	
 		e.name        = episode["EpisodeName"][0]
