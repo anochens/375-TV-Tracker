@@ -9,12 +9,14 @@
     <tr>
       <td><%= link_to series_item.name,series_item %></td>
       <td><%= series_item.description %></td>
-		<% list_item = current_user.list_items.select{|li| li.series_item_id == series_item.id}.first %> 
-		<% if list_item.nil? %>
-			<td><%= link_to "Follow!", {:controller => "list_items", :action => "create","list_item[series_item_id]"=>series_item.id}, :method=>:post  %></td>
-		<% else %>
-			<td><%= link_to "Unfollow", list_item, :method => :delete %></li>
-		<% end %>
+		<% if logged_in? %>
+			<% list_item = current_user.list_items.select{|li| li.series_item_id == series_item.id}.first %> 
+			<% if list_item.nil? %>
+				<td><%= link_to "Follow!", {:controller => "list_items", :action => "create","list_item[series_item_id]"=>series_item.id}, :method=>:post  %></td>
+			<% else %>
+				<td><%= link_to "Unfollow", list_item, :method => :delete %></li>
+			<% end %>
+		<% end %>	
     </tr>
   <% end %>
 </table>
