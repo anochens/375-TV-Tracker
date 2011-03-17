@@ -1,6 +1,6 @@
 body {
   background-color: #042d6b;
-  font-family: Verdana, Helvetica, Arial;
+  font-family: Trebuchet MS,sans-serif;
   font-size: 14px;
 }
 
@@ -9,7 +9,7 @@ a img {
 }
 
 a {
-  color: #FFFFFF;
+  color: #000000;
 }
 
 .clear {
