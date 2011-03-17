@@ -1,5 +1,10 @@
 <% title "Episode" %>
 
+<% unless @episode.picture_url.nil? %>
+<p>
+  <img src=<%= @episode.picture_url %> />
+</p>
+<% end %>
 <p>
   <strong>Season:</strong>
   <%= @episode.season %>

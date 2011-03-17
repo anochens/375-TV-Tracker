@@ -1,5 +1,5 @@
 class Episode < ActiveRecord::Base
-  attr_accessible :season_id, :episode_number, :duration, :air_date, :start_est, :start_cst, :start_pst, :description, :name, :imdb_id
+  attr_accessible :season_id, :episode_number, :duration, :air_date, :start_est, :start_cst, :start_pst, :description, :name, :imdb_id, :picture_id
 
   validates :season_id, :presence => true, :numericality => true
   validates :episode_number, :presence => true, :numericality => true
@@ -19,8 +19,8 @@ class Episode < ActiveRecord::Base
   end
 
   def description_small
-	  if !description.nil? && description.length>20
-		  "#{description[0..20]}..."
+	  if !description.nil? && description.length>90
+		  "#{description[0..90]}..."
 	  else
 	  	  description
 	  end      

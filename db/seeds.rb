@@ -15,7 +15,7 @@ all_ids = Thetvdb.getAllSeriesIds
 p "This will take a while, please be patient..."
 
 # only put in 25 shows for now
-all_ids[0..25].each{|id|
+all_ids[15..45].each{|id|
 	full_record = Thetvdb.getFullSeriesRecord(id)
 	series = full_record["Series"][0]
 	
@@ -42,6 +42,12 @@ all_ids[0..25].each{|id|
 		e.duration    = series["Runtime"][0]
 		e.start_est   = series["Airs_Time"][0]
 		e.description = episode["Overview"][0] || "No description provided"
+		e.air_date    = episode["FirstAired"][0]
+		e.air_date = nil if e.air_date == "" #stupid postgres error
+		e.picture_url = episode["filename"]
+		pp episode
+		p "--------#{e.picture_url}"
+		e.picture_url = "http://thetvdb.com/banners/#{e.picture_url}" if !e.picture_url.nil? && e.picture_url != ""
 		e.air_date    = episode["FirstAired"][0]
 		e.save!
 

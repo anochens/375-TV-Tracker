@@ -10,15 +10,15 @@
       <table>
       
       <% for list_item in (ListItem.all & current_user.list_items) %>
-         <%= render :partial => "/list_items/field", :locals => {:list_item => list_item} %>
-        <table>
         <% for episode in list_item.series_item.unseen_episodes(current_user.id) %>
-          <tr>
-             <%= render :partial => "/episodes/episode_row", :locals => {:episode => episode, :min => true} %>
+		  	    <% if episode.air_date.nil? || episode.air_date < 1.weeks.ago.to_datetime %>
+				 <% break %>
+				 <% end %> 
 
-          </tr>
+             <%= render :partial => "/episodes/home_episode_row", :locals => {:episode => episode, :list_item => list_item} %>
+
+				<% break # only show one ep%>
         <% end %> 
-        </table>  
       <% end %>
 
       </table>
