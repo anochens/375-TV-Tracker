@@ -51,7 +51,6 @@ all_ids[15..215].each{|id|
 		e.air_date = nil if e.air_date == "" || e.air_date == {} #stupid postgres error
 		e.picture_url = episode["filename"]
 		e.picture_url = "http://thetvdb.com/banners/#{e.picture_url}" if !e.picture_url.nil? && e.picture_url != ""
-		e.air_date    = episode["FirstAired"][0]
 		e.save!
 
 		#something with guest stars could go here...
