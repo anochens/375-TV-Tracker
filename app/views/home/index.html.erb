@@ -123,7 +123,7 @@ LastID = id
       <% for list_item in (ListItem.all & current_user.list_items) %>
         <% for episode in list_item.series_item.unseen_episodes(current_user.id) %>
 		  	    <% if episode.air_date.nil? || episode.air_date < 1.weeks.ago.to_datetime %>
-				 <% break %>
+				 <% #break %>
 				 <% end %> 
 
              <%= render :partial => "/episodes/home_episode_row", :locals => {:episode => episode, :list_item => list_item} %>
