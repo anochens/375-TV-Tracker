@@ -14,14 +14,8 @@
 		controllers = Dir.new("#{RAILS_ROOT}/app/controllers").entries
 		last = ""
 		bad_controllers = ["sessions","application","users","home"];
-								 
 		%>      
 		
-		
-		
-		
-		
-	 
 		  <table><tr><td style="border:1px solid black;padding:3px"><%
 		controllers.sort{|a,b| a.to_s.upcase <=> b.to_s.upcase}.each do |control|
 			if control =~ /_controller/ && 
@@ -30,8 +24,6 @@
 				control.gsub!("_controller","")
 			 
 			 
->>>>>>> 8877acfe22e4a5db4ad1cab6d49022d0c95c3930
-
 				if last != ""
 					if control[0..3] != last
 						%></td><td style="border:1px solid black"><%
