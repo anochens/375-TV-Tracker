@@ -2,18 +2,19 @@
 
 <table>
   <tr>
-    <th>Channel</th>
     <th>Name</th>
     <th>Description</th>
   </tr>
   <% for series_item in @series_items %>
     <tr>
-      <td><%= series_item.channel %></td>
       <td><%= series_item.name %></td>
-      <td><%= series_item.description %></td>
-      <td><%= link_to "Show", series_item %></td>
-      <td><%= link_to "Edit", edit_series_item_path(series_item) %></td>
-      <td><%= link_to "Destroy", series_item, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= series_item.description %><%= link_to "More", series_item %></td>
+		<% list_item = current_user.list_items.select{|li| li.series_item_id == series_item.id}.first %> 
+		<% if list_item.nil? %>
+			<td><%= link_to "Follow!", {:controller => "list_items", :action => "create","list_item[series_item_id]"=>series_item.id}, :method=>:post  %></td>
+		<% else %>
+			<td><%= link_to "Unfollow", list_item, :method => :delete %></li>
+		<% end %>
     </tr>
   <% end %>
 </table>
