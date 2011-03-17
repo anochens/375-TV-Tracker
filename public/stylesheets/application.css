@@ -191,7 +191,7 @@ a {
 #sign_in_left{
 	width:13px;
 	height:28px;
- 	background: url(../images/sign_in/sign_in_left.png);
+ 	background: url(/images/sign_in/sign_in_left.png);
 }
 #sign_in_middle{
 	padding-left:10px;
@@ -201,7 +201,7 @@ a {
 #sign_in_right{
 	width:13px;
 	height:28px;
- 	background: url(../images/sign_in/sign_in_right.png);
+ 	background: url(/images/sign_in/sign_in_right.png);
 }
 #login{
 	font-size:90%;

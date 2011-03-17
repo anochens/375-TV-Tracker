@@ -85,11 +85,11 @@
 								<%= link_to "Log out", logout_path%>
 							    <% else -%>
 									<% form_tag sessions_path do -%>
-							        <%= label_tag 'Username' %>&nbsp; 
-							        <%= text_field_tag 'username', @username, :size => 7 %>&nbsp;&nbsp;&nbsp;
-							        <%= label_tag 'password' %>&nbsp;
-							        <%= password_field_tag 'password', nil, :size => 7 %>
-									<%= submit_tag 'Log in', :id => 'login_button' %>
+							        <%= label_tag :login, "Username"  %>
+							        <%= text_field_tag :login, params[:login] %>
+							        <%= label_tag :password %>
+									<%= password_field_tag :password %>
+									<%= submit_tag "Log in" %>
 							        <%= link_to 'Register', signup_path %>
 									<% end -%>
 								<% end -%>
