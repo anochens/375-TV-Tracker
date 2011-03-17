@@ -1,3 +1,73 @@
+<style type="text/css">
+
+
+
+.butta{
+   padding: 4px;
+   font-size:14px;
+   font-family:Trebuchet MS,sans-serif;
+   text-align: center;
+   font-weight:bold;
+   background-color:#D9E2FA;
+   border:3px solid #D9E2FA;
+   border-radius: 10px;
+	}
+	
+.buttovera{
+	padding: 4px;
+	text-align: center;
+	font-size:14px;
+	font-family:Trebuchet MS,sans-serif;
+	font-weight:bold;
+	background-color:#999999;
+	border:3px solid #999999;
+	border-radius: 10px;
+	}
+	
+.buttdowna{
+	padding: 4px;
+	text-align: center;
+	font-size:14px;
+	font-family:Trebuchet MS,sans-serif;
+	font-weight:bold;
+	background-color:#999999;
+	border:3px solid #999999;
+	border-radius: 10px;
+	}
+</style>
+
+<script language="javascript">
+
+function goLite(FRM,BTN)
+{
+   window.document.forms[FRM].elements[BTN].style.backgroundColor = "#999999";
+}
+
+function goDim(FRM,BTN)
+{
+   window.document.forms[FRM].elements[BTN].style.backgroundColor = "#DDDDDD";
+}
+
+
+<!--
+LastID = ""
+function on(id,clas){
+(LastID != id?document.getElementById(id).className = clas:"")
+}
+
+function off(id,clas){
+(LastID != id?document.getElementById(id).className = clas:"")
+}
+
+function active(id,clas){
+document.getElementById(id).className = clas; // onclick
+if (LastID != id){
+(LastID != ""?document.getElementById(LastID).className = "butta":"")
+}
+LastID = id
+}
+</script>
+
 
 
 <div id="title_bar_left"></div>
@@ -13,11 +83,11 @@
 <td width="80px">
 <h3>Sort by</h3>
 </td>
+
 <td align="right">
-<a href="#"><img src="/images/airdateup.gif"></a>
-</td>
-<td align="right">
-<a href="#"><img src="/images/showtitleup.gif"></a>
+<div style="float:left" id="button1" class="butta" onmouseover="on('button1','buttovera')" onMouseOut="off('button1','butta')" onmousedown="active('button1','buttdowna')">Air Date</div>
+
+<div style="float:left; margin-left:4px" id="button2" class="butta" onmouseover="on('button2','buttovera')" onMouseOut="off('button2','butta')" onmousedown="active('button2','buttdowna')">Show Title</div>
 </td>
 
 </tr></table>
@@ -25,6 +95,10 @@
 </tr>
 </table>
 </div>
+
+
+
+
 <div id="title_bar_right"></div>
 
 <div style="clear:both;"></div>
