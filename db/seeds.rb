@@ -24,6 +24,8 @@ all_ids[-500..-1].each{|id|
 
 	series_overview = series["Overview"][0]
 	series_overview = "No overview provided" if series_overview.nil? || series_overview == "" || series_overview == {}
+
+	next if series["SeriesItem"].nil? || series["SeriesItem"] == ""
 	
 	series_obj = SeriesItem.create!(:remote_id => id, :name=> series["SeriesName"][0], :description => series_overview, :channel_id => channel.id);
 	
