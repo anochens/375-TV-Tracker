@@ -7,18 +7,7 @@
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   </head>
-  <body>
-	<script language="javascript">
-	
-	$('#divtemp').css("background-image", "url(/images/sort_button.gif)"
-	
-	$('#divtemp').click(function()
-	{
-		$('#divtemp').css("background-image", "url(/images/showtitlebutton.gif)"
-	});
-	
-	</script>
-	
+  <body>	
 	<style>a{text-decoration:none;padding:3px}</style>
 	<%
    controllers = Dir.new("#{RAILS_ROOT}/app/controllers").entries
@@ -26,12 +15,7 @@
    bad_controllers = ["sessions","application","users","home"];
                       
    %>      
-   
-   
-   
-   
-   
- 
+
      <table><tr><td style="border:1px solid black;padding:3px"><%
    controllers.sort{|a,b| a.to_s.upcase <=> b.to_s.upcase}.each do |control|
       if control =~ /_controller/ && 
