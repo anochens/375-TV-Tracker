@@ -25,14 +25,21 @@
    last = ""
    bad_controllers = ["sessions","application","users","home"];
                       
-   %>                  
-
+   %>      
+   
+   
+   
+   
+   
+ 
      <table><tr><td style="border:1px solid black;padding:3px"><%
    controllers.sort{|a,b| a.to_s.upcase <=> b.to_s.upcase}.each do |control|
       if control =~ /_controller/ && 
          !bad_controllers.map{|c| "#{c}_controller.rb"}.include?(control)
          control.gsub!(".rb","")
          control.gsub!("_controller","")
+		 
+		 
 
          if last != ""
             if control[0..3] != last
