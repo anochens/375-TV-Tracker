@@ -38,6 +38,7 @@ all_ids[15..215].each{|id|
 		season = Season.find_or_create_by_series_item_id_and_season_number(series_obj.id,season_no)
 		season.start_date = nil
 		season.end_date = nil
+		season.save!
 
 		e = Episode.find_or_create_by_season_id_and_episode_number(season.id,episode["EpisodeNumber"][0]) 	
 		e.name        = episode["EpisodeName"][0]
@@ -47,7 +48,7 @@ all_ids[15..215].each{|id|
 		e.description = episode["Overview"][0]  
       e.description = "No description provided" if e.description.nil? || e.description == "" || e.description == {}
 		e.air_date    = episode["FirstAired"][0]
-		e.air_date = nil if e.air_date == "" #stupid postgres error
+		e.air_date = nil if e.air_date == "" || e.air_date == {} #stupid postgres error
 		e.picture_url = episode["filename"]
 		e.picture_url = "http://thetvdb.com/banners/#{e.picture_url}" if !e.picture_url.nil? && e.picture_url != ""
 		e.air_date    = episode["FirstAired"][0]
