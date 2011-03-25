@@ -38,7 +38,7 @@
 								Welcome <%= current_user.username %>  | 
 								<%= link_to "Log out", logout_path%>
 							    <% else -%>
-									<% form_tag sessions_path do -%>
+									<%= form_tag sessions_path do -%>
 							        <%= label_tag :login, "Username"  %>
 							        <%= text_field_tag :login, params[:login] %>
 							        <%= label_tag :password %>

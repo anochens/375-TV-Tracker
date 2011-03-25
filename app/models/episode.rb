@@ -9,7 +9,7 @@ class Episode < ActiveRecord::Base
   has_many :watched_episodes
 
   scope :all, joins(:season).order("seasons.season_number DESC, #{table_name}.episode_number DESC")
-  scope :recent, where("#{table_name}.air_date > ? ", 2.years.ago.to_datetime)
+  scope :recent, where("#{table_name}.air_date > ? ", 5.years.ago.to_datetime)
   
   def series
      series_item
