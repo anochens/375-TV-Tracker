@@ -21,11 +21,15 @@
 	</div>
 	<div id="mainmenubar_center">
 	&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="/"><img src="/images/home2.gif" height="53px"/></a> &nbsp;&nbsp;&nbsp;
-		<a href="/series_items"><img src="/images/list.gif" height="50px"/></a>
+		<%= link_to image_tag("/images/home2.gif", :height=>'53px',:alt => "Home") %>
+		&nbsp;&nbsp;&nbsp;
+		<%= link_to image_tag("/images/list.gif", :height=>'50px',:alt => "All Series"),"/series_items" %>
+		
 	&nbsp;&nbsp;&nbsp;&nbsp;
-		<a href="#"><img src="/images/Find.png" height="50px"/></a>&nbsp;&nbsp;&nbsp;
-		<a href="#"><img src="/images/Calendar.png" height="50px"/></a><br><br>
+		<%= link_to image_tag("/images/Find.png", :height=>'50px',:alt => "Search"),"#" %>
+		&nbsp;&nbsp;&nbsp;
+		<%= link_to image_tag("/images/Calendar.png", :height=>'50px',:alt => "Calender"),"#" %>
+		<br /><br />
 	</div>
 		
    <div id="login_menu" >
