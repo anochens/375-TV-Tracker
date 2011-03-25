@@ -9,18 +9,37 @@ class SeriesItem < ActiveRecord::Base
 	scope :all, order(:name)
 
    #get n episodes from this series
-	def episodes_n(n)
-		episodes.all.recent.limit(n) || nil
+	def episodes_n(n,watched_episodes = nil)
+		recent = episodes.all.recent
+		return [] if recent.nil?
+				
+		unless episodes.nil?
+			recent.reject!{|e| watched_episodes.include?(e)} 
+		end	
+
+		return recent[0...n];
 	end	 
 
-	#get n episodes from each of series_items
-	def self.all_episodes_n(n,list_items)
+
+	#get n episodes from each of list_item.series_items
+	def self.all_episodes_n(n,list_items = nil, watched_episodes = nil)
 		result = []
-		list_items.sort_by{ |li| li.series_item.name }.each{|li| 
-			li.series.episodes_n(n).each {|ep|
-				result << ep unless ep.nil?
+		
+		# not logged in 
+		if(list_items.nil?) 
+			SeriesItem.all[0..30].each{|si|
+				si.episodes_n(n).each {|ep|
+					result << ep unless ep.nil?
+				}
 			}
-		}
+		else	
+			watched_episodes ||= []
+			list_items.sort_by{ |li| li.series.name }.each{|li| 
+				li.series.episodes_n(n,watched_episodes).each {|ep|
+					result << ep unless ep.nil?
+				}
+			}
+		end	
 
 		result
 	end	

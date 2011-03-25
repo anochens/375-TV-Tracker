@@ -16,7 +16,8 @@ class User < ActiveRecord::Base
   validates_length_of :password, :minimum => 4, :allow_blank => true
 
   def unwatched_episodes
-	  SeriesItem.all_episodes_n(1, list_items)
+	  watched_eps = watched_episodes.map{|we| we.episode}
+	  SeriesItem.all_episodes_n(1, list_items,watched_eps)
   end   
 
   # login can be either username or email address
