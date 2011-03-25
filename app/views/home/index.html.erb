@@ -120,17 +120,9 @@ LastID = id
 	<div style="clear:both;"></div>
 	
       <table>
-      <% for list_item in (ListItem.all & current_user.list_items) %>
-        <% for episode in list_item.series_item.unseen_episodes(current_user.id) %>
-		  	    <% if episode.air_date.nil? || episode.air_date < 1.weeks.ago.to_datetime %>
-				 <% #break %>
-				 <% end %> 
-
-             <%= render :partial => "/episodes/home_episode_row", :locals => {:episode => episode, :list_item => list_item} %>
-
-				<% break # only show one ep%>
+        <% for episode in current_user.unwatched_episodes %>
+             <%= render :partial => "/episodes/home_episode_row", :locals => {:episode => episode, :list_item => ListItem.find_by_series_item_id_and_user_id(episode.series_item.id,current_user.id)} %>
         <% end %> 
-      <% end %>
 
       </table>
 	<br>  

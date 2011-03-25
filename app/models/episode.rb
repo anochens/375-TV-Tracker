@@ -8,14 +8,11 @@ class Episode < ActiveRecord::Base
   has_one :series_item, :through => :season
   has_many :watched_episodes
 
-  scope :all, joins(:season).order("season_number DESC, episode_number DESC")
+  scope :all, joins(:season).order("seasons.season_number DESC, #{table_name}.episode_number DESC")
+  scope :recent, where("#{table_name}.air_date > ? ", 2.years.ago.to_datetime)
   
   def series
      series_item
-  end
-
-  def seen(current_id)
-     watched_episodes.all.select{|we| we.user_id == current_id}.size > 0
   end
 
   def description_small
