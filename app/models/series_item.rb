@@ -13,7 +13,7 @@ class SeriesItem < ActiveRecord::Base
 		recent = episodes.all.recent
 		return [] if recent.nil?
 				
-		unless episodes.nil?
+		unless watched_episodes.nil?
 			recent.reject!{|e| watched_episodes.include?(e)} 
 		end	
 
