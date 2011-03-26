@@ -4,9 +4,48 @@
     <title><%= content_for?(:title) ? yield(:title) : "TV Tracker" %></title>
     <%= stylesheet_link_tag "application" %>
 
-    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" %>
+    <%= javascript_include_tag "tablesorter" %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
+  <script>
+//from http://tablesorter.com/docs/example-trigger-sort.html
+	$(document).ready(function() { 
+		 $("table").tablesorter(); 
+
+		 //sort the table on the home page through invisible table headings
+		 $("#trigger-air-date").click(function() { 
+			  if(typeof arguments.callee.order == "undefined") {
+           	arguments.callee.order = 0;
+			  }
+			  else {
+				  //turns 0 to 1, and 1 into 0
+           	arguments.callee.order = Math.abs(arguments.callee.order - 1);
+			  }
+			  // set sorting column and direction, this will sort on the first and third column the column index starts at zero 
+			  var sorting = [[0,arguments.callee.order]]; 
+			  // sort on the first column 
+			  $("table").trigger("sorton",[sorting]); 
+			  // return false to stop default link action 
+			  return false; 
+		 }); 
+		 $("#trigger-title").click(function() { 
+			  if(typeof arguments.callee.order == "undefined") {
+           	arguments.callee.order = 0;
+			  }
+			  else {
+				  //turns 0 to 1 and 1 into 0
+           	arguments.callee.order = Math.abs(arguments.callee.order - 1);
+			  }
+			  // set sorting column and direction, this will sort on the first and third column the column index starts at zero 
+			  var sorting = [[1,arguments.callee.order]];   		  // sort on the first column 
+			  $("table").trigger("sorton",[sorting]); 
+			  // return false to stop default link action 
+			  return false; 
+		 }); 
+	});
+</script>
+
   </head>
   <body>	
 	<style>a{text-decoration:none;padding:3px}</style>

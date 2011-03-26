@@ -82,10 +82,12 @@ LastID = id
 <h3>Sort by</h3>
 </td>
 
-<td align="right">
+<td align="right"><a href="#", id="trigger-air-date">
 <div style="float:left" id="button1" class="butta" onmouseover="on('button1','buttovera')" onMouseOut="off('button1','butta')" onmousedown="active('button1','buttdowna')">Air Date</div>
-
+ </a>
+<a href="#", id="trigger-title">
 <div style="float:left; margin-left:4px" id="button2" class="butta" onmouseover="on('button2','buttovera')" onMouseOut="off('button2','butta')" onmousedown="active('button2','buttdowna')">Show Title</div>
+</a>
 </td>
 
 </tr></table>
@@ -117,9 +119,17 @@ LastID = id
 	<div style="clear:both;"></div>
 	
       <table>
+		  <thead style="display:none">
+		  <th>Date</th><th>Title</th><th>Content</th>
+        </thead>
+		  <tbody>
         <% for episode in current_user.unwatched_episodes %>
+             <tr><td style="display:none"><%= episode.air_date%></td>
+				 <td style="display:none"><%= episode.series_item.name %></td><td><table>
              <%= render :partial => "/episodes/home_episode_row", :locals => {:episode => episode, :list_item => ListItem.find_by_series_item_id_and_user_id(episode.series_item.id,current_user.id)} %>
-        <% end %> 
+				 </table>
+        <% end %>
+		  </tbody> 
       </table>
 	<br>  
 	<%-# Sort By Show Name: Shows starting with B -%>  
