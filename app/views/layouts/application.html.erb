@@ -20,7 +20,7 @@
 			  }
 			  else {
 				  //turns 0 to 1, and 1 into 0
-           	arguments.callee.order = Math.abs(arguments.callee.order - 1);
+           	arguments.callee.order = 1-arguments.callee.order;
 			  }
 			  // set sorting column and direction, this will sort on the first and third column the column index starts at zero 
 			  var sorting = [[0,arguments.callee.order]]; 
@@ -35,7 +35,7 @@
 			  }
 			  else {
 				  //turns 0 to 1 and 1 into 0
-           	arguments.callee.order = Math.abs(arguments.callee.order - 1);
+           	arguments.callee.order = 1-arguments.callee.order;
 			  }
 			  // set sorting column and direction, this will sort on the first and third column the column index starts at zero 
 			  var sorting = [[1,arguments.callee.order]];   		  // sort on the first column 
