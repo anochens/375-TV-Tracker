@@ -35,5 +35,4 @@ gem 'libthetvdb', :git => 'git://github.com/cmu-is-projects/libthetvdb.git'
 #   gem 'webrat'
 # end
 gem "mocha", :group => :test
-gem "ruby-prof", :group => :test
 gem "bcrypt-ruby", :require => "bcrypt"
