@@ -31,14 +31,12 @@ a:hover{
 }
 
 #container {
-  width: 95%;
+  width: 97%;
   margin: 0 auto;
-  background-color: #e0e5ed;
-  padding: 10px;
+  background-color: #ffffff;
+  padding: 5px;
   border: none;
-  margin-top: -2px;
-  z-index: 1;
-
+  opacity: 0.73;
 }
 
 #mainmenubar{
@@ -48,60 +46,25 @@ a:hover{
 	margin: 0 auto;
 }
 
-#login_menu{
-	background-color: #e2e1e1;
-}
-
-
-
-
-#title_bar_left{
-	float:left;
-	background-image: url(/images/title_bar_left.gif );
-	background-repeat: no-repeat;
-	width: 2%;
-	height:56px;
-}
-
-#title_bar_right{
-	float:left;
-	background-image: url(/images/title_bar_right.gif);
-	background-repeat: no-repeat;
-	width: 1%;
-	height:56px;
-}
-
 #title_bar_center{
-	float:left;
 	width: 97%;
-	background-image: url(/images/title_bar_center.gif);
-	height:56px;
+	margin: auto;
+	background-image: url(/images/header.gif);
+	height:45px;
+	padding: 5px;
+}
+
+#main_separator{
+	background-image:url(/images/bar.gif);
+	width: 100%;
+	height: 100%;
 	font-style: vertical-align=bottom;
+	margin: auto;
 }
 
-#main_separator_left{
-	float:left;
-	background-image:url(/images/separator_left.gif);
-	background-repeat: no-repeat;
-	width: 1%;
-	height: 49px;
+#main{
+	width: 100%;
 }
-
-#main_separator_right{
-	float:left;
-	background-image:url(/images/separator_right.gif);
-	background-repeat: no-repeat;
-	width: 1.5%;
-	height: 49px;
-}
-
-#main_separator_center{
-	float:left;
-	background-image:url(/images/separator_center.gif);
-	width: 97.5%;
-	height: 49px;
-}
-
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;
