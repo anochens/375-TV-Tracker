@@ -31,6 +31,8 @@
   </tr>
   <% for series_item in @series_items %>
     <tr>
+	
+	
       <td width="20%"><%= link_to series_item.name,series_item %></td>
       <td width="70%"><%= series_item.description %></td>
 		<% if logged_in? %>

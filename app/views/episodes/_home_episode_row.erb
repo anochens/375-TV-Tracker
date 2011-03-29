@@ -22,10 +22,11 @@
       <%= episode.description_small %>
       <%= link_to "More", episode %></td>
 	  <td width="10%">
+	  
 		<% if logged_in? %>
-			<%= link_to "I've seen this", {:controller => "watched_episodes", :action => "create","watched_episode[episode_id]"=>episode.id}, :method=>:post  %>
+			<%= link_to image_tag "/images/checkmarkicon2.gif", :mouseover=> "/images/checkmarkicon3.gif", :controller => "watched_episodes", :action => "create","watched_episode[episode_id]"=>episode.id, :method=>:post  %>
 			<br>
-			<%= link_to "Unfollow", list_item, :confirm => 'Are you sure?', :method => :delete %>
+			<%= link_to "unfollow", list_item, :confirm => 'Are you sure?', :method => :delete %>
 		<% end %>	
                         </td>
 <br/><br/>
