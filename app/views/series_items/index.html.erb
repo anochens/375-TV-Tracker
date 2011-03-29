@@ -24,25 +24,47 @@
 
 
 <div id="container">
-<table style="padding:5px;">	
-  <tr style="padding:10px">	
-    <th style="text-align:left; font-size: 14pt;">Name</th>
-    <th style="text-align:left; font-size: 14pt;">Description</th>
-  </tr>
-  <% for series_item in @series_items %>
-    <tr>
-      <td width="20%"><%= link_to series_item.name,series_item %></td>
-      <td width="70%"><%= series_item.description %></td>
-		<% if logged_in? %>
-			<% list_item = current_user.list_items.select{|li| li.series_item_id == series_item.id}.first %> 
-			<% if list_item.nil? %>
-				<td width="10%" style="text-align:right"><%= link_to "Follow!", {:controller => "list_items", :action => "create","list_item[series_item_id]"=>series_item.id}, :method=>:post  %></td>
-			<% else %>
-				<td width="10%" style="text-align:right"><%= link_to "Unfollow", list_item, :method => :delete %></li>
-			<% end %>
+  <% alpha = %w[0-9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z] %>
+  <script>
+  	function hideall() {
+   	<% for letter in alpha %>
+      	$("#div_<%= letter %>").hide();
 		<% end %>	
-    </tr>
-  <% end %>
+	}
+  </script>
+
+  <% for letter in alpha %>
+     <a href="#" onclick="hideall();$('#div_<%= letter %>').toggle()"><%= letter %></a>
+  <% end %>   
+  <br/>                                
+
+  <% letter = '0-9'; %>
+  		  <div id="div_0-9" style="display:none">
+        
+		  <% for series_item in @series_items.sort_by{|s| s.name } %>
+
+        <% curr_letter = series_item.name[0].chr %>
+		  <% if curr_letter.to_i > 0 
+        	 	 curr_letter = "0-9"
+		     end %>
+		  <% if curr_letter != letter %>
+			  </div>
+			  <% letter = curr_letter %>
+			  <div id="div_<%= letter %>" style="display:none">
+		  <% end %>   
+				<%= link_to series_item.name,series_item %>
+				<% if logged_in? %>
+					<% list_item = current_user.list_items.select{|li| li.series_item_id == series_item.id}.first %> 
+					<% if list_item.nil? %>
+						<%= link_to "Follow!", {:controller => "list_items", :action => "create","list_item[series_item_id]"=>series_item.id}, :method=>:post  %>
+					<% else %>
+						<%= link_to "Unfollow", list_item, :method => :delete %>
+					<% end %>
+				<% end %>	
+		  <br/>
+		  <% end %>
+		  </div>
+	  </div>   
 </table>
 </div>
 
