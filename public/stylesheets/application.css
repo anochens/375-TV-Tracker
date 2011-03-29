@@ -2,6 +2,7 @@ body {
   background-color: #2f2f2f;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
+  margin: 0 auto;
 }
 
 a img {
@@ -20,8 +21,9 @@ a {
 
 #header{
 	background-image: url(/images/logo_new.gif);
+	background-repeat: no-repeat;
 	height: 82px;
-	width:814px;
+	width:100%;
 }
 
 #container {
@@ -35,31 +37,18 @@ a {
 
 }
 
-#mainmenubar_center{
-	background-image: url(/images/menu_bar_middle.gif);
+#mainmenubar{
+	background-color: #e2e1e1;
 	height: 57px;
-	width: 70%;
-	float:left;
+	width:100%;
+	margin: 0 auto;
 }
 
 #login_menu{
-	background-image: url(/images/menu_bar_middle.gif);
-	text-align:center;
-	height: 57px;
-	width: 30%;
-	float: left;
+	background-color: #e2e1e1;
 }
 
-#menu_left_edge{
-	background-image: url(/images/menu_bar_left.gif);
-	float:left;
-}
 
-#menu_right_edge{
-	background-image: url(/images/menu_bar_right.gif);
-	float:left;
-	height: 60px;
-}
 
 
 #title_bar_left{
