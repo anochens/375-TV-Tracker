@@ -1,0 +1,29 @@
+<table><tr><td>
+<% unless episode.picture_url.nil? %>
+	<img src="<%= episode.picture_url %>" width=100 height=100 />
+<% end %>      </td><td>
+      <b><%= episode.series_item %></b>
+		<% if logged_in? %>
+			<%= link_to "Unfollow", list_item, :confirm => 'Are you sure?', :method => :delete %>
+		<% end %>	
+		
+		
+		<br/>
+
+      <i>
+		
+		<% unless episode.name.nil? || episode.name == "" %>
+			<%= episode.name %>:
+		<% end %>
+		<%= episode.season %>
+      Episode <%= episode.episode_number %>
+		<% unless episode.air_date.nil? %>
+      (aired <%= episode.air_date %>)<% end %>
+		</i><br/>
+      <%= episode.description_small %>
+      <%= link_to "More", episode %></td><td>
+		<% if logged_in? %>
+			<%= link_to "I've seen this", {:controller => "watched_episodes", :action => "create","watched_episode[episode_id]"=>episode.id}, :method=>:post  %>
+		<% end %>	
+                        </td>
+<br/><br/>

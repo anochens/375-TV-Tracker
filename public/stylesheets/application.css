@@ -1,6 +1,8 @@
 body {
   background-color: #2f2f2f;
   font-family: Verdana, Helvetica, Arial;
+  background-color: #042d6b;
+  font-family: Trebuchet MS,sans-serif;
   font-size: 14px;
   margin: 0 auto;
 }
@@ -10,7 +12,11 @@ a img {
 }
 
 a {
-  color: #FFFFFF;
+	color: #cccc;
+}
+
+a:hover{
+	color: #ccc;
 }
 
 .clear {
@@ -180,7 +186,7 @@ a {
 #sign_in_left{
 	width:13px;
 	height:28px;
- 	background: url(/images/sign_in/sign_in_left.png);
+/*	background: url(/images/sign_in/sign_in_left.png);  */
 }
 #sign_in_middle{
 	padding-left:10px;
@@ -190,7 +196,7 @@ a {
 #sign_in_right{
 	width:13px;
 	height:28px;
- 	background: url(/images/sign_in/sign_in_right.png);
+/*	background: url(/images/sign_in/sign_in_right.png);    */
 }
 #login{
 	font-size:90%;

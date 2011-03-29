@@ -1,8 +1,8 @@
 GIT
-  remote: git@github.com:cmu-is-projects/libthetvdb.git
-  revision: b3a09d716d07b38f8f81e4339b2ccd3be818ff38
+  remote: git://github.com/cmu-is-projects/libthetvdb.git
+  revision: b2e78dcbe508f7249f0bdc119d9b28eea2bfb108
   specs:
-    libthetvdb (0.6.7)
+    libthetvdb (0.6.8)
       bundler (~> 1.0.0)
       chronic
       jeweler (~> 1.5.2)

@@ -1,3 +1,71 @@
+<style type="text/css">
+
+.butta{
+   padding: 4px;
+   font-size:14px;
+   font-family:Trebuchet MS,sans-serif;
+   text-align: center;
+   font-weight:bold;
+   background-color:#D9E2FA;
+   border:3px solid #D9E2FA;
+   border-radius: 10px;
+	}
+	
+.buttovera{
+	padding: 4px;
+	text-align: center;
+	font-size:14px;
+	font-family:Trebuchet MS,sans-serif;
+	font-weight:bold;
+	background-color:#999999;
+	border:3px solid #999999;
+	border-radius: 10px;
+	}
+	
+.buttdowna{
+	padding: 4px;
+	text-align: center;
+	font-size:14px;
+	font-family:Trebuchet MS,sans-serif;
+	font-weight:bold;
+	background-color:#999999;
+	border:3px solid #999999;
+	border-radius: 10px;
+	}
+</style>
+
+<script language="javascript">
+
+function goLite(FRM,BTN)
+{
+   window.document.forms[FRM].elements[BTN].style.backgroundColor = "#999999";
+}
+
+function goDim(FRM,BTN)
+{
+   window.document.forms[FRM].elements[BTN].style.backgroundColor = "#DDDDDD";
+}
+
+
+<!--
+LastID = ""
+function on(id,clas){
+(LastID != id?document.getElementById(id).className = clas:"")
+}
+
+function off(id,clas){
+(LastID != id?document.getElementById(id).className = clas:"")
+}
+
+function active(id,clas){
+document.getElementById(id).className = clas; // onclick
+if (LastID != id){
+(LastID != ""?document.getElementById(LastID).className = "butta":"")
+}
+LastID = id
+}
+</script>
+
 
 
 <div id="title_bar_left"></div>
@@ -13,11 +81,13 @@
 <td width="80px">
 <h3>Sort by</h3>
 </td>
-<td align="right">
-<a href="#"><img src="/images/airdateup.gif"></a>
-</td>
-<td align="right">
-<a href="#"><img src="/images/showtitleup.gif"></a>
+
+<td align="right"><a href="#", id="trigger-air-date">
+<div style="float:left" id="button1" class="butta" onmouseover="on('button1','buttovera')" onMouseOut="off('button1','butta')" onmousedown="active('button1','buttdowna')">Air Date</div>
+ </a>
+<a href="#", id="trigger-title">
+<div style="float:left; margin-left:4px" id="button2" class="butta" onmouseover="on('button2','buttovera')" onMouseOut="off('button2','butta')" onmousedown="active('button2','buttdowna')">Show Title</div>
+</a>
 </td>
 
 </tr></table>
@@ -25,14 +95,15 @@
 </tr>
 </table>
 </div>
+
+
+
+
 <div id="title_bar_right"></div>
 
 <div style="clear:both;"></div>
 
 <div id="container">
-
-
-
 
 <% if logged_in? %>
    <% if current_user.list_items.size == 0 %>
@@ -42,35 +113,34 @@
 	<%-# Sort By Show Name: Shows starting with A -%>
 	<div id="main_separator_left"> </div> 
 	<div id="main_separator_center">
-      <h3>A</h3>
+      <h3>This Week</h3>
 	</div>
 	<div id="main_separator_right"></div>
 	<div style="clear:both;"></div>
 	
       <table>
-      <% for list_item in (ListItem.all & current_user.list_items) %>
-
-         <%= render :partial => "/list_items/field", :locals => {:list_item => list_item} %>
-        <table>
-        <% for episode in list_item.series_item.unseen_episodes(current_user.id) %>
-          <tr>
-             <%= render :partial => "/episodes/episode_row", :locals => {:episode => episode, :min => true} %>
-
-          </tr>
-        <% end %> 
-        </table>  
-      <% end %>
-
+		  <thead style="display:none">
+		  <th>Date</th><th>Title</th><th>Content</th>
+        </thead>
+		  <tbody>
+        <% for episode in current_user.unwatched_episodes %>
+             <tr><td style="display:none"><%= episode.air_date%></td>
+				 <td style="display:none"><%= episode.series_item.name %></td><td><table>
+             <%= render :partial => "/episodes/home_episode_row", :locals => {:episode => episode, :list_item => ListItem.find_by_series_item_id_and_user_id(episode.series_item.id,current_user.id)} %>
+				 </table>
+        <% end %>
+		  </tbody> 
       </table>
 	<br>  
 	<%-# Sort By Show Name: Shows starting with B -%>  
-		<div id="main_separator_left"> </div> 
+	
+	<!--<div id="main_separator_left"> </div> 
 	<div id="main_separator_center">
       <h3>B</h3>
 	</div>
 	<div id="main_separator_right"></div>
 	<div style="clear:both;"></div>  
-	  
+	-->
 	  
 	  
    <% end %>   
@@ -78,6 +148,17 @@
 <% else %>
    <%= link_to "Sign up", signup_path %> or
    <%= link_to "Log in", login_path %>.
+      <table>
+		  <thead style="display:none">
+		  <th>Date</th><th>Title</th><th>Content</th>
+        </thead>
+		  <tbody> 
+        <% for episode in SeriesItem.all_episodes_n(1) %>
+             <tr><td style="display:none"><%= episode.air_date%></td>
+				 <td style="display:none"><%= episode.series_item.name %></td><td><table>              <%= render :partial => "/episodes/home_episode_row", :locals => {:episode => episode, :list_item => nil} %>
+				 </table>
+        <% end %> 
+      </table>
 <% end %> 
 
 </div>

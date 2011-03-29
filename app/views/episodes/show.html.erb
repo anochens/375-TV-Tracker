@@ -1,5 +1,14 @@
 <% title "Episode" %>
 
+<% unless @episode.picture_url.nil? %>
+<p>
+  <%= image_tag(@episode.picture_url) %>
+</p>
+<% end %>
+<p>
+  <strong>Series:</strong>
+  <%= @episode.series %>
+</p> 
 <p>
   <strong>Season:</strong>
   <%= @episode.season %>
@@ -42,7 +51,5 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_episode_path(@episode) %> |
-  <%= link_to "Destroy", @episode, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", episodes_path %>
 </p>

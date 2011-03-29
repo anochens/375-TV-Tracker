@@ -9,7 +9,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'paperclip'
 gem 'nifty-generators'
 gem 'factory_girl_rails'
-gem 'libthetvdb', :git => 'git@github.com:cmu-is-projects/libthetvdb.git'
+#gem 'libthetvdb', :git => 'git@github.com:cmu-is-projects/libthetvdb.git'
+gem 'libthetvdb', :git => 'git://github.com/cmu-is-projects/libthetvdb.git'
 
 # Use unicorn as the web server
 # gem 'unicorn'
