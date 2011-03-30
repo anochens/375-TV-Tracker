@@ -1,12 +1,10 @@
 
-
-<div id="title_bar_left"></div>
-
+<br>
 <div id="title_bar_center">
 <table width="100%" height="100%">
 <tr width="100%">
 <td  width="50%" valign="top">
-<h3>Series </h3>
+<h3>Series > Browse </h3>
 </td>
 <td width="50%">
 <table align="right"><tr>
@@ -18,9 +16,6 @@
 </tr>
 </table>
 </div>
-<div id="title_bar_right"></div>
-
-<div style="clear:both;"></div>
 
 
 <div id="container">
@@ -37,6 +32,7 @@
      <a href="#" onclick="hideall();$('#div_<%= letter %>').toggle()"><%= letter %></a>
   <% end %>   
   <br/>                                
+<br>
 
   <% letter = '0-9'; %>
   		  <div id="div_0-9">
@@ -56,8 +52,10 @@
 				<% if logged_in? %>
 					<% list_item = current_user.list_items.select{|li| li.series_item_id == series_item.id}.first %> 
 					<% if list_item.nil? %>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<%= link_to "Follow!", {:controller => "list_items", :action => "create","list_item[series_item_id]"=>series_item.id}, :method=>:post  %>
 					<% else %>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<%= link_to "Unfollow", list_item, :method => :delete %>
 					<% end %>
 				<% end %>	
