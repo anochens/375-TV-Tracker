@@ -4,7 +4,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "TV Tracker" %></title>
     <%= stylesheet_link_tag "application" %>
 
-    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" %>
+    <%= javascript_include_tag :defaults %>
     <%= javascript_include_tag "tablesorter" %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
@@ -60,7 +60,7 @@
 	</div>
 	<div id="mainmenubar_center">
 	&nbsp;&nbsp;&nbsp;&nbsp;
-		<%= link_to image_tag("/images/home2.gif", :height=>'53px',:alt => "Home") %>
+		<%= link_to image_tag("/images/home2.gif", :height=>'53px',:alt => "Home"), "/" %>
 		&nbsp;&nbsp;&nbsp;
 		<%= link_to image_tag("/images/list.gif", :height=>'50px',:alt => "All Series"),"/series_items" %>
 		

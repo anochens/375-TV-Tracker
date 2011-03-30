@@ -4,7 +4,7 @@
 <% end %>      </td><td>
       <b><%= episode.series_item %></b>
 		<% if logged_in? %>
-			<%= link_to "Unfollow", list_item, :confirm => 'Are you sure?', :method => :delete %>
+			<%= link_to "Unfollow", list_item, :method => :delete %>
 		<% end %>	
 		
 		
