@@ -77,6 +77,26 @@ a:hover{
 #main{
 	width: 100%;
 }
+
+/* episodes layout */
+#picture_holder{
+	height: 100px;
+	width: 200px;
+	border: 1px solid black;
+}
+
+#gen_info_box{
+
+
+}
+
+#episode_desc{
+
+
+}
+
+
+/* flash notices */
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;
