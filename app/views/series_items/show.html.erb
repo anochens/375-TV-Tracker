@@ -1,5 +1,8 @@
-<% title "Series" %>
+<div id="title_bar_center"> 
+<h3> Series: <%= @series_item.name %> </h3>
+</div>
 
+<div id="container">
 <p>
   <strong>Channel:</strong>
   <%= @series_item.channel %>
@@ -18,3 +21,5 @@
   <%= link_to "Destroy", @series_item, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", series_items_path %>
 </p>
+
+</div>
