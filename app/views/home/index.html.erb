@@ -66,28 +66,26 @@ LastID = id
 }
 </script>
 
-
-
-<div id="title_bar_left"></div>
-
+<br>
 <div id="title_bar_center">
-<table width="100%" height="100%">
+<table width="100%" height="10px">
 <tr width="100%">
-<td  width="50%" valign="top">
+<td width="50%" style="vertical-align:center; ">
 <h3>Your Show Updates</h3>
 </td>
 <td width="50%">
 <table align="right"><tr>
-<td width="80px">
+<td width="80px" style="vertical-align:center;" >
 <h3>Sort by</h3>
 </td>
-
-<td align="right"><a href="#", id="trigger-air-date">
-<div style="float:left" id="button1" class="butta" onmouseover="on('button1','buttovera')" onMouseOut="off('button1','butta')" onmousedown="active('button1','buttdowna')">Air Date</div>
+<td align="right" style="vertical-align:center;">
+<a href="#", id="trigger-air-date">
+<div style="float:left;" id="button1" class="butta" onmouseover="on('button1','buttovera')" onMouseOut="off('button1','butta')" onmousedown="active('button1','buttdowna')">Air Date</div>
  </a>
 <a href="#", id="trigger-title">
 <div style="float:left; margin-left:4px" id="button2" class="butta" onmouseover="on('button2','buttovera')" onMouseOut="off('button2','butta')" onmousedown="active('button2','buttdowna')">Show Title</div>
 </a>
+<div style="clear:both;"></div>
 </td>
 
 </tr></table>
@@ -97,12 +95,6 @@ LastID = id
 </div>
 
 
-
-
-<div id="title_bar_right"></div>
-
-<div style="clear:both;"></div>
-
 <div id="container">
 
 <% if logged_in? %>
@@ -111,14 +103,10 @@ LastID = id
    <% else %>
     
 	<%-# Sort By Show Name: Shows starting with A -%>
-	<div id="main_separator_left"> </div> 
-	<div id="main_separator_center">
+	<div id="main_separator" >
       <h3>This Week</h3>
 	</div>
-	<div id="main_separator_right"></div>
-	<div style="clear:both;"></div>
-	
-      <table>
+      <table width="100%">
 		  <thead style="display:none">
 		  <th>Date</th><th>Title</th><th>Content</th>
         </thead>
@@ -155,7 +143,7 @@ LastID = id
 		  <tbody> 
         <% for episode in SeriesItem.all_episodes_n(1) %>
              <tr><td style="display:none"><%= episode.air_date%></td>
-				 <td style="display:none"><%= episode.series_item.name %></td><td><table>              <%= render :partial => "/episodes/home_episode_row", :locals => {:episode => episode, :list_item => nil} %>
+				 <td style="display:none"><%= episode.series_item.name %></td><td><table>  <%= render :partial => "/episodes/home_episode_row", :locals => {:episode => episode, :list_item => nil} %>
 				 </table>
         <% end %> 
       </table>

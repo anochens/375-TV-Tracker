@@ -1,7 +1,14 @@
 body {
-  background-color: #042d6b;
+  background-color: #2f2f2f;
   font-family: Trebuchet MS,sans-serif;
   font-size: 14px;
+  margin: 0 auto;
+	font-style: vertical-align=bottom;
+}
+
+h3{
+	width: 100%;
+	margin: 0;
 }
 
 a img {
@@ -23,96 +30,53 @@ a:hover{
 }
 
 #header{
-	background-image: url(/images/icon.gif);
-	height: 174px;
-	width:814px;
+	background-image: url(/images/logo_new.gif);
+	background-repeat: no-repeat;
+	height: 82px;
+	width:100%;
 }
 
 #container {
-  width: 95%;
+  width: 97%;
   margin: 0 auto;
-  background-color: #e0e5ed;
-  padding: 10px;
+  background-color: #ffffff;
+  padding: 5px;
   border: none;
-  margin-top: -2px;
-  z-index: 1;
-
+  opacity: 0.73;
 }
 
-#mainmenubar_center{
-	background-image: url(/images/menu_bar_middle.gif);
+#mainmenubar{
+	background-color: #e2e1e1;
 	height: 57px;
-	width: 70%;
-	float:left;
-}
-
-#login_menu{
-	background-image: url(/images/menu_bar_middle.gif);
-	text-align:center;
-	height: 57px;
-	width: 30%;
-	float: left;
-}
-
-#menu_left_edge{
-	background-image: url(/images/menu_bar_left.gif);
-	float:left;
-}
-
-#menu_right_edge{
-	background-image: url(/images/menu_bar_right.gif);
-	float:left;
-	height: 60px;
-}
-
-
-#title_bar_left{
-	float:left;
-	background-image: url(/images/title_bar_left.gif );
-	background-repeat: no-repeat;
-	width: 2%;
-	height:56px;
-}
-
-#title_bar_right{
-	float:left;
-	background-image: url(/images/title_bar_right.gif);
-	background-repeat: no-repeat;
-	width: 1%;
-	height:56px;
+	width:100%;
+	margin: 0 auto;
 }
 
 #title_bar_center{
-	float:left;
 	width: 97%;
-	background-image: url(/images/title_bar_center.gif);
-	height:56px;
+	margin: auto;
+	background-image: url(/images/header.gif);
+	height:39px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	vertical-align : top; 
+	
+}
+
+#main_separator{
+	background-image:url(/images/bar.gif);
+	width: 100%;
+	height: 36px;
 	font-style: vertical-align=bottom;
+	margin: auto;
+	margin-top: 5px;
+	vertical-align: bottom;
 }
 
-#main_separator_left{
-	float:left;
-	background-image:url(/images/separator_left.gif);
-	background-repeat: no-repeat;
-	width: 1%;
-	height: 49px;
+#main{
+	width: 100%;
 }
-
-#main_separator_right{
-	float:left;
-	background-image:url(/images/separator_right.gif);
-	background-repeat: no-repeat;
-	width: 1.5%;
-	height: 49px;
-}
-
-#main_separator_center{
-	float:left;
-	background-image:url(/images/separator_center.gif);
-	width: 97.5%;
-	height: 49px;
-}
-
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
   margin: 10px 0;

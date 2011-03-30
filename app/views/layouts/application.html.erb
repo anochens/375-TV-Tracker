@@ -55,24 +55,20 @@
 <br/> 
 	<div id="header">
 	</div>
-
-	<div id="menu_left_edge">
-	</div>
-	<div id="mainmenubar_center">
+	<div id="mainmenubar">
 	&nbsp;&nbsp;&nbsp;&nbsp;
-		<%= link_to image_tag("/images/home2.gif", :height=>'53px',:alt => "Home"), "/" %>
+		<%= link_to image_tag("/images/homeicon.gif", :height=>'55px', :alt => "Home", :mouseover => "/images/homeicon2.gif"), "/" %>
 		&nbsp;&nbsp;&nbsp;
-		<%= link_to image_tag("/images/list.gif", :height=>'50px',:alt => "All Series"),"/series_items" %>
+		<%= link_to image_tag("/images/list.gif", :height=>'55px',:alt => "All Series"),"/series_items" %>
 		
 	&nbsp;&nbsp;&nbsp;&nbsp;
-		<%= link_to image_tag("/images/Find.png", :height=>'50px',:alt => "Search"),"#" %>
+		<%= link_to image_tag "/images/searchicon.gif", :height=>'55px',:alt => "Search", :mouseover => "/images/searchicon2.gif" %>
 		&nbsp;&nbsp;&nbsp;
-		<%= link_to image_tag("/images/Calendar.png", :height=>'50px',:alt => "Calender"),"#" %>
+		<%= link_to image_tag"/images/calendaricon.gif", :height=>'55px',:alt => "Calender", :mouseover => "/images/calendaricon2.gif" %>
 		<br /><br />
 	</div>
 		
-   <div id="login_menu" >
-		<div id="sign_in_wrapper">
+	<div id="sign_in_wrapper">
 					<table id="sign_in">
 						<tr>
 							<td id="sign_in_left"></td>
@@ -93,14 +89,8 @@
 							</td>
 							<td id="sign_in_right"></td>
 						</tr>
-					</table>
-			</div>	
+					</table>	
 		</div>      
-   
-   <div id="menu_right_edge">
-   </div>
-   
-   <div style="clear:both;"></div>
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
