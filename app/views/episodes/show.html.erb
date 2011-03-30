@@ -3,60 +3,50 @@
 <h3> <%= @episode.series %>: <%= @episode.name %> <i>(<%= @episode.season %>, Episode <%=@episode.episode_number %>)</i></h3>
 </div>
 
-
 <div id="container">
+
+<div id="gen_info_box">
 	<div id = "picture_holder">
 		<% unless @episode.picture_url.nil? %>
 			<%= image_tag(@episode.picture_url) %>
 		<% end %>
 	</div>
-
-  <strong>Series:</strong>
-  <%= @episode.series %>
-</p> 
-<p>
-  <strong>Season:</strong>
-  <%= @episode.season %>
-</p>
-<p>
-  <strong>Episode Number:</strong>
-  <%= @episode.episode_number %>
-</p>
-<p>
-  <strong>Duration:</strong>
-  <%= @episode.duration %>
-</p>
-<p>
+	
+  <br>
   <strong>Air Date:</strong>
   <%= @episode.air_date %>
-</p>
-<p>
-  <strong>Name:</strong>
-  <%= @episode.name %>
-</p> 
-<p>
+  <br>
+  <strong>Duration:</strong>
+  <%= @episode.duration %> min
+
+  <br>
   <strong>IMDB id:</strong>
   <%= @episode.imdb_id %>
-</p>
-<p>
-  <strong>Start Est:</strong>
-  <%= @episode.start_est %>
-</p>
-<p>
-  <strong>Start Cst:</strong>
-  <%= @episode.start_cst %>
-</p>
-<p>
-  <strong>Start Pst:</strong>
-  <%= @episode.start_pst %>
-</p>
-<p>
-  <strong>Description:</strong>
+</div>
+  
+<div id = "episode_desc">
+  <strong>Description:</strong><br>
   <%= @episode.description %>
-</p>
 
+  <br><br><br>
+  <table valign="bottom" border="1px solid black;">
+	<tr width="270px">
+	<td><strong>Start Est</strong></td>
+	<td><strong>Start Cst</strong></td>
+	<td><strong>Start Pst</strong></td>
+	</tr>
+	<tr width="270px">
+	<td width="90px" height="30px"><%= @episode.start_est %></td>
+	<td width="90px" height="30px"><%= @episode.start_cst %></td>
+	<td width="90px" height="30px"><%= @episode.start_pst %></td>
+	</tr>
+  </table>
+</div>
+
+<div style="clear:both;"></div>
+  
 <p>
-  <%= link_to "View All", episodes_path %>
+  <%= link_to "View All Episodes", episodes_path %>
 </p>
 
 </div>
