@@ -1,11 +1,16 @@
-<% title "Episode" %>
+<br>
+<div id="title_bar_center">
+<h3>Your Show Updates</h3>
+</div>
 
-<% unless @episode.picture_url.nil? %>
-<p>
-  <%= image_tag(@episode.picture_url) %>
-</p>
-<% end %>
-<p>
+
+<div id="container">
+	<div id = "picture_holder">
+		<% unless @episode.picture_url.nil? %>
+			<%= image_tag(@episode.picture_url) %>
+		<% end %>
+	</div>
+
   <strong>Series:</strong>
   <%= @episode.series %>
 </p> 
@@ -53,3 +58,5 @@
 <p>
   <%= link_to "View All", episodes_path %>
 </p>
+
+</div>
