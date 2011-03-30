@@ -39,7 +39,7 @@
   <br/>                                
 
   <% letter = '0-9'; %>
-  		  <div id="div_0-9" style="display:none">
+  		  <div id="div_0-9">
         
 		  <% for series_item in @series_items.sort_by{|s| s.name } %>
 
@@ -50,7 +50,7 @@
 		  <% if curr_letter != letter %>
 			  </div>
 			  <% letter = curr_letter %>
-			  <div id="div_<%= letter %>" style="display:none">
+			  <div id="div_<%= letter %>" >
 		  <% end %>   
 				<%= link_to series_item.name,series_item %>
 				<% if logged_in? %>

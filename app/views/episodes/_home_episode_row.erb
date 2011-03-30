@@ -4,10 +4,7 @@
 <% end %>      </td>
 	<td >
       <b><%= episode.series_item %></b>
-		<% if logged_in? %>
-			<%= link_to "Unfollow", list_item, :method => :delete %>
-		<% end %>	
-	  
+	 
 		<br/>
 
       <i>
@@ -25,9 +22,9 @@
 	  <td width="10%">
 	  
 		<% if logged_in? %>
-			<%= link_to image_tag "/images/checkmarkicon.gif", :mouseover=> "/images/checkmarkicon3.gif", :controller => "watched_episodes", :action => "create","watched_episode[episode_id]"=>episode.id, :method=>:post  %>
+			<%= link_to image_tag("/images/checkmarkicon.gif", :mouseover=> "/images/checkmarkicon3.gif",:title=>"I've seen this"), {:controller => "watched_episodes", :action => "create","watched_episode[episode_id]"=>episode.id}, :method=>:post  %>
 			<br>
-			<%= link_to image_tag "/images/hearticon.gif", :mouseover => "/images/hearticon3.gif", :controller => "watched_episodes" , :confirm => 'Are you sure?', :method => :delete %>
+			<%= link_to image_tag("/images/hearticon.gif", :mouseover => "/images/hearticon3.gif"), list_item, :method => :delete %>
 		<% end %>	
                         </td>
 <br/><br/>
