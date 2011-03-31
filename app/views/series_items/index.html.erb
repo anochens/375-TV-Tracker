@@ -55,7 +55,7 @@
 					<% list_item = current_user.list_items.select{|li| li.series_item_id == series_item.id}.first %> 
 					<% if list_item.nil? %>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<%= link_to image_tag("/images/hearticon2.png", :mouseover => "/images/hearticon.png"), {:controller => "list_items", :action => "create","list_item[series_item_id]"=>series_item.id}, :method=>:post  %>
+						<%= link_to image_tag("/images/hearticon3.png", :mouseover => "/images/hearticon.png"), {:controller => "list_items", :action => "create","list_item[series_item_id]"=>series_item.id}, :method=>:post  %>
 					<% else %>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<%= link_to image_tag("/images/hearticon.png", :mouseover => "/images/hearticon2.png"), list_item, :method => :delete %>
