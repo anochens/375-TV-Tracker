@@ -21,7 +21,6 @@
 <div id="container">
   	<div id="main_separator" >
 	<% alpha = %w[0-9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z] %>
-
   <script>
   	function hideall() {
    	<% for letter in alpha %>
@@ -29,39 +28,40 @@
 		<% end %>	
 	}	
   </script>
-
   <% for letter in alpha %>
      <a href="#" onclick="hideall();$('#div_<%= letter %>').toggle()"><%= letter %></a>
   <% end %>   
-  <br/>                                
-<br>
+
 	</div>
   <% letter = '0-9'; %>
   		  <div id="div_0-9">
         
-		  <% for series_item in @series_items.sort_by{|s| s.name } %>
-
+		  <% for series_item in @series_items.sort_by{|s| s.name } %>		
         <% curr_letter = series_item.name[0].chr %>
 		  <% if curr_letter.to_i > 0 
         	 	 curr_letter = "0-9"
 		     end %>
 		  <% if curr_letter != letter %>
 			  </div>
+			  <br>
 			  <% letter = curr_letter %>
 			  <div id="div_<%= letter %>" >
 		  <% end %>   
+		
+		  <div id="seriesname" style="font-size:18px; padding:5px">
 				<%= link_to series_item.name,series_item %>
+	
+				<div id="hearts" align="right" style="margin-top:-25px">
 				<% if logged_in? %>
 					<% list_item = current_user.list_items.select{|li| li.series_item_id == series_item.id}.first %> 
 					<% if list_item.nil? %>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<%= link_to image_tag("/images/hearticon3.png", :mouseover => "/images/hearticon.png"), {:controller => "list_items", :action => "create","list_item[series_item_id]"=>series_item.id}, :method=>:post  %>
 					<% else %>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<%= link_to image_tag("/images/hearticon.png", :mouseover => "/images/hearticon2.png"), list_item, :method => :delete %>
 					<% end %>
+					</div>
+					</div>
 				<% end %>	
-		  <br/>
 		  <% end %>
 		  </div>
 	  </div>   
