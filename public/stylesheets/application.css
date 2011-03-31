@@ -109,9 +109,12 @@ a:hover{
 	width: 56%;
 	padding: 5px;
 	padding-top: 10px;
-
 }
 
+#comments_box{
+
+
+}
 
 /* flash notices */
 #flash_notice, #flash_error, #flash_alert {
