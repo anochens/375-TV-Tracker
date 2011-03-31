@@ -23,6 +23,7 @@ a:hover{
 	color: #ccc;
 }
 
+
 .clear {
   clear: both;
   height: 0;
@@ -61,6 +62,7 @@ a:hover{
 	padding-right: 5px;
 	padding-bottom: 5px;
 	vertical-align : top; 
+	line-height: 39px;
 	
 }
 
@@ -72,7 +74,15 @@ a:hover{
 	margin: auto;
 	margin-top: 5px;
 	vertical-align: bottom;
+	color: white;
+	line-height: 36px;
+	padding-left: 5px;
 }
+
+#main_separator a{
+	color: white;
+}
+
 
 #main{
 	width: 100%;
