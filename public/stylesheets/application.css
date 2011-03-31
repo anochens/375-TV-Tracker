@@ -16,12 +16,13 @@ a img {
 }
 
 a {
-	color: #cccc;
+	color: #008ED3;
 }
 
 a:hover{
-	color: #ccc;
+	color: #26BBED;
 }
+
 
 
 .clear {
@@ -29,6 +30,7 @@ a:hover{
   height: 0;
   overflow: hidden;
 }
+
 
 #header{
 	background-image: url(/images/logo_new.gif);
