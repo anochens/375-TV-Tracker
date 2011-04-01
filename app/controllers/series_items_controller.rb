@@ -13,6 +13,7 @@ class SeriesItemsController < ApplicationController
 
   def create
     @series_item = SeriesItem.new(params[:series_item])
+    @series_item.remote_image_url = params[:series_item][:remote_image_url]
     if @series_item.save
       flash[:notice] = "Successfully created series item."
       redirect_to @series_item

@@ -1,5 +1,9 @@
 <% title "Series" %>
 
+<% unless @series_item.image_url.nil? %>
+  <%= image_tag @series_item.image_url %>
+<% end %>  
+
 <p>
   <strong>Channel:</strong>
   <%= @series_item.channel %>
@@ -7,6 +11,7 @@
 <p>
   <strong>Name:</strong>
   <%= @series_item.name %>
+  <strong>Description:</strong>
 </p>
 <p>
   <strong>Description:</strong>

@@ -21,4 +21,4 @@
       <td><%= link_to "Edit", edit_episode_path(episode) %></td>
       <td><%= link_to "Destroy", episode, :confirm => 'Are you sure?', :method => :delete %></td> 
 <% end %>      
-      <td><%= link_to image_tag "/public/images/checkmarkicon.gif", {:controller => "watched_episodes", :action => "create","watched_episode[episode_id]"=>episode.id}, :method=>:post  %></td>
+      <td><%= link_to image_tag("/public/images/checkmarkicon.gif"), {:controller => "watched_episodes", :action => "create","watched_episode[episode_id]"=>episode.id}, :method=>:post  %></td>

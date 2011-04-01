@@ -1,5 +1,8 @@
+
 class SeriesItem < ActiveRecord::Base
-	attr_accessible :channel_id, :name, :description, :remote_id
+	attr_accessible :channel_id, :name, :description, :remote_id, :image, :remote_image_url
+
+	mount_uploader :image, BannerUploader
 
 	validates_presence_of :name
 	belongs_to :channel

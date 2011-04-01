@@ -15,12 +15,18 @@ all_ids = Thetvdb.getAllSeriesIds
 p 'This will take a while, please be patient...'
 
 # only put in 25 shows for now
-all_ids[1500..2000].each{|id|
+all_ids[1500..1550].each{|id|
 	full_record = Thetvdb.getFullSeriesRecord(id)
 	series = full_record["Series"][0]
 	
 	#need to put in logo eventually...
 	channel = Channel.find_or_create_by_name(series["Network"][0])
+
+	series_image_url = series["poster"][0]
+	series_image_url = nil if series_image_url == {} || series_image_url == ""
+
+	series_image_url = "http://thetvdb.com/banners/#{series_image_url}" unless series_image_url.nil?
+
 
 	series_overview = series["Overview"][0]
 	series_overview = "No overview provided" if series_overview.nil? || series_overview == "" || series_overview == {}
@@ -31,7 +37,7 @@ all_ids[1500..2000].each{|id|
 	next if name == ""
 	next if name == {}
 	
-	series_obj = SeriesItem.create!(:remote_id => id, :name=> name, :description => series_overview, :channel_id => channel.id);
+	series_obj = SeriesItem.create!(:remote_id => id, :name=> name, :description => series_overview, :channel_id => channel.id, :remote_image_url => series_image_url);
 	
 	episodes = Thetvdb.break_array(full_record["Episode"])
 
@@ -55,9 +61,9 @@ all_ids[1500..2000].each{|id|
       e.description = "No description provided" if e.description.nil? || e.description == "" || e.description == {}
 		e.air_date    = episode["FirstAired"][0]
 		e.air_date = nil if e.air_date == "" || e.air_date == {} #stupid postgres error
-		e.picture_url = episode["filename"]
-		e.picture_url = "" if e.picture_url.nil? || e.picture_url == {}
-		e.picture_url = "http://thetvdb.com/banners/#{e.picture_url}" if e.picture_url != "" 
+#		e.picture_url = episode["filename"]
+#		e.picture_url = "" if e.picture_url.nil? || e.picture_url == {}
+#		e.picture_url = "http://thetvdb.com/banners/#{e.picture_url}" if e.picture_url != "" 
 		e.save!
 
 		#something with guest stars could go here...

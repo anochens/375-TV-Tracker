@@ -11,6 +11,13 @@ GIT
       shoulda
       xml-simple
 
+GIT
+  remote: git://github.com/jnicklas/carrierwave.git
+  revision: 951bf30e112ab0789f7afce6c5d3b5cbd42f814e
+  specs:
+    carrierwave (0.5.3)
+      activesupport (~> 3.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -111,6 +118,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby
+  carrierwave!
   factory_girl_rails
   libthetvdb!
   mocha
