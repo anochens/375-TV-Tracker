@@ -5,6 +5,7 @@ class EpisodesController < ApplicationController
 
   def show
     @episode = Episode.find(params[:id])
+    @ratings = @episode.ratings
   end
 
   def new

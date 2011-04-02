@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110401013958) do
+ActiveRecord::Schema.define(:version => 20110402222041) do
 
   create_table "actors", :force => true do |t|
     t.string    "last_name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20110401013958) do
     t.string    "name"
     t.string    "imdb_id"
     t.string    "picture_url"
+    t.integer   "ratings_count",  :default => 0
   end
 
   create_table "list_items", :force => true do |t|
@@ -47,6 +48,13 @@ ActiveRecord::Schema.define(:version => 20110401013958) do
     t.integer   "series_item_id"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+  end
+
+  create_table "ratings", :force => true do |t|
+    t.integer  "episode_id"
+    t.integer  "stars"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "roles", :force => true do |t|

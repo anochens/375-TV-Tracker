@@ -7,6 +7,7 @@ class Episode < ActiveRecord::Base
   belongs_to :season
   has_one :series_item, :through => :season
   has_many :watched_episodes
+  has_many :ratings
 
   scope :all, joins(:season).order("seasons.season_number DESC, #{table_name}.episode_number DESC")
   scope :recent, where("#{table_name}.air_date > ? ", 5.years.ago.to_datetime)
@@ -29,5 +30,9 @@ class Episode < ActiveRecord::Base
 
   def to_s
      "#{series}: Episode #{episode_number}"
+  end
+  
+  def average_stars
+    ratings.average(:stars)
   end
 end

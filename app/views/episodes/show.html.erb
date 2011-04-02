@@ -50,6 +50,16 @@
   <%= @episode.description %>
 </p>
 
+<% unless @ratings.length.zero? %>
+  <div class="average_stars">
+		<em><strong>Stars given to episode:</strong></em><br><br>
+    <%= display_stars(@episode.average_stars) %>
+    (<%= sprintf "%.1f", @episode.average_stars %>)
+  </div>
+<% end %>
+
+<%= render :partial => "stars_form" %>
+
 <p>
   <%= link_to "View All", episodes_path %>
 </p>
