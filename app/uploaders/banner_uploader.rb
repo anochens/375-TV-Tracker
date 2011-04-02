@@ -1,9 +1,11 @@
 # encoding: utf-8
 
+require 'rubygems'
+require 'carrierwave/processing/mini_magick'
 class BannerUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MiniMagick
 
   # Include RMagick or ImageScience support:
-  # include CarrierWave::MiniMagick
   # include CarrierWave::ImageScience
 
   # Choose what kind of storage to use for this uploader:
@@ -26,7 +28,7 @@ class BannerUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  #process :resize_to_fit => [100, 100]
+  process :resize_to_fit => [100, 100]
   #
   #def scale(width, height)
   #   # do something

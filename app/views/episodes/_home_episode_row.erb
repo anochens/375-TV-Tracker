@@ -1,6 +1,6 @@
 <table width="98%" style="margin:auto"><tr><td width=150>
 <% unless episode.picture_url.nil? %>
-	<img src="<%= episode.picture_url %>" width=100 height=100 />
+	<%= image_tag(episode.picture_url, :width=>100, :height=>100) %>
 <% end %>      </td>
 	<td >
       <b><%= episode.series_item %></b>
