@@ -4,7 +4,7 @@ module ApplicationHelper
   end
   
   def display_stars(stars)
-    content_tag :div, star_images(stars || 0), :class => 'kcw_stars'
+    content_tag(:div, star_images(stars || 0).html_safe, :escape => false, :class => 'kcw_stars')
   end
   
   def star_images(stars)
@@ -14,7 +14,7 @@ module ApplicationHelper
   end
   
   def star_image_tag(value)
-    image_tag "/images/kcw_stars/#{star_image_name(value)}.gif", :size => '25x25'
+    image_tag("/images/kcw_stars/#{star_image_name(value)}.gif", :size => '25x25')
   end
   
   def star_image_name(value)
