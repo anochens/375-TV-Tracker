@@ -113,9 +113,9 @@ LastID = id
 		  <tbody>
         <% for episode in current_user.unwatched_episodes %>
              <tr><td style="display:none"><%= episode.air_date%></td>
-				 <td style="display:none"><%= episode.series_item.name %></td><td><table>
+				 <td style="display:none"><%= episode.series_item.name %></td><td>
              <%= render :partial => "/episodes/home_episode_row", :locals => {:episode => episode, :list_item => ListItem.find_by_series_item_id_and_user_id(episode.series_item.id,current_user.id)} %>
-				 </table>
+				 </td></tr>
         <% end %>
 		  </tbody> 
       </table>
@@ -143,9 +143,10 @@ LastID = id
 		  <tbody> 
         <% for episode in SeriesItem.all_episodes_n(1) %>
              <tr><td style="display:none"><%= episode.air_date%></td>
-				 <td style="display:none"><%= episode.series_item.name %></td><td><table>  <%= render :partial => "/episodes/home_episode_row", :locals => {:episode => episode, :list_item => nil} %>
-				 </table>
+				 <td style="display:none"><%= episode.series_item.name %></td><td>  <%= render :partial => "/episodes/home_episode_row", :locals => {:episode => episode, :list_item => nil} %>
+			  </td></tr>
         <% end %> 
+		  </tbody>
       </table>
 <% end %> 
 
