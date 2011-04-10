@@ -27,10 +27,17 @@
       	$("#div_<%= letter %>").hide();
 		<% end %>	
 	}	
-  </script>
+  	function showall() {
+   	<% for letter in alpha %>
+      	$("#div_<%= letter %>").show();
+		<% end %>	
+	}
+	</script>
+
   <% for letter in alpha %>
      <a href="#" onclick="hideall();$('#div_<%= letter %>').toggle()"><%= letter %></a>
   <% end %>   
+  <a href="#" onclick="showall()">All</a>
 
 	</div>
   <% letter = '0-9'; %>
