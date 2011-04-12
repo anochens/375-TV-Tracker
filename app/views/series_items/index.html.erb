@@ -32,6 +32,10 @@
       	$("#div_<%= letter %>").show();
 		<% end %>	
 	}
+	function toggleheart(id) {
+	  $('#'+id+'_add').toggle() 
+	  $('#'+id+'_rm').toggle() 
+	}
 	</script>
 
   <% for letter in alpha %>
@@ -61,10 +65,18 @@
 				<% if logged_in? %>
 				<div id="hearts" align="right" style="margin-top:-25px">
 					<% list_item = current_user.list_items.select{|li| li.series_item_id == series_item.id}.first %> 
+               
+						<div id='<%=series_item.id%>_add'>
+						<%= link_to image_tag("/images/hearticon3.png", :mouseover => "/images/hearticon.png",:title=>"Follow"), {:controller => "list_items", :action => "create","list_item[series_item_id]"=>series_item.id}, :method=>:post, :onclick=>"toggleheart(#{series_item.id})",:remote=>true  %>
+						</div>
+					<%# else %>
+						<div id='<%=series_item.id%>_rm'>
+						<%= link_to image_tag("/images/hearticon.png", :mouseover => "/images/hearticon2.png",:title=>"Unfollow"), list_item, :method => :delete, :onclick=>"toggleheart(#{series_item.id})",:remote=>true %>
+						</div>
 					<% if list_item.nil? %>
-						<%= link_to image_tag("/images/hearticon3.png", :mouseover => "/images/hearticon.png"), {:controller => "list_items", :action => "create","list_item[series_item_id]"=>series_item.id}, :method=>:post  %>
+						<script>$('#<%= series_item.id %>_rm').hide()</script> 
 					<% else %>
-						<%= link_to image_tag("/images/hearticon.png", :mouseover => "/images/hearticon2.png"), list_item, :method => :delete %>
+						<script>$('#<%= series_item.id %>_add').hide()</script> 
 					<% end %>
 				</div>
 				<% end %>	
