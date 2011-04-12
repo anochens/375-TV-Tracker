@@ -67,7 +67,20 @@
 		&nbsp;&nbsp;&nbsp;
 		<%= link_to image_tag"/images/calendaricon.png", :height=>'55px',:title => "Calender", :mouseover => "/images/calendaricon2.png" %>
 		<br /><br />
+
+                <%#*<div id="searchbox">%>
+                  <%#*<input id="query" type ="text"/>%>
+                <%#*</div>%>
+
+                <%= form_tag searches_path, :method => 'get' do %>
+ <span id="searchSite">Search TV Tracker</span>
+ <input id = "search" maxlength="100" name="search" onfocus="clear_search(this)" title="Enter keywords to search Carnegie Mellon University" type="text" value=" SEARCH"/>
+ <button id="searchSubmit" title="Submit Carnegie Mellon University keyword search" type="submit" value="Search"> </button>
+<% end %>
+                
 	</div>
+
+
 		
 	<div id="sign_in_wrapper">
 					<table id="sign_in">

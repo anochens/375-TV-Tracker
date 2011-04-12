@@ -1,6 +1,8 @@
 TvTracker::Application.routes.draw do
   
   
+  resources :searches
+
   resources :ratings
 
   resources :watched_episodes

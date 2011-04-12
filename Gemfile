@@ -26,7 +26,7 @@ gem 'libthetvdb', :git => 'git://github.com/cmu-is-projects/libthetvdb.git'
 
 # Bundle the extra gems:
 # gem 'bj'
-# gem 'nokogiri'
+# gem 'nokogiri', '1.4.4.1'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
