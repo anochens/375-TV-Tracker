@@ -5,7 +5,10 @@ class Search < ActiveRecord::Base
         results = {}
         results['size'] = 0                                           
 
-		query.upcase!  
+		query_orig = query
+
+		query.upcase!
+		  
 
       tmp = Episode.find(:all, :conditions => ['UPPER(name) LIKE ?', "%#{query}%"])
         if !tmp.nil?
@@ -41,7 +44,7 @@ class Search < ActiveRecord::Base
 #            results['size'] += tmp1.size
 #        end
 
-        results['query'] = query;
+        results['query'] = query_orig;
         return results
     end
 end
