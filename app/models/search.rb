@@ -3,15 +3,17 @@ class Search < ActiveRecord::Base
    def self.search(query)
         return {'size' => 0} if query.nil? || query.empty?
         results = {}
-        results['size'] = 0
+        results['size'] = 0                                           
 
-      tmp = Episode.find(:all, :conditions => ['name LIKE ?', "%#{query}%"])
+		query.upcase!  
+
+      tmp = Episode.find(:all, :conditions => ['UPPER(name) LIKE ?', "%#{query}%"])
         if !tmp.nil?
             results['episodes'] = tmp
             results['size'] += tmp.size
         end
 
-      tmp = SeriesItem.find(:all, :conditions => ['name LIKE ?', "%#{query}%"])
+      tmp = SeriesItem.find(:all, :conditions => ['UPPER(name) LIKE ?', "%#{query}%"])
         if !tmp.nil?
             results['series'] = tmp
             results['size'] += tmp.size
