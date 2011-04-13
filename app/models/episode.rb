@@ -35,4 +35,8 @@ class Episode < ActiveRecord::Base
   def average_stars
     ratings.average(:stars)
   end
+
+  def search_summary
+     "#{name} (#{series_item.to_s})"
+  end   
 end

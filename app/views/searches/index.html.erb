@@ -5,13 +5,13 @@
        <%= @results['size'] %> results found:<br/>
        <% @results.delete 'size' %>
        <% @results.delete 'query' %>
-       <% @results.each_key do |part| %>
+       <% @results.keys.each do |part| %>
                 <div id="searchPartial">
                         <h3>Results for: <%= part.capitalize %></h3>
                     <% if @results[part].size != 0 %>
-                            <% @results[part].each do |result| %>
+                            <% @results[part].sort_by{|r| r.name}.each do |result| %>
                                 <div id="searchResult">
-                                  <%= link_to result.name, result %>
+                                  <%= link_to result.search_summary, result %>
                                 </div>
                             <% end %>
                     <% else %>
