@@ -13,15 +13,18 @@
 	</div>
 	
   <br>
-  <strong>Air Date:</strong>
-  <%= @episode.air_date %>
+  <% unless @episode.air_date.nil? %>
+	  <strong>Air Date:</strong>
+	  <%= @episode.air_date.strftime("%a %B %d, %Y") %>
+  <%end%>
   <br>
   <strong>Duration:</strong>
   <%= @episode.duration %> min
 
   <br>
-  <strong>IMDB id:</strong>
-  <%= @episode.imdb_id %>
+  <% unless @episode.imdb_id.nil? || @episode.imdb_id == "" %>
+	  <%= link_to "See it on IMDB!", "http://imdb.com/title/#{@episode.imdb_id}" %>
+  <%end%>   
 </div>
   
 <div id = "episode_desc">
@@ -31,14 +34,26 @@
   <br><br><br>
   <table valign="bottom" border="1px solid black;">
 	<tr width="270px">
-	<td><strong>Start Est</strong></td>
-	<td><strong>Start Cst</strong></td>
-	<td><strong>Start Pst</strong></td>
+	<% unless @episode.start_est.nil? %>
+		<th>Start Est</th>
+	<% end %>	
+	<% unless @episode.start_cst.nil? %>
+		<th>Start Cst</th>
+	<% end %>	
+	<% unless @episode.start_pst.nil? %>
+		<th>Start Pst</th>
+	<% end %>	
 	</tr>
 	<tr width="270px">
-	<td width="90px" height="30px"><%= @episode.start_est %></td>
-	<td width="90px" height="30px"><%= @episode.start_cst %></td>
-	<td width="90px" height="30px"><%= @episode.start_pst %></td>
+	<% unless @episode.start_est.nil? %>
+	<td width="90px" height="30px"><%= Time.parse(@episode.start_est).strftime("%I:%M%p") %></td>
+	<% end %>	
+	<% unless @episode.start_cst.nil? %>
+		<td width="90px" height="30px"><%= @episode.start_cst %></td>
+	<% end %>	
+	<% unless @episode.start_pst.nil? %>
+		<td width="90px" height="30px"><%= @episode.start_pst %></td>
+	<%end%>
 	</tr>
   </table>
 </div>
@@ -54,12 +69,11 @@
   </div>
 <% end %>
 
-<%= render :partial => "stars_form" %>
- 
+<% if logged_in? %>
+	<%= render :partial => "stars_form" %>
+<% end %>	
 
-
-<p>
-  <%= link_to "View All Episodes", episodes_path %>
-</p>
+<br/>
+<%= link_to "Back", :back %>
 
 </div>
