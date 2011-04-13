@@ -9,6 +9,11 @@
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   <script>
+  function clear_search(box) {
+  	if(box.value == "Search TV Tracker") {
+   	box.value = ""
+	}
+  }
 //from http://tablesorter.com/docs/example-trigger-sort.html
 	$(document).ready(function() { 
 		 $("table").tablesorter(); 
@@ -66,17 +71,16 @@
 		
 		&nbsp;&nbsp;&nbsp;
 		<%= link_to image_tag"/images/calendaricon.png", :height=>'55px',:title => "Calender", :mouseover => "/images/calendaricon2.png" %>
-		<br /><br />
 
                 <%#*<div id="searchbox">%>
                   <%#*<input id="query" type ="text"/>%>
                 <%#*</div>%>
 
-                <%= form_tag searches_path, :method => 'get' do %>
- <span id="searchSite">Search TV Tracker</span>
- <input id = "search" maxlength="100" name="search" onfocus="clear_search(this)" title="Enter keywords to search Carnegie Mellon University" type="text" value=" SEARCH"/>
- <button id="searchSubmit" title="Submit Carnegie Mellon University keyword search" type="submit" value="Search"> </button>
-<% end %>
+                <form action='<%= searches_path %>', method='get' style="padding:20px;display:inline;float:right">
+						 <input id="search" maxlength="100" name="search" onclick="clear_search(this)" type="text" value="Search TV Tracker"/>
+						 <%= submit_tag("Go!") %>
+					 </form>
+		<br /><br />
                 
 	</div>
 
