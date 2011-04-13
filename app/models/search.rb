@@ -5,7 +5,7 @@ class Search < ActiveRecord::Base
         results = {}
         results['size'] = 0                                           
 
-		query_orig = query
+		query_orig = query.clone
 
 		query.upcase!
 		  
