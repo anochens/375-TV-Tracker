@@ -50,4 +50,8 @@ class SeriesItem < ActiveRecord::Base
 	def to_s
 		name
 	end
+
+	def search_summary
+      to_s
+	end	
 end
