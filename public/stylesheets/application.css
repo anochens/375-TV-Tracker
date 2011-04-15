@@ -1,0 +1,225 @@
+body {
+  background-color: #2f2f2f;
+  font-family: Trebuchet MS,sans-serif;
+  font-size: 14px;
+  margin: 0 auto;
+	font-style: vertical-align=bottom;
+}
+
+h3{
+	width: 100%;
+	margin: 0;
+}
+
+a img {
+  border: none;
+}
+
+a {
+	color: #008ED3;
+}
+
+a:hover{
+	color: #26BBED;
+}
+
+
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+
+#header{
+	background-image: url(/images/logo_new.gif);
+	background-repeat: no-repeat;
+	height: 82px;
+	width:100%;
+}
+
+#container {
+  width: 97%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 5px;
+  border: none;
+  opacity: 0.73;
+}
+
+#mainmenubar{
+	background-color: #e2e1e1;
+	height: 57px;
+	width:100%;
+	margin: 0 auto;
+}
+
+#title_bar_center{
+	width: 97%;
+	margin: auto;
+	background-image: url(/images/header.gif);
+	height:39px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	vertical-align : top; 
+	line-height: 39px;
+	
+}
+
+#main_separator{
+	background-image:url(/images/bar.gif);
+	width: 99%;
+	height: 36px;
+	font-style: vertical-align=bottom;
+	margin: auto;
+	margin-top: 5px;
+	vertical-align: bottom;
+	color: white;
+	line-height: 36px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+#main_separator a{
+	color: white;
+}
+
+
+#main{
+	width: 100%;
+}
+
+/* episodes layout */
+
+#picture_holder{
+	height: 100px;
+	width: 200px;
+	border: 1px solid black;
+}
+
+#gen_info_box{
+	padding: 5px;
+	padding-top: 10px;
+	float: left;
+	width: 40%;
+
+}
+
+#episode_desc{
+	float: left;
+	width: 56%;
+	padding: 5px;
+	padding-top: 10px;
+}
+
+#comments_box{
+
+
+}
+
+/* flash notices */
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.fieldWithErrors {
+  display: inline;
+}
+
+.error_messages {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 12px;
+}
+
+.error_messages h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+.error_messages p {
+  margin: 8px 10px;
+}
+
+.error_messages ul {
+  margin: 0;
+}
+
+#divtemp{
+	height: 20px;
+	width: 10px;
+}
+
+.div {
+    /* button size etc properties */
+	
+	height: 20px;
+	width: 10px;
+}
+
+.expanded {background: url(img/x.gif) no-repeat left top;}
+.collapsed {background: url(img/y.gif) no-repeat left top;}
+
+/* Sign In */
+#sign_in_wrapper{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+}
+#sign_in_wrapper a{
+	color:#fff;
+}
+#sign_in{
+	position:absolute;
+	right:5px;
+	border-collapse:collapse;
+	color:white;
+	font-size:75%;
+}
+#sign_in_left{
+	width:13px;
+	height:28px;
+/*	background: url(/images/sign_in/sign_in_left.png);  */
+}
+#sign_in_middle{
+	padding-left:10px;
+	padding-right:10px;
+	background:#0f0f0f;
+}
+#sign_in_right{
+	width:13px;
+	height:28px;
+/*	background: url(/images/sign_in/sign_in_right.png);    */
+}
+#login{
+	font-size:90%;
+}
+#password{
+	font-size:90%;
+}
+#login_button{
+	font-size:95%;
+}

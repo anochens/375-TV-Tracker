@@ -1,0 +1,24 @@
+<% title "Episodes" %>
+
+<table>
+  <tr>
+    <th>Series</th>
+    <th>Season</th>
+    <th>Episode Number</th>
+    <th>Duration</th>
+    <th>Air Date</th>
+    <th>Name</th>
+    <th>IMDB id</th>
+    <th>Start Est</th>
+    <th>Start Cst</th>
+    <th>Start Pst</th>
+    <th>Description</th>
+  </tr>
+  <% for episode in @episodes %>
+    <tr>
+       <%= render :partial => "episode_row", :locals => {:episode => episode} %>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Episode", new_episode_path %></p>

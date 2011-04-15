@@ -1,0 +1,20 @@
+<% title "Channels" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Series</th>
+  </tr>
+  <% for channel in @channels %>
+    <tr>
+      <td><%= channel.name %></td>
+      <td>  
+        <%= raw(listify(channel.series_items)) %>
+      </td>
+      <td><%= link_to "Show", channel %></td>
+      <td><%= link_to "Destroy", channel, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Channel", new_channel_path %></p>

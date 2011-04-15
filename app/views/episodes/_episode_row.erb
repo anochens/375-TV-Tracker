@@ -1,0 +1,24 @@
+<% min ||= false %>
+<% unless min %>
+      <td><%= episode.series_item %></td>
+<% end %>      
+      <td><%= episode.season %></td>
+      <td>Episode <%= episode.episode_number %></td>
+<% unless min %>
+      <td><%= episode.duration %></td>
+<% end %>      
+      <td><%= episode.air_date %></td>
+      <td><%= episode.name %></td>
+<% unless min %>      
+      <td><%= episode.imdb_id %></td>
+      <td><%= episode.start_est %></td>
+      <td><%= episode.start_cst %></td>
+      <td><%= episode.start_pst %></td>
+<% end %>      
+      <td><%= episode.description_small %></td>
+      <td><%= link_to "More", episode %></td>
+<% unless min %>      
+      <td><%= link_to "Edit", edit_episode_path(episode) %></td>
+      <td><%= link_to "Destroy", episode, :confirm => 'Are you sure?', :method => :delete %></td> 
+<% end %>      
+      <td><%= link_to image_tag("/public/images/checkmarkicon.png"), {:controller => "watched_episodes", :action => "create","watched_episode[episode_id]"=>episode.id}, :method=>:post  %></td>

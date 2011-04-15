@@ -1,0 +1,16 @@
+<% title "Seasons" %>
+
+<table>
+  <tr>
+    <th>Series</th>
+    <th>Season Number</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Description</th>
+  </tr>
+  <% for season in @seasons %>
+     <%= render :partial => "season_row", :locals => {:season => season} %>
+  <% end %>
+</table>
+
+<p><%= link_to "New Season", new_season_path %></p>

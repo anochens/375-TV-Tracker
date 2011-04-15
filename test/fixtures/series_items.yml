@@ -1,0 +1,9 @@
+one:
+  channel_id: 1
+  name: MyString
+  description: MyText
+
+two:
+  channel_id: 1
+  name: MyString
+  description: MyText

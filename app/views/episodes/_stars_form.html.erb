@@ -1,0 +1,13 @@
+<% form_for :rating, :url => ratings_path(:episode_id => @episode) do |f| %>
+	<%= f.hidden_field :episode_id, :value => @episode.id %>
+  <p>
+    <label for="stars">Rate this episode:</label>
+    <% 1.upto(5) do |i| %>
+      <%= f.radio_button :stars, i %>
+      <%= i %>
+    <% end %>
+  </p>
+  <p>
+    <%= submit_tag "Submit Rating" %>
+  </p>
+<% end %>

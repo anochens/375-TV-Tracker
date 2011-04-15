@@ -1,0 +1,20 @@
+<% title "Actor" %>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @actor.last_name %>
+</p>
+<p>
+  <strong>First Name:</strong>
+  <%= @actor.first_name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @actor.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_actor_path(@actor) %> |
+  <%= link_to "Destroy", @actor, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", actors_path %>
+</p>

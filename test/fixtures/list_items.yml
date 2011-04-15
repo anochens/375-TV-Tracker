@@ -1,0 +1,9 @@
+one:
+  user_id: 1
+  series_item_id: 1
+  watched: false
+
+two:
+  user_id: 1
+  series_item_id: 1
+  watched: false

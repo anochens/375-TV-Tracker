@@ -1,0 +1,116 @@
+<br>
+<div id="title_bar_center">
+<h3> <%= @episode.series %>: <%= @episode.name %> <i>(<%= @episode.season %>, Episode <%=@episode.episode_number %>)</i></h3>
+</div>
+
+<div id="container">
+
+<div id="gen_info_box">
+	<div id = "picture_holder">
+		<% unless @episode.picture_url.nil? %>
+			<%= image_tag(@episode.picture_url) %>
+		<% end %>
+	</div>
+	
+  <br>
+  <% unless @episode.air_date.nil? %>
+	  <strong>Air Date:</strong>
+	  <%= @episode.air_date.strftime("%a %B %d, %Y") %>
+  <%end%>
+  <br>
+  <strong>Duration:</strong>
+  <%= @episode.duration %> min
+
+  <br>
+  <% unless @episode.imdb_id.nil? || @episode.imdb_id == "" %>
+	  <%= link_to "See it on IMDB!", "http://imdb.com/title/#{@episode.imdb_id}" %>
+  <%end%>   
+</div>
+  
+<div id = "episode_desc">
+  <strong>Description:</strong><br>
+  <%= @episode.description %>
+
+  <br><br><br>
+  <table valign="bottom" border="1px solid black;">
+	<tr width="270px">
+	<% unless @episode.start_est.nil? %>
+		<th>Start Est</th>
+	<% end %>	
+	<% unless @episode.start_cst.nil? %>
+		<th>Start Cst</th>
+	<% end %>	
+	<% unless @episode.start_pst.nil? %>
+		<th>Start Pst</th>
+	<% end %>	
+	</tr>
+	<tr width="270px">
+	<% unless @episode.start_est.nil? %>
+	<td width="90px" height="30px"><%= Time.parse(@episode.start_est).strftime("%I:%M%p") %></td>
+	<% end %>	
+	<% unless @episode.start_cst.nil? %>
+		<td width="90px" height="30px"><%= @episode.start_cst %></td>
+	<% end %>	
+	<% unless @episode.start_pst.nil? %>
+		<td width="90px" height="30px"><%= @episode.start_pst %></td>
+	<%end%>
+	</tr>
+  </table>
+</div>
+
+<div style="clear:both;"></div>
+
+<% unless @ratings.length.zero? %>
+  <div class="average_stars">
+		<em><strong>Stars given to episode:</strong></em><br><br>
+    <%= display_stars(@episode.average_stars).html_safe %>
+    (<%= sprintf "%.1f", @episode.average_stars %>)
+  </div>
+<% end %>
+
+<h2>Comments</h2>
+<% @episode.comments.each do |comment| %>
+  <p>
+    <b>Name:</b>
+    <%= comment.name %>
+  </p>
+ 
+  <p>
+    <b>Comment:</b>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_for([@episode, @episode.comments.build]) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<% if logged_in? %>
+	<%= render :partial => "stars_form" %>
+	<h2>Add a comment:</h2>
+	<%= form_for([@episode, @episode.comments.build]) do |f| %>
+	  <div class="field">
+	    <%= f.label :body %><br />
+	    <%= f.text_area :body %>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+	<% end %>
+<% end %>	
+
+<br/>
+<%= link_to "Back", :back %>
+
+</div>
