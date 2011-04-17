@@ -116,10 +116,11 @@
 <script>
 function ichanged(what) {
   var url = "/searches?search="+what.value+"&commit=Go%21 #searchResults";
-  $('#gobutton').val("Searching...");
+  $('#gobutton').val("Going");
 
   $('#container').load(url, function() {
 		  $('#gobutton').val("Go!");
+		  $('#title_bar_center').hide();
 //	    alert('Load was performed.');
   });
 

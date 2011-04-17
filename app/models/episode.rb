@@ -33,7 +33,10 @@ class Episode < ActiveRecord::Base
   end
   
   def average_stars
-    ratings.average(:stars)
+	 avg = 0.0
+	 ratings.each{|r| avg += r.stars}
+    avg /= ratings.size
+    avg
   end
 
   def search_summary

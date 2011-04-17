@@ -65,7 +65,7 @@
   <div class="average_stars">
 		<em><strong>Stars given to episode:</strong></em><br><br>
     <%= display_stars(@episode.average_stars).html_safe %>
-    (<%= sprintf "%.1f", @episode.average_stars %>)
+    (<%= sprintf "%.2f", @episode.average_stars %>)
   </div>
 <% end %>
 
