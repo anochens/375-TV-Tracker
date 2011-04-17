@@ -3,6 +3,44 @@
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "TV Tracker" %></title>
     <%= stylesheet_link_tag "application" %>
+	 <style>
+	 
+	 a{text-decoration:none;padding:3px}
+
+	.butta{
+		padding: 4px;
+		font-size:14px;
+		font-family:Trebuchet MS,sans-serif;
+		text-align: center;
+		font-weight:bold;
+		background-color:#D9E2FA;
+		border:3px solid #D9E2FA;
+		border-radius: 10px;
+		}
+		
+	.buttovera{
+		padding: 4px;
+		text-align: center;
+		font-size:14px;
+		font-family:Trebuchet MS,sans-serif;
+		font-weight:bold;
+		background-color:#999999;
+		border:3px solid #999999;
+		border-radius: 10px;
+		}
+		
+	.buttdowna{
+		padding: 4px;
+		text-align: center;
+		font-size:14px;
+		font-family:Trebuchet MS,sans-serif;
+		font-weight:bold;
+		background-color:#999999;
+		border:3px solid #999999;
+		border-radius: 10px;
+		}
+	</style>
+ 
 
     <%= javascript_include_tag :defaults %>
     <%= javascript_include_tag "tablesorter" %>
@@ -53,7 +91,6 @@
 
   </head>
   <body>	
-	<style>a{text-decoration:none;padding:3px}</style>
 	<% unless production? %>
 		<%= render :partial => '/home/dev_menu' %>
 	<% end %>
@@ -62,15 +99,15 @@
 	</div>
 	<div id="mainmenubar">
 	&nbsp;&nbsp;&nbsp;&nbsp;
-		<%= link_to image_tag("/images/homeicon.png", :height=>'55px', :title => "Home", :mouseover => "/images/homeicon2.png"), "/" %>
+		<%= link_to image_tag("/images/homeicon.png", :height=>'55', :title => "Home", :mouseover => "/images/homeicon2.png"), "/" %>
 		&nbsp;&nbsp;&nbsp;
-		<%= link_to image_tag("/images/searchicon.png", :height=>'55px',:title => "All Series", :mouseover => "/images/searchicon2.png"),"/series_items" %>
+		<%= link_to image_tag("/images/searchicon.png", :height=>'55',:title => "All Series", :mouseover => "/images/searchicon2.png"),"/series_items" %>
 		
 <!--	&nbsp;&nbsp;&nbsp;&nbsp; -->
-		<% link_to image_tag "/images/searchicon.png", :height=>'55px',:title => "Search", :mouseover => "/images/searchicon2.png" %>
+		<% link_to image_tag "/images/searchicon.png", :height=>'55',:title => "Search", :mouseover => "/images/searchicon2.png" %>
 		
 		&nbsp;&nbsp;&nbsp;
-		<%= link_to image_tag"/images/calendaricon.png", :height=>'55px',:title => "Calender", :mouseover => "/images/calendaricon2.png" %>
+		<%= link_to image_tag"/images/calendaricon.png", :height=>'55',:title => "Calender", :mouseover => "/images/calendaricon2.png" %>
 
                 <%#*<div id="searchbox">%>
                   <%#*<input id="query" type ="text"/>%>
@@ -89,10 +126,12 @@ function ichanged(what) {
 }
 </script>
 
-                <form action='<%= searches_path %>', method='get' style="padding:20px;display:inline;float:right">
+<span style="padding:20px;display:inline;float:right">
+                <form action='<%= searches_path %>' method='get'>
 						 <input onkeyup="ichanged(this)" id="search" maxlength="100" name="search" onclick="clear_search(this)" type="text" value="Search TV Tracker"/>
 						 <%= submit_tag("Go!",:id=>'gobutton') %>
 					 </form>
+					 </span>
 		<br /><br />
 	</div>
 		
