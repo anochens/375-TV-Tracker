@@ -1,6 +1,6 @@
-<table width="98%" style="margin:auto" id="<%= episode.id %>">
+<table style="width:98%;margin:auto" id="<%= episode.id %>">
 <tr>
-	<td width=150>
+	<td style="width:150px">
 		<% unless episode.picture_url.nil? %>
 			<%= image_tag(episode.picture_url, :width=>100, :height=>100) %>
 		<% end %>      
@@ -25,7 +25,7 @@
 		<br/>
       <%= episode.description_small %>
       <%= link_to "More", episode %></td>
-	  <td width="10%">
+	  <td style="width:10%">
 	  
 		<% if logged_in? %>
 			<%= link_to image_tag("/images/checkmarkicon.png", :mouseover=> "/images/checkmarkicon2.png",:title=>"I've seen this"), {:controller => "watched_episodes", :action => "create","watched_episode[episode_id]"=>episode.id}, :method=>:post,:onclick=>"$('##{episode.id}').slideToggle();",:remote=>true %>
