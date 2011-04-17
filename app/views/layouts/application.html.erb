@@ -76,15 +76,27 @@
                   <%#*<input id="query" type ="text"/>%>
                 <%#*</div>%>
 
+<script>
+function ichanged(what) {
+  var url = "/searches?search="+what.value+"&commit=Go%21 #searchResults";
+  $('#gobutton').val("Searching...");
+
+  this.req.abort();
+
+  this.req = $('#container').load(url, function() {
+		  $('#gobutton').val("Go!");
+//	    alert('Load was performed.');
+  });
+
+}
+</script>
+
                 <form action='<%= searches_path %>', method='get' style="padding:20px;display:inline;float:right">
-						 <input id="search" maxlength="100" name="search" onclick="clear_search(this)" type="text" value="Search TV Tracker"/>
-						 <%= submit_tag("Go!") %>
+						 <input onkeyup="ichanged(this)" id="search" maxlength="100" name="search" onclick="clear_search(this)" type="text" value="Search TV Tracker"/>
+						 <%= submit_tag("Go!",:id=>'gobutton') %>
 					 </form>
 		<br /><br />
-                
 	</div>
-
-
 		
 	<div id="sign_in_wrapper">
 					<table id="sign_in">
