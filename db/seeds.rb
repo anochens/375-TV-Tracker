@@ -32,7 +32,19 @@ all_ids.each{|id|
 	next if name == ""
 	next if name == {}
 	
-	series_obj = SeriesItem.create!(:remote_id => id, :name=> name, :description => series_overview, :channel_id => channel.id, :remote_image_url => series_image_url);
+	begin
+		series_obj = SeriesItem.create!(:remote_id => id, :name=> name, :description => series_overview, :channel_id => channel.id, :remote_image_url => series_image_url);
+	rescue Mechanize::ResponseCodeError
+		retry
+	rescue Timeout::Error 
+		retry
+	rescue Errno::ETIMEDOUT => e
+		retry
+	rescue Timeout::Error => e
+		retry
+	rescue
+		retry
+	end		
 	
 	episodes = Thetvdb.break_array(full_record["Episode"])
 
