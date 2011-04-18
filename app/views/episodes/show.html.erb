@@ -68,47 +68,29 @@
   </div>
 <% end %>
 
-<h2>Comments</h2>
-<% @episode.comments.each do |comment| %>
-  <p>
-    <b>Name:</b>
-    <%= comment.name %>
-  </p>
- 
-  <p>
-    <b>Comment:</b>
-    <%= comment.body %>
-  </p>
+<% if logged_in? %>
+	<%= render :partial => "stars_form" %>
 <% end %>
 
-<h2>Add a comment:</h2>
-<%= form_for([@episode, @episode.comments.build]) do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<h2>Comments:</h2>
+<% @episode.comments.each do |comment| %>
+  <p>
+    <b><%= comment.name %> :</b>
+    <%= comment.body %>    
+  </p>
 <% end %>
 
 <% if logged_in? %>
-	<%= render :partial => "stars_form" %>
 	<h2>Add a comment:</h2>
 	<%= form_for([@episode, @episode.comments.build]) do |f| %>
-	  <div class="field">
-	    <%= f.label :body %><br />
-	    <%= f.text_area :body %>
-	  </div>
-	  <div class="actions">
-	    <%= f.submit %>
-	  </div>
+	  	<div class="field">
+	    	<%= f.text_area :body %>
+	  	</div>
+	  	<div class="actions">
+	    	<%= f.submit %>
+	  	</div>
 	<% end %>
-<% end %>	
+<% end %>
 
 <br/>
 <%= link_to "Back", :back %>
