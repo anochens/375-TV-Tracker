@@ -46,7 +46,7 @@
 	</tr>
 	<tr width="270px">
 	<% unless @episode.start_est.nil? %>
-	<td width="90px" height="30px"><%= Time.parse(@episode.start_est).strftime("%I:%M%p") %></td>
+		<td width="90px" height="30px"><%= @episode.start_est %></td>
 	<% end %>	
 	<% unless @episode.start_cst.nil? %>
 		<td width="90px" height="30px"><%= @episode.start_cst %></td>
@@ -59,7 +59,9 @@
 </div>
 
 <div style="clear:both;"></div>
+<br>
 
+<div id ="ratings_box">
 <% unless @ratings.length.zero? %>
   <div class="average_stars">
 		<em><strong>Stars given to episode:</strong></em><br><br>
@@ -74,6 +76,10 @@
 	<% end %>
 <% end %>
 
+</div>
+<br>
+
+<div id ="comments_box">
 <h2>Comments:</h2>
 <% if @episode.comments.length.zero? %>
 	<p>There are currently no comments on <b><%= @episode.name %></b>.</p>
@@ -90,14 +96,14 @@
 	<h2>Add a comment:</h2>
 	<%= form_for([@episode, @episode.comments.build]) do |f| %>
 	  	<div class="field">
-	    	<%= f.text_area :body %>
+	    	<%= f.text_area :body, :rows=>4 %>
 	  	</div>
 	  	<div class="actions">
 	    	<%= f.submit %>
 	  	</div>
 	<% end %>
 <% end %>
-
+</div>
 <br/>
 <%= link_to "Back", :back %>
 
