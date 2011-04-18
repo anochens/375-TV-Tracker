@@ -3,6 +3,7 @@
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "TV Tracker" %></title>
     <%= stylesheet_link_tag "application" %>
+<<<<<<< HEAD
 	 <style>
 	 
 	 a{text-decoration:none;padding:3px}
@@ -41,17 +42,22 @@
 		}
 	</style>
  
+=======
+>>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 
     <%= javascript_include_tag :defaults %>
     <%= javascript_include_tag "tablesorter" %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   <script>
+<<<<<<< HEAD
   function clear_search(box) {
   	if(box.value == "Search TV Tracker") {
    	box.value = ""
 	}
   }
+=======
+>>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 //from http://tablesorter.com/docs/example-trigger-sort.html
 	$(document).ready(function() { 
 		 $("table").tablesorter(); 
@@ -91,6 +97,10 @@
 
   </head>
   <body>	
+<<<<<<< HEAD
+=======
+	<style>a{text-decoration:none;padding:3px}</style>
+>>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 	<% unless production? %>
 		<%= render :partial => '/home/dev_menu' %>
 	<% end %>
@@ -99,6 +109,7 @@
 	</div>
 	<div id="mainmenubar">
 	&nbsp;&nbsp;&nbsp;&nbsp;
+<<<<<<< HEAD
 		<%= link_to image_tag("/images/homeicon.png", :height=>'55', :title => "Home", :mouseover => "/images/homeicon2.png"), "/" %>
 		&nbsp;&nbsp;&nbsp;
 		<%= link_to image_tag("/images/searchicon.png", :height=>'55',:title => "All Series", :mouseover => "/images/searchicon2.png"),"/series_items" %>
@@ -133,6 +144,17 @@ function ichanged(what) {
 						 <%= submit_tag("Go!",:id=>'gobutton') %>
 					 </form>
 					 </span>
+=======
+		<%= link_to image_tag("/images/homeicon.png", :height=>'55px', :title => "Home", :mouseover => "/images/homeicon2.png"), "/" %>
+		&nbsp;&nbsp;&nbsp;
+		<%= link_to image_tag("/images/searchicon.png", :height=>'55px',:title => "All Series", :mouseover => "/images/searchicon2.png"),"/series_items" %>
+		
+<!--	&nbsp;&nbsp;&nbsp;&nbsp; -->
+		<% link_to image_tag "/images/searchicon.png", :height=>'55px',:title => "Search", :mouseover => "/images/searchicon2.png" %>
+		
+		&nbsp;&nbsp;&nbsp;
+		<%= link_to image_tag"/images/calendaricon.png", :height=>'55px',:title => "Calender", :mouseover => "/images/calendaricon2.png" %>
+>>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 		<br /><br />
 	</div>
 		

@@ -1,9 +1,17 @@
 GIT
   remote: git://github.com/cmu-is-projects/libthetvdb.git
+<<<<<<< HEAD
   revision: e4a83b6a1508479fde6b2e37604407e2bfbfee9b
   specs:
     libthetvdb (0.6.10)
       bundler (~> 1.0.0)
+=======
+  revision: b2e78dcbe508f7249f0bdc119d9b28eea2bfb108
+  specs:
+    libthetvdb (0.6.8)
+      bundler (~> 1.0.0)
+      chronic
+>>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
       jeweler (~> 1.5.2)
       mechanize
       rcov
@@ -12,7 +20,11 @@ GIT
 
 GIT
   remote: git://github.com/jnicklas/carrierwave.git
+<<<<<<< HEAD
   revision: 0bde5cb651b895aed0d108154119e1a2ef7c8515
+=======
+  revision: 951bf30e112ab0789f7afce6c5d3b5cbd42f814e
+>>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
   specs:
     carrierwave (0.5.3)
       activesupport (~> 3.0)
@@ -51,6 +63,10 @@ GEM
     bcrypt-ruby (2.1.4)
     bcrypt-ruby (2.1.4-x86-mingw32)
     builder (2.1.2)
+<<<<<<< HEAD
+=======
+    chronic (0.3.0)
+>>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
     erubis (2.6.6)
       abstract (>= 1.0.0)
     factory_girl (1.3.3)
@@ -63,7 +79,11 @@ GEM
       bundler (~> 1.0.0)
       git (>= 1.2.5)
       rake
+<<<<<<< HEAD
     mail (2.2.16)
+=======
+    mail (2.2.15)
+>>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -74,6 +94,7 @@ GEM
     mini_magick (3.2)
       subexec (~> 0.0.4)
     mocha (0.9.12)
+<<<<<<< HEAD
     nifty-generators (0.4.6)
     nokogiri (1.4.4)
     nokogiri (1.4.4-x86-mingw32)
@@ -83,6 +104,17 @@ GEM
     polyglot (0.3.1)
     rack (1.2.2)
     rack-mount (0.6.14)
+=======
+    nifty-generators (0.4.5)
+    nokogiri (1.4.4)
+    nokogiri (1.4.4-x86-mingw32)
+    paperclip (2.3.8)
+      activerecord
+      activesupport
+    polyglot (0.3.1)
+    rack (1.2.2)
+    rack-mount (0.6.13)
+>>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
       rack (>= 1.0.0)
     rack-test (0.5.7)
       rack (>= 1.0)
@@ -110,8 +142,13 @@ GEM
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
+<<<<<<< HEAD
     tzinfo (0.3.26)
     xml-simple (1.0.15)
+=======
+    tzinfo (0.3.24)
+    xml-simple (1.0.14)
+>>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 
 PLATFORMS
   ruby

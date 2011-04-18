@@ -50,8 +50,11 @@ class SeriesItem < ActiveRecord::Base
 	def to_s
 		name
 	end
+<<<<<<< HEAD
 
 	def search_summary
       to_s
 	end	
+=======
+>>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 end
