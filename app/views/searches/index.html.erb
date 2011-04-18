@@ -1,8 +1,11 @@
-<h1>Search Results for "<%= @results['query'] %>"</h1>
 <br/>
-<div id="searchResults">
+<div id="title_bar_center"> 
+<h3 width="100%">Search Results for "<%= @results['query'] %>" <span style="float:right"> <%= @results['size'] %> results found:</span> </h3>
+
+</div>
+
+<div id="container">
    <% if @results['size'] > 0 %>
-       <%= @results['size'] %> results found:<br/>
        <% @results.delete 'size' %>
        <% @results.delete 'query' %>
        <% order = {'series'   => 1,

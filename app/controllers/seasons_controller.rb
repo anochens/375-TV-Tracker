@@ -27,3 +27,4 @@ class SeasonsController < ApplicationController
     end
   end
 end
+

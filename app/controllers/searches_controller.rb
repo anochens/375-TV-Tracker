@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
-  layout 'application'
+   layout 'application'
 
 	def index
-        @results = Search.search(params[:search])
-   end
+		@results = Search.search(params[:search])
+	end
 end
