@@ -129,7 +129,7 @@ function ichanged(what) {
 
 <span style="padding:20px;display:inline;float:right">
                 <form action='<%= searches_path %>' method='get'>
-						 <input onkeyup="ichanged(this)" id="search" maxlength="100" name="search" onclick="clear_search(this)" type="text" value="Search TV Tracker"/>
+						 <input id="search" maxlength="100" name="search" onclick="clear_search(this)" type="text" value="Search TV Tracker"/>
 						 <%= submit_tag("Go!",:id=>'gobutton') %>
 					 </form>
 					 </span>

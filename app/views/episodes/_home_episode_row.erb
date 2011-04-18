@@ -30,7 +30,7 @@
 		<% if logged_in? %>
 			<%= link_to image_tag("/images/checkmarkicon.png", :mouseover=> "/images/checkmarkicon2.png",:title=>"I've seen this"), {:controller => "watched_episodes", :action => "create","watched_episode[episode_id]"=>episode.id}, :method=>:post,:onclick=>"$('##{episode.id}').slideToggle();",:remote=>true %>
 			<br />
-			<%= link_to image_tag("/images/hearticon.png", :mouseover => "/images/hearticon2.png"), list_item, :method => :delete, :onclick=>"$('##{episode.id}').slideToggle();",:remote=>true %>
+			<%= link_to image_tag("/images/hearticon.png", :mouseover => "/images/hearticon2.png",:title=>"Unfollow"), list_item, :method => :delete, :onclick=>"$('##{episode.id}').slideToggle();",:remote=>true %>
 		<% end %>	
 </td>
 </tr>
