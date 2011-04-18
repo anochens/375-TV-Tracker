@@ -1,10 +1,5 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
 
 Thetvdb.pretty_format = false #default option, but good to be explicit
 Thetvdb.apikey = "4C55DAD24064440B" 
@@ -14,7 +9,7 @@ all_ids = Thetvdb.getAllSeriesIds
 
 p 'This will take a while, please be patient...'
 
-all_ids[1500..-1].each{|id|
+all_ids.each{|id|
 	full_record = Thetvdb.getFullSeriesRecord(id)
 	series = full_record["Series"][0]
 	
