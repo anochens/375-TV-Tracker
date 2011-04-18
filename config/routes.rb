@@ -1,15 +1,10 @@
 TvTracker::Application.routes.draw do
   
   
-<<<<<<< HEAD
   resources :searches
 
   resources :ratings
 
-=======
-  resources :ratings
-  
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
   resources :watched_episodes
 
   resources :list_items
@@ -30,15 +25,11 @@ TvTracker::Application.routes.draw do
 
   resources :roles
 
-<<<<<<< HEAD
-  resources :episodes
-=======
   resources :episodes do
     resources :comments
   end
   
   resources :comments
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 
   resources :seasons
 
