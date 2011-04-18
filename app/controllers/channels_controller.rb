@@ -7,10 +7,6 @@ class ChannelsController < ApplicationController
     @channel = Channel.find(params[:id])
   end
 
-  def new
-    @channel = Channel.new
-  end
-
   def create
     @channel = Channel.new(params[:channel])
     if @channel.save
@@ -21,10 +17,6 @@ class ChannelsController < ApplicationController
     end
   end
 
-  def edit
-    @channel = Channel.find(params[:id])
-  end
-
   def update
     @channel = Channel.find(params[:id])
     if @channel.update_attributes(params[:channel])
@@ -33,12 +25,5 @@ class ChannelsController < ApplicationController
     else
       render :action => 'edit'
     end
-  end
-
-  def destroy
-    @channel = Channel.find(params[:id])
-    @channel.destroy
-    flash[:notice] = "Successfully destroyed channel."
-    redirect_to channels_url
   end
 end

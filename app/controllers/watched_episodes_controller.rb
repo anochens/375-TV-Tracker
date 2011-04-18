@@ -8,24 +8,15 @@ class WatchedEpisodesController < ApplicationController
     @watched_episode = WatchedEpisode.find(params[:id])
   end
 
-  def new
-    @watched_episode = WatchedEpisode.new
-  end
-
   def create
     params[:watched_episode] ||= {}
     params[:watched_episode][:user_id] = current_user.id
     @watched_episode = WatchedEpisode.new(params[:watched_episode])
     if @watched_episode.save
-#     flash[:notice] = "Successfully created watched episode."
       redirect_to :back
     else
       render :action => 'new'
     end
-  end
-
-  def edit
-    @watched_episode = WatchedEpisode.find(params[:id])
   end
 
   def update

@@ -8,10 +8,6 @@ class EpisodesController < ApplicationController
     @ratings = @episode.ratings
   end
 
-  def new
-    @episode = Episode.new
-  end
-
   def create
     @episode = Episode.new(params[:episode])
     if @episode.save
@@ -22,10 +18,6 @@ class EpisodesController < ApplicationController
     end
   end
 
-  def edit
-    @episode = Episode.find(params[:id])
-  end
-
   def update
     @episode = Episode.find(params[:id])
     if @episode.update_attributes(params[:episode])
@@ -34,12 +26,5 @@ class EpisodesController < ApplicationController
     else
       render :action => 'edit'
     end
-  end
-
-  def destroy
-    @episode = Episode.find(params[:id])
-    @episode.destroy
-    flash[:notice] = "Successfully destroyed episode."
-    redirect_to episodes_url
   end
 end
