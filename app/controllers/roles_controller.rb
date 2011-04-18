@@ -7,13 +7,6 @@ class RolesController < ApplicationController
     @role = Role.find(params[:id])
   end
 
-<<<<<<< HEAD
-=======
-  def new
-    @role = Role.new
-  end
-
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
   def create
     @role = Role.new(params[:role])
     if @role.save
@@ -24,13 +17,6 @@ class RolesController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
-=======
-  def edit
-    @role = Role.find(params[:id])
-  end
-
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
   def update
     @role = Role.find(params[:id])
     if @role.update_attributes(params[:role])
@@ -40,14 +26,4 @@ class RolesController < ApplicationController
       render :action => 'edit'
     end
   end
-<<<<<<< HEAD
-=======
-
-  def destroy
-    @role = Role.find(params[:id])
-    @role.destroy
-    flash[:notice] = "Successfully destroyed role."
-    redirect_to roles_url
-  end
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 end

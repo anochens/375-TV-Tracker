@@ -21,11 +21,10 @@ class RatingsController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
   def create
     @rating = Rating.new(params[:rating])
+  end
 
-=======
   # GET /ratings/new
   # GET /ratings/new.xml
   def new
@@ -62,7 +61,6 @@ class RatingsController < ApplicationController
     @rating = Rating.new(params[:rating])
     @rating.user_id = current_user.id
   	@rating.save!
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
     respond_to do |format|
       if @rating.save
         flash[:notice] = 'Rating was successfully created.'
@@ -88,19 +86,4 @@ class RatingsController < ApplicationController
       end
     end
   end
-<<<<<<< HEAD
-=======
-
-  # DELETE /ratings/1
-  # DELETE /ratings/1.xml
-  def destroy
-    @rating = Rating.find(params[:id])
-    @rating.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(ratings_url) }
-      format.xml  { head :ok }
-    end
-  end
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 end

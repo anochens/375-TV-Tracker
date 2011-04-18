@@ -34,7 +34,6 @@ class Episode < ActiveRecord::Base
   end
   
   def average_stars
-<<<<<<< HEAD
 	 avg = 0.0
 	 ratings.each{|r| avg += r.stars}
     avg /= ratings.size

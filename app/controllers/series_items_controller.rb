@@ -7,13 +7,6 @@ class SeriesItemsController < ApplicationController
     @series_item = SeriesItem.find(params[:id])
   end
 
-<<<<<<< HEAD
-=======
-  def new
-    @series_item = SeriesItem.new
-  end
-
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
   def create
     @series_item = SeriesItem.new(params[:series_item])
     @series_item.remote_image_url = params[:series_item][:remote_image_url]
@@ -25,13 +18,6 @@ class SeriesItemsController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
-=======
-  def edit
-    @series_item = SeriesItem.find(params[:id])
-  end
-
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
   def update
     @series_item = SeriesItem.find(params[:id])
     if @series_item.update_attributes(params[:series_item])
@@ -41,8 +27,6 @@ class SeriesItemsController < ApplicationController
       render :action => 'edit'
     end
   end
-<<<<<<< HEAD
-=======
 
   def destroy
     @series_item = SeriesItem.find(params[:id])
@@ -50,5 +34,4 @@ class SeriesItemsController < ApplicationController
     flash[:notice] = "Successfully destroyed series item."
     redirect_to series_items_url
   end
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 end

@@ -10,11 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20110412213050) do
-=======
 ActiveRecord::Schema.define(:version => 20110418015029) do
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 
   create_table "actors", :force => true do |t|
     t.string   "last_name"
@@ -30,8 +26,6 @@ ActiveRecord::Schema.define(:version => 20110418015029) do
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
-=======
   create_table "comments", :force => true do |t|
     t.string   "name"
     t.text     "body"
@@ -40,7 +34,6 @@ ActiveRecord::Schema.define(:version => 20110418015029) do
     t.datetime "updated_at"
   end
 
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
   create_table "episodes", :force => true do |t|
     t.integer  "season_id"
     t.integer  "episode_number"
@@ -70,10 +63,7 @@ ActiveRecord::Schema.define(:version => 20110418015029) do
     t.integer  "stars"
     t.datetime "created_at"
     t.datetime "updated_at"
-<<<<<<< HEAD
-=======
     t.integer  "user_id"
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
   end
 
   create_table "roles", :force => true do |t|
