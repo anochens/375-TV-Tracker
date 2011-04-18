@@ -10,6 +10,7 @@ all_ids = Thetvdb.getAllSeriesIds
 p 'This will take a while, please be patient...'
 
 all_ids.each{|id|
+   puts "#{id}"
 	full_record = Thetvdb.getFullSeriesRecord(id)
 	series = full_record["Series"][0]
 	
