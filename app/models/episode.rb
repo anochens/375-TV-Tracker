@@ -8,10 +8,7 @@ class Episode < ActiveRecord::Base
   has_one :series_item, :through => :season
   has_many :watched_episodes
   has_many :ratings
-<<<<<<< HEAD
-=======
   has_many :comments
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 
   scope :all, joins(:season).order("seasons.season_number DESC, #{table_name}.episode_number DESC")
   scope :recent, where("#{table_name}.air_date > ? ", 5.years.ago.to_datetime)
@@ -47,8 +44,4 @@ class Episode < ActiveRecord::Base
   def search_summary
      "#{name} (#{series_item.to_s})"
   end   
-=======
-    ratings.average(:stars)
-  end
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 end

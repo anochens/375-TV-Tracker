@@ -59,28 +59,16 @@
 </div>
 
 <div style="clear:both;"></div>
-<<<<<<< HEAD
-  
-=======
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 
 <% unless @ratings.length.zero? %>
   <div class="average_stars">
 		<em><strong>Stars given to episode:</strong></em><br><br>
     <%= display_stars(@episode.average_stars).html_safe %>
-<<<<<<< HEAD
     (<%= sprintf "%.2f", @episode.average_stars %>)
-=======
-    (<%= sprintf "%.1f", @episode.average_stars %>)
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
-  </div>
+ </div>
 <% end %>
 
 <% if logged_in? %>
-<<<<<<< HEAD
-	<%= render :partial => "stars_form" %>
-<% end %>	
-=======
 	<% unless Rating.find_by_user_id_and_episode_id(current_user.id, @episode.id) %>
 		<%= render :partial => "stars_form" %>
 	<% end %>
@@ -109,7 +97,6 @@
 	  	</div>
 	<% end %>
 <% end %>
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 
 <br/>
 <%= link_to "Back", :back %>

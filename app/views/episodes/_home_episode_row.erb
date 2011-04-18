@@ -1,12 +1,6 @@
-<<<<<<< HEAD
 <table style="width:98%;margin:auto" id="<%= episode.id %>">
 <tr>
 	<td style="width:150px">
-=======
-<table width="98%" style="margin:auto" id="<%= episode.id %>">
-<tr>
-	<td width=150>
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 		<% unless episode.picture_url.nil? %>
 			<%= image_tag(episode.picture_url, :width=>100, :height=>100) %>
 		<% end %>      
@@ -31,20 +25,12 @@
 		<br/>
       <%= episode.description_small %>
       <%= link_to "More", episode %></td>
-<<<<<<< HEAD
 	  <td style="width:10%">
-=======
-	  <td width="10%">
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 	  
 		<% if logged_in? %>
 			<%= link_to image_tag("/images/checkmarkicon.png", :mouseover=> "/images/checkmarkicon2.png",:title=>"I've seen this"), {:controller => "watched_episodes", :action => "create","watched_episode[episode_id]"=>episode.id}, :method=>:post,:onclick=>"$('##{episode.id}').slideToggle();",:remote=>true %>
 			<br />
-<<<<<<< HEAD
 			<%= link_to image_tag("/images/hearticon.png", :mouseover => "/images/hearticon2.png",:title=>"Unfollow"), list_item, :method => :delete, :onclick=>"$('##{episode.id}').slideToggle();",:remote=>true %>
-=======
-			<%= link_to image_tag("/images/hearticon.png", :mouseover => "/images/hearticon2.png"), list_item, :method => :delete, :onclick=>"$('##{episode.id}').slideToggle();",:remote=>true %>
->>>>>>> 8854265e33a116c6e390f666c01b12253fb524c4
 		<% end %>	
 </td>
 </tr>
