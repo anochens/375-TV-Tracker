@@ -55,7 +55,8 @@ class RatingsController < ApplicationController
   
   def create
     @rating = Rating.new(params[:rating])
-
+    @rating.user_id = current_user.id
+  	@rating.save!
     respond_to do |format|
       if @rating.save
         flash[:notice] = 'Rating was successfully created.'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110415194023) do
+ActiveRecord::Schema.define(:version => 20110418015029) do
 
   create_table "actors", :force => true do |t|
     t.string   "last_name"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20110415194023) do
     t.integer  "stars"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "roles", :force => true do |t|
