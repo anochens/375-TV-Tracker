@@ -17,6 +17,8 @@ TvTracker::Application.routes.draw do
 
   match 'login' => 'sessions#new', :as => :login
   
+  match 'aboutus' => 'home#info'
+  
   resources :sessions
 
   resources :users

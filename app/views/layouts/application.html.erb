@@ -157,5 +157,6 @@ function ichanged(what) {
       <% end %>
       <%= content_tag :h1, yield(:title) if show_title? %>
       <%= yield %>
-  </body>
+		<p align=center><%= link_to "About Us", aboutus_path %></p>
+	  </body>
 </html>

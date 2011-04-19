@@ -7,7 +7,9 @@
 	<div id="gen_info_box">
 		<div id="picture_holder">
 	  
-<% unless @series_item.image_url.nil? %>
+<% if @series_item.image_url.nil? %>
+	<%= image_tag "default_img.png" %>
+ <% else %>
   <%= image_tag(@series_item.image_url, :width=>200, :height=>100) %>
 <% end %>  
     
