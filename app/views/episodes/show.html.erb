@@ -34,10 +34,10 @@
   <%= @episode.description %>
 
   <br><br><br>
-  <table valign="bottom" border="1px solid black;">
-	<tr width="270px">
+  <table  valign="bottom" cellpadding="5px">
+	<tr bgcolor="#54585F" width="270px" align="left"><font-color="white">
 	<% unless @episode.start_est.nil? %>
-		<th>Start Est</th>
+	<th>Start Est</th>
 	<% end %>	
 	<% unless @episode.start_cst.nil? %>
 		<th>Start Cst</th>
@@ -45,8 +45,9 @@
 	<% unless @episode.start_pst.nil? %>
 		<th>Start Pst</th>
 	<% end %>	
+	</font>
 	</tr>
-	<tr width="270px">
+	<tr bgcolor="#D6DDEB" width="270px">
 	<% unless @episode.start_est.nil? %>
 		<td width="90px" height="30px"><%= @episode.start_est %></td>
 	<% end %>	
@@ -62,7 +63,7 @@
 
 <div style="clear:both;"></div>
 <br>
-
+<div>
 <div id ="ratings_box">
 <% unless @ratings.length.zero? %>
   <div class="average_stars">
@@ -77,9 +78,7 @@
 		<%= render :partial => "stars_form" %>
 	<% end %>
 <% end %>
-
 </div>
-<br>
 
 <div id ="comments_box">
 <h2>Comments:</h2>
@@ -106,7 +105,9 @@
 	<% end %>
 <% end %>
 </div>
+<div style="clear:both;"></div>
 <br/>
-<%= link_to "Back", :back %>
+</div>
+<%# link_to "Back", :back %>
 
 </div>

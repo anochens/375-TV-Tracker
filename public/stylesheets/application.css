@@ -102,26 +102,29 @@ a:hover{
 	padding: 5px;
 	padding-top: 10px;
 	float: left;
-	width: 40%;
+	width: 30%;
 
 }
 
 #episode_desc{
-	float: left;
-	width: 56%;
+	float: right;
+	width:65%;
 	padding: 5px;
 	padding-top: 10px;
 }
 
 #comments_box{
-	float: left;
-	width: 100%;
+	float: right;
+	width: 65%;
 	padding:5px;
+	
 }
 
 #ratings_box{
-	width: 50%;
+	width: 30%;
 	padding: 5px;
+	padding-top: 20px;
+	float: left;
 }
 
 /* flash notices */
@@ -227,4 +230,13 @@ a:hover{
 }
 #login_button{
 	font-size:95%;
+}
+
+#box-table-a {
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+font-size: 12px;
+width: 480px;
+text-align: left;
+border-collapse: collapse;
+margin: 20px;
 }
