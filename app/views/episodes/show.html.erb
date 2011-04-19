@@ -13,15 +13,18 @@
 	</div>
 	
   <br>
-  <strong>Air Date:</strong>
-  <%= @episode.air_date %>
+  <% unless @episode.air_date.nil? %>
+	  <strong>Air Date:</strong>
+	  <%= @episode.air_date.strftime("%a %B %d, %Y") %>
+  <%end%>
   <br>
   <strong>Duration:</strong>
   <%= @episode.duration %> min
 
   <br>
-  <strong>IMDB id:</strong>
-  <%= @episode.imdb_id %>
+  <% unless @episode.imdb_id.nil? || @episode.imdb_id == "" %>
+	  <%= link_to "See it on IMDB!", "http://imdb.com/title/#{@episode.imdb_id}" %>
+  <%end%>   
 </div>
   
 <div id = "episode_desc">
@@ -31,22 +34,77 @@
   <br><br><br>
   <table valign="bottom" border="1px solid black;">
 	<tr width="270px">
-	<td><strong>Start Est</strong></td>
-	<td><strong>Start Cst</strong></td>
-	<td><strong>Start Pst</strong></td>
+	<% unless @episode.start_est.nil? %>
+		<th>Start Est</th>
+	<% end %>	
+	<% unless @episode.start_cst.nil? %>
+		<th>Start Cst</th>
+	<% end %>	
+	<% unless @episode.start_pst.nil? %>
+		<th>Start Pst</th>
+	<% end %>	
 	</tr>
 	<tr width="270px">
-	<td width="90px" height="30px"><%= @episode.start_est %></td>
-	<td width="90px" height="30px"><%= @episode.start_cst %></td>
-	<td width="90px" height="30px"><%= @episode.start_pst %></td>
+	<% unless @episode.start_est.nil? %>
+		<td width="90px" height="30px"><%= @episode.start_est %></td>
+	<% end %>	
+	<% unless @episode.start_cst.nil? %>
+		<td width="90px" height="30px"><%= @episode.start_cst %></td>
+	<% end %>	
+	<% unless @episode.start_pst.nil? %>
+		<td width="90px" height="30px"><%= @episode.start_pst %></td>
+	<%end%>
 	</tr>
   </table>
 </div>
 
 <div style="clear:both;"></div>
-  
-<p>
-  <%= link_to "View All Episodes", episodes_path %>
-</p>
+<br>
+
+<div id ="ratings_box">
+<% unless @ratings.length.zero? %>
+  <div class="average_stars">
+		<em><strong>Stars given to episode:</strong></em><br><br>
+    <%= display_stars(@episode.average_stars).html_safe %>
+    (<%= sprintf "%.2f", @episode.average_stars %>)
+ </div>
+<% end %>
+
+<% if logged_in? %>
+	<% unless Rating.find_by_user_id_and_episode_id(current_user.id, @episode.id) %>
+		<%= render :partial => "stars_form" %>
+	<% end %>
+<% end %>
+
+</div>
+<br>
+
+<div id ="comments_box">
+<h2>Comments:</h2>
+<% if @episode.comments.length.zero? %>
+	<p>There are currently no comments on <b><%= @episode.name %></b>.</p>
+<% else %>
+	<% @episode.comments.each do |comment| %>
+	  <p>
+	    <b><%= comment.name %> :</b>
+	    <%= comment.body %>    
+	  </p>
+	<% end %>
+<% end %>
+
+<% if logged_in? %>
+	<h2>Add a comment:</h2>
+	<%= form_for([@episode, @episode.comments.build]) do |f| %>
+	  	<div class="field">
+	    	<%= f.text_area :body, :rows=>4 %>
+	  	</div>
+	  	<div class="actions">
+	    	<%= f.submit %>
+	  	</div>
+	<% end %>
+<% end %>
+</div>
+<br/>
+<%= link_to "Back", :back %>
 
 </div>

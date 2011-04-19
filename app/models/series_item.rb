@@ -1,5 +1,8 @@
+
 class SeriesItem < ActiveRecord::Base
-	attr_accessible :channel_id, :name, :description, :remote_id
+	attr_accessible :channel_id, :name, :description, :remote_id, :image, :remote_image_url
+
+	mount_uploader :image, BannerUploader
 
 	validates_presence_of :name
 	belongs_to :channel
@@ -47,4 +50,8 @@ class SeriesItem < ActiveRecord::Base
 	def to_s
 		name
 	end
+
+	def search_summary
+      to_s
+	end	
 end

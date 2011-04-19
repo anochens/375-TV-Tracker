@@ -7,10 +7,6 @@ class ActorsController < ApplicationController
     @actor = Actor.find(params[:id])
   end
 
-  def new
-    @actor = Actor.new
-  end
-
   def create
     @actor = Actor.new(params[:actor])
     if @actor.save
@@ -33,12 +29,5 @@ class ActorsController < ApplicationController
     else
       render :action => 'edit'
     end
-  end
-
-  def destroy
-    @actor = Actor.find(params[:id])
-    @actor.destroy
-    flash[:notice] = "Successfully destroyed actor."
-    redirect_to actors_url
   end
 end

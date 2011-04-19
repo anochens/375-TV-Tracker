@@ -1,0 +1,18 @@
+<h1>Listing ratings</h1>
+
+<table>
+  <tr>
+    <th>Episode</th>
+    <th>Stars</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ratings.each do |rating| %>
+  <tr>
+    <td><%= rating.episode_id %></td>
+    <td><%= rating.stars %></td>
+  </tr>
+<% end %>
+</table>

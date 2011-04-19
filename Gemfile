@@ -9,6 +9,8 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'paperclip'
 gem 'nifty-generators'
 gem 'factory_girl_rails'
+gem 'mini_magick'
+gem 'carrierwave', :git => "git://github.com/jnicklas/carrierwave.git"
 #gem 'libthetvdb', :git => 'git@github.com:cmu-is-projects/libthetvdb.git'
 gem 'libthetvdb', :git => 'git://github.com/cmu-is-projects/libthetvdb.git'
 
@@ -24,7 +26,7 @@ gem 'libthetvdb', :git => 'git://github.com/cmu-is-projects/libthetvdb.git'
 
 # Bundle the extra gems:
 # gem 'bj'
-# gem 'nokogiri'
+# gem 'nokogiri', '1.4.4.1'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 

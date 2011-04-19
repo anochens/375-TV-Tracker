@@ -115,8 +115,14 @@ a:hover{
 }
 
 #comments_box{
+	float: left;
+	width: 100%;
+	padding:5px;
+}
 
-
+#ratings_box{
+	width: 50%;
+	padding: 5px;
 }
 
 /* flash notices */

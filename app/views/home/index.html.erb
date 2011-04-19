@@ -1,40 +1,4 @@
-<style type="text/css">
-
-.butta{
-   padding: 4px;
-   font-size:14px;
-   font-family:Trebuchet MS,sans-serif;
-   text-align: center;
-   font-weight:bold;
-   background-color:#D9E2FA;
-   border:3px solid #D9E2FA;
-   border-radius: 10px;
-	}
-	
-.buttovera{
-	padding: 4px;
-	text-align: center;
-	font-size:14px;
-	font-family:Trebuchet MS,sans-serif;
-	font-weight:bold;
-	background-color:#999999;
-	border:3px solid #999999;
-	border-radius: 10px;
-	}
-	
-.buttdowna{
-	padding: 4px;
-	text-align: center;
-	font-size:14px;
-	font-family:Trebuchet MS,sans-serif;
-	font-weight:bold;
-	background-color:#999999;
-	border:3px solid #999999;
-	border-radius: 10px;
-	}
-</style>
-
-<script language="javascript">
+<script>
 
 function goLite(FRM,BTN)
 {
@@ -47,7 +11,6 @@ function goDim(FRM,BTN)
 }
 
 
-<!--
 LastID = ""
 function on(id,clas){
 (LastID != id?document.getElementById(id).className = clas:"")
@@ -106,16 +69,16 @@ LastID = id
 	<div id="main_separator" >
       <h3>This Week</h3>
 	</div>
-      <table width="100%">
+      <table style="width:100%">
 		  <thead style="display:none">
 		  <th>Date</th><th>Title</th><th>Content</th>
         </thead>
 		  <tbody>
         <% for episode in current_user.unwatched_episodes %>
              <tr><td style="display:none"><%= episode.air_date%></td>
-				 <td style="display:none"><%= episode.series_item.name %></td><td><table>
+				 <td style="display:none"><%= episode.series_item.name %></td><td>
              <%= render :partial => "/episodes/home_episode_row", :locals => {:episode => episode, :list_item => ListItem.find_by_series_item_id_and_user_id(episode.series_item.id,current_user.id)} %>
-				 </table>
+				 </td></tr>
         <% end %>
 		  </tbody> 
       </table>
@@ -143,9 +106,10 @@ LastID = id
 		  <tbody> 
         <% for episode in SeriesItem.all_episodes_n(1) %>
              <tr><td style="display:none"><%= episode.air_date%></td>
-				 <td style="display:none"><%= episode.series_item.name %></td><td><table>  <%= render :partial => "/episodes/home_episode_row", :locals => {:episode => episode, :list_item => nil} %>
-				 </table>
+				 <td style="display:none"><%= episode.series_item.name %></td><td>  <%= render :partial => "/episodes/home_episode_row", :locals => {:episode => episode, :list_item => nil} %>
+			  </td></tr>
         <% end %> 
+		  </tbody>
       </table>
 <% end %> 
 

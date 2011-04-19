@@ -2,13 +2,56 @@
 <html>
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "TV Tracker" %></title>
+	 <link rel="shortcut icon" href="/favicon.ico" />
     <%= stylesheet_link_tag "application" %>
+	 <style>
+	 
+	 a{text-decoration:none;padding:3px}
 
+	.butta{
+		padding: 4px;
+		font-size:14px;
+		font-family:Trebuchet MS,sans-serif;
+		text-align: center;
+		font-weight:bold;
+		background-color:#D9E2FA;
+		border:3px solid #D9E2FA;
+		border-radius: 10px;
+		}
+		
+	.buttovera{
+		padding: 4px;
+		text-align: center;
+		font-size:14px;
+		font-family:Trebuchet MS,sans-serif;
+		font-weight:bold;
+		background-color:#999999;
+		border:3px solid #999999;
+		border-radius: 10px;
+		}
+		
+	.buttdowna{
+		padding: 4px;
+		text-align: center;
+		font-size:14px;
+		font-family:Trebuchet MS,sans-serif;
+		font-weight:bold;
+		background-color:#999999;
+		border:3px solid #999999;
+		border-radius: 10px;
+		}
+	</style>
+ 
     <%= javascript_include_tag :defaults %>
     <%= javascript_include_tag "tablesorter" %>
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
   <script>
+  function clear_search(box) {
+  	if(box.value == "Search TV Tracker") {
+   	box.value = ""
+	}
+  }
 //from http://tablesorter.com/docs/example-trigger-sort.html
 	$(document).ready(function() { 
 		 $("table").tablesorter(); 
@@ -48,7 +91,6 @@
 
   </head>
   <body>	
-	<style>a{text-decoration:none;padding:3px}</style>
 	<% unless production? %>
 		<%= render :partial => '/home/dev_menu' %>
 	<% end %>
@@ -56,14 +98,32 @@
 	<div id="header">
 	</div>
 	<div id="mainmenubar">
-	&nbsp;&nbsp;&nbsp;&nbsp;
+
+<script>
+function ichanged(what) {
+  var url = "/searches?search="+what.value+"&commit=Go%21 #searchResults";
+  $('#gobutton').val("Going");
+
+  $('#container').load(url, function() {
+		  $('#gobutton').val("Go!");
+		  $('#title_bar_center').hide();
+//	    alert('Load was performed.');
+  });
+
+}
+</script>
+
+<span style="padding:20px;display:inline;float:right">
+                <form action='<%= searches_path %>' method='get'>
+						 <input id="search" maxlength="100" name="search" onclick="clear_search(this)" type="text" value="Search TV Tracker"/>
+						 <%= submit_tag("Go!",:id=>'gobutton') %>
+					 </form>
+					 </span>
 		<%= link_to image_tag("/images/homeicon.png", :height=>'55px', :title => "Home", :mouseover => "/images/homeicon2.png"), "/" %>
 		&nbsp;&nbsp;&nbsp;
-		<%= link_to image_tag("/images/searchicon.png", :height=>'55px',:title => "All Series"),"/series_items" %>
+		<%= link_to image_tag("/images/searchicon.png", :height=>'55px',:title => "All Series", :mouseover => "/images/searchicon2.png"),"/series_items" %>
 		
 <!--	&nbsp;&nbsp;&nbsp;&nbsp; -->
-		<% link_to image_tag "/images/searchicon.png", :height=>'55px',:title => "Search", :mouseover => "/images/searchicon2.png" %>
-		
 		&nbsp;&nbsp;&nbsp;
 		<%= link_to image_tag"/images/calendaricon.png", :height=>'55px',:title => "Calender", :mouseover => "/images/calendaricon2.png" %>
 		<br /><br />
@@ -75,7 +135,7 @@
 							<td id="sign_in_left"></td>
 							<td id="sign_in_middle">					
 								<% if logged_in? -%>
-								Welcome <%= current_user.username %>  | 
+								Welcome <%= link_to current_user.username, edit_current_user_path %>  | 
 								<%= link_to "Log out", logout_path%>
 							    <% else -%>
 									<%= form_tag sessions_path do -%>
@@ -93,7 +153,7 @@
 					</table>	
 		</div>      
       <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
       <%= content_tag :h1, yield(:title) if show_title? %>
       <%= yield %>

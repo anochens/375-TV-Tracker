@@ -1,6 +1,10 @@
 TvTracker::Application.routes.draw do
   
   
+  resources :searches
+
+  resources :ratings
+
   resources :watched_episodes
 
   resources :list_items
@@ -12,7 +16,7 @@ TvTracker::Application.routes.draw do
   match 'logout' => 'sessions#destroy', :as => :logout
 
   match 'login' => 'sessions#new', :as => :login
-
+  
   resources :sessions
 
   resources :users
@@ -21,7 +25,11 @@ TvTracker::Application.routes.draw do
 
   resources :roles
 
-  resources :episodes
+  resources :episodes do
+    resources :comments
+  end
+  
+  resources :comments
 
   resources :seasons
 

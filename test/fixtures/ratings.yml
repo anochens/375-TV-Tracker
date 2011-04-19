@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  episode_id: 1
+  stars: 1
+
+two:
+  episode_id: 1
+  stars: 1

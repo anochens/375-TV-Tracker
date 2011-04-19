@@ -7,10 +7,6 @@ class ChannelsController < ApplicationController
     @channel = Channel.find(params[:id])
   end
 
-  def new
-    @channel = Channel.new
-  end
-
   def create
     @channel = Channel.new(params[:channel])
     if @channel.save
@@ -19,10 +15,6 @@ class ChannelsController < ApplicationController
     else
       render :action => 'new'
     end
-  end
-
-  def edit
-    @channel = Channel.find(params[:id])
   end
 
   def update

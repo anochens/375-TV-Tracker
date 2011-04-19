@@ -1,0 +1,34 @@
+<br/>
+<div id="title_bar_center"> 
+<h3 width="100%">Search Results for "<%= @results['query'] %>" <span style="float:right; padding-right: 10px"> <%= @results['size'] %> result(s) found</span> </h3>
+
+</div>
+
+<div id="container">
+   <% if @results['size'] > 0 %>
+       <% @results.delete 'size' %>
+       <% @results.delete 'query' %>
+       <% order = {'series'   => 1,
+		 				 'episodes' => 2} %>
+
+       <% @results.keys.sort_by{|k| order[k] || 999}.each do |part| %>
+                <div id="searchPartial">
+                        <h3>Results for: <%= part.capitalize %></h3>
+                    <% if @results[part].size != 0 %>
+                            <% @results[part].sort_by{|r| r.name}.each do |result| %>
+                                <div id="searchResult">
+                                  <%= link_to result.search_summary, result %>
+                                </div>
+                            <% end %>
+                    <% else %>
+                        <div id="searchResult">
+                            No results found.
+                        </div>
+                    <% end %>
+                </div><br/>
+       <% end %>
+
+   <% else%>
+        Sorry, No results were found.
+   <% end %>
+</div>
