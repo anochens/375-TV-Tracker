@@ -7,7 +7,9 @@
 
 <div id="gen_info_box">
 	<div id = "picture_holder">
-		<% unless @episode.picture_url.nil? %>
+		<% if @episode.picture_url.nil? %>
+			  <%= image_tag "default_img.png" %>
+		<% else %>
 			<%= image_tag(@episode.picture_url) %>
 		<% end %>
 	</div>
