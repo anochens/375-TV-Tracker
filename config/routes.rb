@@ -18,7 +18,9 @@ TvTracker::Application.routes.draw do
   match 'logout' => 'sessions#destroy', :as => :logout
 
   match 'login' => 'sessions#new', :as => :login
-
+  
+  match 'aboutus' => 'home#info'
+  
   resources :sessions
 
   resources :users
