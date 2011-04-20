@@ -1,10 +1,11 @@
 body {
 
   background-color: #2f2f2f;
-  font-family: Trebuchet MS,sans-serif;
+  font-family: Arial,sans-serif;
   font-size: 14px;
+  color: #3f3f3f;
   margin: 0 auto;
-	font-style: vertical-align=bottom;
+  font-style: vertical-align=bottom;
 }
 
 h3{
@@ -18,6 +19,7 @@ a img {
 
 a {
 	color: #008ED3;
+	font-weight: bold;
 }
 
 a:hover{
@@ -46,26 +48,28 @@ a:hover{
   background-color: #ffffff;
   padding: 5px;
   border: none;
-  opacity: 0.73;
+  opacity: 100%;
 }
 
 #mainmenubar{
-	background-color: #e2e1e1;
-	height: 57px;
+	background-image: url(/images/iconbar.gif);
+	height: 68px;
 	width:100%;
-	margin: 0 auto;
+	padding-top: 14px;
+	margin: auto;
 }
 
 #title_bar_center{
 	width: 97%;
 	margin: auto;
-	background-image: url(/images/header.gif);
-	height:39px;
+	background-image: url(/images/header2.gif);
+	height:42px;
 	padding-left: 5px;
 	padding-right: 5px;
 	padding-bottom: 5px;
 	vertical-align : top; 
-	line-height: 39px;
+	line-height: 46px;
+	color: #ffffff;
 	
 }
 
