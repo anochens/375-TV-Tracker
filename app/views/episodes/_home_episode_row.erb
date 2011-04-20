@@ -1,9 +1,11 @@
 <table style="width:98%;margin:auto" id="<%= episode.id %>">
 <tr>
 	<td style="width:150px">
-		<% unless episode.picture_url.nil? %>
+	<% if episode.picture_url.nil? %>
+			  <%= image_tag "default_img_sq.png" %>
+		<% else %>
 			<%= image_tag(episode.picture_url, :width=>100, :height=>100) %>
-		<% end %>      
+		<% end %>
 	</td>
 	<td >
       <b><%= episode.series_item %></b>

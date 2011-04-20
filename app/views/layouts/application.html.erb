@@ -123,7 +123,7 @@ function ichanged(what) {
 
 <span style="padding:10px;margin-right:18px;float:right">
                 <form action='<%= searches_path %>' method='get'>
-						 <input id="search" maxlength="100" name="search" onclick="clear_search(this)" type="text" value="Search TV Tracker"/>
+						 <input id="search" style="width:200px; height:30px;" maxlength="100" name="search" onclick="clear_search(this)" type="text" value="Search TV Tracker"/>
 						 <%= image_submit_tag("/images/searchicon1.png", :mouseover=> "/images/searchicon3.png", :id=>'gobutton') %>
 					 </form>
 					 </span>			 
@@ -165,6 +165,8 @@ function ichanged(what) {
       <% end %>
       <%= content_tag :h1, yield(:title) if show_title? %>
       <%= yield %>
-		<p align=center><%= link_to "About Us", aboutus_path %></p>
+	  <div id = "footer">
+		<%= link_to "About Us", aboutus_path %>
+		</div>
 	  </body>
 </html>

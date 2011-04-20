@@ -51,6 +51,14 @@ a:hover{
   opacity: 100%;
 }
 
+.class1 A:link { 
+	color:black;
+}
+
+.class1 A:visited{ 
+	color:black;
+}
+
 #mainmenubar{
 	background-image: url(/images/iconbar.gif);
 	height: 68px;
@@ -130,6 +138,14 @@ a:hover{
 	padding: 5px;
 	padding-top: 20px;
 	float: left;
+}
+
+#footer{
+	margin: auto;
+	padding: 5px;
+	background-color: black;
+	width:  97%;
+	text-align: center;
 }
 
 /* flash notices */
@@ -235,13 +251,4 @@ a:hover{
 }
 #login_button{
 	font-size:95%;
-}
-
-#box-table-a {
-font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-font-size: 12px;
-width: 480px;
-text-align: left;
-border-collapse: collapse;
-margin: 20px;
 }
