@@ -121,12 +121,12 @@ function ichanged(what) {
 }
 </script>
 
-<span style="padding:10px;margin-right:18px;float:right">
+		<span style="padding:10px;margin-right:18px;float:right; border:1px solid; vertical-align:middle;">
                 <form action='<%= searches_path %>' method='get'>
 						 <input id="search" style="width:200px; height:30px; font-size: 20px;" maxlength="100" name="search" onclick="clear_search(this)" type="text" value="Search TV Tracker"/>
 						 <%= image_submit_tag("/images/searchicon1.png", :mouseover=> "/images/searchicon3.png", :id=>'gobutton') %>
-					 </form>
-					 </span>			 
+				</form>
+		</span>			 
 		<%= link_to image_tag("/images/homeicon.png", :height=>'53px', :title => "Home", :mouseover => "/images/homeicon2.png"), "/" %>
 		&nbsp;&nbsp;&nbsp;
 		<%= link_to image_tag("/images/searchicon.png", :height=>'53px',:title => "All Series", :mouseover => "/images/searchicon2.png"),"/series_items" %>
