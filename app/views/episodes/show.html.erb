@@ -74,7 +74,7 @@
 <% end %>
 
 <% if logged_in? %>
-	<% unless Rating.find_by_user_id_and_episode_id(current_user.id, @episode.id) %>
+	<% unless Rating.find(:all, :conditions=>["user_id=? and episode_id=?",current_user.id, @episode.id]) %>
 		<%= render :partial => "stars_form" %>
 	<% end %>
 <% end %>
