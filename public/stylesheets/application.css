@@ -142,10 +142,11 @@ a:hover{
 
 #footer{
 	margin: auto;
-	padding: 5px;
+	padding: 10px;
 	background-color: black;
 	width:  97%;
 	text-align: center;
+	
 }
 
 /* flash notices */
