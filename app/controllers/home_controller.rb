@@ -5,4 +5,7 @@ class HomeController < ApplicationController
 		format.js { render :nothing=>true }
 	  end 
   end
+
+  def info
+  end
 end

@@ -1,5 +1,7 @@
 TvTracker::Application.routes.draw do
   
+  resources :home
+  match 'aboutus' => 'home#info'
   
   resources :searches
 
