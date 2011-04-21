@@ -8,4 +8,10 @@ class HomeController < ApplicationController
 
   def info
   end
+
+  def privacy
+  end
+
+  def service
+  end
 end
