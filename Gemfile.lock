@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: git://github.com/jnicklas/carrierwave.git
-  revision: 0bde5cb651b895aed0d108154119e1a2ef7c8515
+  revision: e691843266f4fda11520687ac007477a12c51061
   specs:
     carrierwave (0.5.3)
       activesupport (~> 3.0)
@@ -63,20 +63,20 @@ GEM
       bundler (~> 1.0.0)
       git (>= 1.2.5)
       rake
-    mail (2.2.16)
+    mail (2.2.17)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mechanize (1.0.0)
-      nokogiri (>= 1.2.1)
+      nokogiri (>= 1.4.4.1)
     mime-types (1.16)
     mini_magick (3.2)
       subexec (~> 0.0.4)
     mocha (0.9.12)
     nifty-generators (0.4.6)
-    nokogiri (1.4.4)
-    nokogiri (1.4.4-x86-mingw32)
+    nokogiri (1.4.4.1)
+    nokogiri (1.4.4.1-x86-mingw32)
     paperclip (2.3.11)
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
@@ -125,6 +125,7 @@ DEPENDENCIES
   mini_magick
   mocha
   nifty-generators
+  nokogiri (= 1.4.4.1)
   paperclip
   rails (= 3.0.3)
   sqlite3-ruby
