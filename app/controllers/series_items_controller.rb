@@ -5,6 +5,7 @@ class SeriesItemsController < ApplicationController
 
   def show
     @series_item = SeriesItem.find(params[:id])
+#     @series_items = SeriesItem.all
   end
 
   def create
