@@ -102,8 +102,9 @@
 		<%= render :partial => '/home/dev_menu' %>
 	<% end %>
 <br/> 
+	<a href="/">
 	<div id="header">
-	</div>
+	</div>      </a>
 	
 	<div id="mainmenubar">
 
@@ -132,9 +133,7 @@ function ichanged(what) {
 		&nbsp;&nbsp;&nbsp;
 		<%= link_to image_tag("/images/searchicon.png", :height=>'53px',:title => "All Series", :mouseover => "/images/searchicon2.png"),"/series_items" %>
 		
-<!--	&nbsp;&nbsp;&nbsp;&nbsp; -->
 		&nbsp;&nbsp;&nbsp;
-		<%= link_to image_tag"/images/calendaricon.png", :height=>'53px',:title => "Calender", :mouseover => "/images/calendaricon2.png" %>
 		<br /><br />
 	</div>
 		
@@ -168,6 +167,8 @@ function ichanged(what) {
       <%= yield %>
 	  <div id = "footer">
 		<%= link_to "About Us", aboutus_path %>
+                <%= link_to "Terms of Service", service_path %>
+                <%= link_to "Privacy Policy", privacy_path %>
 		</div>
 	  </body>
 </html>

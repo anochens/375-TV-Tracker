@@ -2,7 +2,11 @@ TvTracker::Application.routes.draw do
   
   resources :home
   match 'aboutus' => 'home#info'
-  
+
+  match 'service' => 'home#service'
+
+  match 'privacy' => 'home#privacy'
+
   resources :searches
 
   resources :ratings

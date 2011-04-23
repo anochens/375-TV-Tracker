@@ -1,7 +1,17 @@
+<head>
+  <script>
+function toggleheart(id) {
+	  $('#'+id+'_add').toggle()
+	  $('#'+id+'_rm').toggle()
+	}
+        </script>
+</head>
+
 <br>
 <div id="title_bar_center"> 
-<h3> Series: <%= @series_item.name %> </h3>
+<h3> <%= @series_item.name %> </h3>
 </div>
+
 
 <div id="container">
 	<div id="gen_info_box">
@@ -22,8 +32,28 @@
   <strong>Description:</strong>
   <%= @series_item.description %>
 </div>
-
 <div style="clear:both;"></div>
+
+				<% if logged_in? %>
+				<div id="hearts" align="right" style="margin-top:-25px">
+					<% list_item = current_user.list_items.select{|li| li.series_item_id == @series_item.id}.first %> 
+               
+						<div id='<%=@series_item.id%>_add'>
+						<%= link_to image_tag("/images/hearticon3.png", :mouseover => "/images/hearticon.png",:title=>"Follow"), {:controller => "list_items", :action => "create","list_item[series_item_id]"=>@series_item.id}, :method=>:post, :onclick=>"toggleheart(#{@series_item.id})",:remote=>true  %>
+						</div>
+					<%# else %>
+						<div id='<%=@series_item.id%>_rm'>
+						<%= link_to image_tag("/images/hearticon.png", :mouseover => "/images/hearticon2.png",:title=>"Unfollow"), list_item, :method => :delete, :onclick=>"toggleheart(#{@series_item.id})",:remote=>true %>
+						</div>
+					<% if list_item.nil? %>
+						<script>$('#<%= @series_item.id %>_rm').hide()</script> 
+					<% else %>
+						<script>$('#<%= @series_item.id %>_add').hide()</script> 
+					<% end %>
+				</div>
+				<% end %>	  
+
 
 
 </div>
+
