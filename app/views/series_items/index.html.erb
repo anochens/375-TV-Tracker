@@ -47,7 +47,7 @@
   <% letter = '0-9'; %>
   		  <div id="div_0-9">
         
-		  <% for series_item in @series_items.sort_by{|s| s.name.upcase } %>		
+		  t st.sort_by{|s| s.name.upcase } %>
         <% curr_letter = series_item.name[0].chr.upcase %>
 		  <% if curr_letter.to_i > 0 
         	 	 curr_letter = "0-9"
