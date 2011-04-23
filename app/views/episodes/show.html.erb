@@ -1,6 +1,6 @@
 <br>
 <div id="title_bar_center">
-<h3> <%= @episode.series %>: <%= @episode.name %> <i>(<%= @episode.season %>, Episode <%=@episode.episode_number %>)</i></h3>
+<h3> <%= link_to @episode.series, @episode.series, :style=>"color:white" %>: <%= @episode.name %> <i>(<%= @episode.season %>, Episode <%=@episode.episode_number %>)</i></h3>
 </div>
 
 <div id="container">
